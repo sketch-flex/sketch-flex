@@ -1,0 +1,13 @@
+#canvasContainer{
+	width="400";
+	height="300";
+}
+
+#sketchpad {
+	float:left;
+	border:2px solid #888;
+	border-radius:4px;
+	position:relative; /* Necessary for correct mouse co-ords in Firefox */
+	user-select: none;
+	background-color: green;
+}
