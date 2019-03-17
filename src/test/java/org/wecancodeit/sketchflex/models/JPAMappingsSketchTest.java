@@ -13,16 +13,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
+import org.wecancodeit.sketchflex.storage.StorageService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
 public class JPAMappingsSketchTest {
 
+	@MockBean
+	private StorageService storageService;
+	
 	@Resource
 	private TestEntityManager entityManager;
 	
@@ -83,4 +88,37 @@ public class JPAMappingsSketchTest {
 		assertThat(sketchDeck1.getSketches(), containsInAnyOrder(sketch1,sketch2));
 	}
 	
+	@Test
+	public void canMoveASketchToADifferentSketchDeck() {
+		SketchDeck sketchDeck1 = new SketchDeck("Start");
+		sketchDeckRepo.save(sketchDeck1);
+		
+		SketchDeck sketchDeck2 = new SketchDeck("Start");
+		sketchDeckRepo.save(sketchDeck2);
+		
+		Sketch sketch1 = new Sketch("First", "address1", sketchDeck1);
+		sketchRepo.save(sketch1);
+		
+		sketch1.moveDeck(sketchDeck2);
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		
+		assertThat(sketch1.getSketchDeck(),is(sketchDeck2));
+	}
+	@Test
+	public void shouldBeAbleToRenameASketch() {
+		SketchDeck sketchDeck1 = new SketchDeck("Start");
+		sketchDeckRepo.save(sketchDeck1);
+		Sketch sketch1 = new Sketch("First", "address1", sketchDeck1);
+		sketchRepo.save(sketch1);
+		sketch1.changeName("new name");
+			
+		entityManager.flush();
+		entityManager.clear();
+		
+		assertThat(sketch1.getName(),is("new name"));
+		
+	}
 }
