@@ -3,7 +3,7 @@ var body = document.getElementsByTagName("body")[0];
 var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 5;
-var currentColor = "black";
+var currentColor = "rgb(0,0,0)";
 
 defineInitialCanvas();
 
@@ -33,6 +33,10 @@ function defineInitialCanvas() {
 	  document.getElementById('download').addEventListener('click', function() {
 			downloadCanvas(this, 'sketchbox', 'mastersketch.png');
 		}, false);
+    document.getElementById("clear").addEventListener('click', defineInitialCanvas);
+    document.getElementById("penColor").addEventListener('change', function() {
+			currentColor = this.value;
+		});
 
   //Eraser Function
 
@@ -43,9 +47,10 @@ function defineInitialCanvas() {
 
   //Draw Function
       function draw(){
-        currentColor = "black";
+        currentColor = "rgb(0,0,0)";
         currentSize = 5;
       }
+
 
 	// GET MOUSE POSITION
 
