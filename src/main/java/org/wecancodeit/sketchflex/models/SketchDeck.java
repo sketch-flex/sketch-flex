@@ -18,6 +18,16 @@ public class SketchDeck {
 	@OneToMany(mappedBy = "sketchDeck")
 	private Collection<Sketch> sketches;
 	
+	public Long getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	
+	public Collection<Sketch> getSketches() {
+		return sketches;
+	}
 	protected SketchDeck() {
 		//WHYYYYYYYYYY?
 	}
@@ -26,16 +36,10 @@ public class SketchDeck {
 		this.name = name;
 	}
 
-	public Long getId() {
-		return id;
-	}
 	
-	public String getName() {
-		return name;
-	}
-
-	public Collection<Sketch> getSketches() {
-		return sketches;
+	public void add(Sketch sketch) {
+		sketches.add(sketch);
+		
 	}
 
 	@Override
@@ -62,4 +66,5 @@ public class SketchDeck {
 			return false;
 		return true;
 	}
+
 }

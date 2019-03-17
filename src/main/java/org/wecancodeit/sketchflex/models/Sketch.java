@@ -27,6 +27,11 @@ public class Sketch {
 		this.sketchDeck = sketchDeck;
 	}
 
+	public Sketch(String name, String imageLocation) {
+		this.name = name;
+		this.setImageLocation(imageLocation);
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +50,13 @@ public class Sketch {
 
 	public SketchDeck getSketchDeck() {
 		return sketchDeck;
+	}
+	public void moveDeck(SketchDeck newSketchDeck) {
+		this.sketchDeck = newSketchDeck;
+		
+	}
+	public void changeName(String newName) {
+		this.name = newName;
 	}
 
 	@Override
@@ -71,6 +83,8 @@ public class Sketch {
 			return false;
 		return true;
 	}
+
+
 
 
 }

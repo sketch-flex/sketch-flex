@@ -5,4 +5,6 @@ import org.wecancodeit.sketchflex.models.Sketch;
 
 public interface SketchRepository extends CrudRepository<Sketch, Long> {
 
+	Sketch findByName(String name);
+
 }
