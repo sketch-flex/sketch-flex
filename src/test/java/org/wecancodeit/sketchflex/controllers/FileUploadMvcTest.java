@@ -43,8 +43,8 @@ public class FileUploadMvcTest {
 
         this.mvc.perform(get("/")).andExpect(status().isOk())
                 .andExpect(model().attribute("files",
-                        Matchers.contains("http://localhost/files/first.txt",
-                                "http://localhost/files/second.txt")));
+                        Matchers.contains("http://localhost/images/first.txt",
+                                "http://localhost/images/second.txt")));
     }
 	
 	@SuppressWarnings("deprecation")
