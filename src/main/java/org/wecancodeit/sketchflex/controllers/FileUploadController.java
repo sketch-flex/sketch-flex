@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.wecancodeit.sketchflex.models.Sketch;
+import org.wecancodeit.sketchflex.models.SketchDeck;
+import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
+import org.wecancodeit.sketchflex.repositories.SketchRepository;
 import org.wecancodeit.sketchflex.storage.StorageException;
 import org.wecancodeit.sketchflex.storage.StorageFileNotFoundException;
 import org.wecancodeit.sketchflex.storage.StorageService;
@@ -26,6 +30,12 @@ import org.wecancodeit.sketchflex.storage.StorageService;
 public class FileUploadController {
 
 	private final StorageService storageService;
+	
+	@Autowired
+	private SketchRepository sketchRepo;
+	
+	@Autowired
+	private SketchDeckRepository sketchDeckRepo;
 
 	@Autowired
 	public FileUploadController(StorageService storageService) {
@@ -41,11 +51,12 @@ public class FileUploadController {
 								.fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString())
 								.build().toString())
 						.collect(Collectors.toList()));
+		
 
 		return "uploadForm";
 	}
 
-	@GetMapping("/files/{filename:.+}")
+	@GetMapping("/images/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) throws StorageFileNotFoundException {
 
@@ -62,6 +73,13 @@ public class FileUploadController {
 		storageService.store(file);
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
+		String sketchName = file.getOriginalFilename();
+		String imageLocation = "/images/"+file.getOriginalFilename();
+		SketchDeck defaultDeck = new SketchDeck("default");
+		sketchDeckRepo.save(defaultDeck);
+		Sketch sketchAdded = new Sketch(sketchName,imageLocation,defaultDeck);
+		sketchRepo.save(sketchAdded);
+		
 		
 		return "redirect:/";
 	}
