@@ -18,10 +18,10 @@ public class SketchController {
 	@Resource
 	private SketchRepository sketchRepo;
 
-	@RequestMapping("/all-sketches")
+	@RequestMapping("/sketches")
 	public String findAllSketches(Model model) {
 		model.addAttribute("sketches", sketchRepo.findAll());
-		return "all-sketches";
+		return "all-sketches-template";
 
 	}
 
@@ -30,7 +30,7 @@ public class SketchController {
 		Optional<Sketch> sketch = sketchRepo.findById(id);
 		if (sketch.isPresent()) {
 			model.addAttribute("sketch", sketch.get());
-			return "sketch";
+			return "sketch-view-template";
 		}
 		throw new SketchNotFoundException();
 	}
@@ -43,9 +43,12 @@ public class SketchController {
 				sketchRepo.save(new Sketch(name, address, sketchDeck));
 			}
 		}
-		return "redirect:/all-sketches";
+		return "redirect:/all-sketches-template";
 	}
 	
-	
+	@RequestMapping("/draw")
+	public String goToDraw() {
+		return "sketch-draw-template";
+	}
 
 }
