@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sketches</title>
+</head>
+<body>
+	<ul>
+		<li th:each="sketch : ${sketches}"><a th:text="${sketch.name}"></a>
+			<a>SketchDeck: </a><a th:text="${sketch.sketchDeck.name}"></a> <img
+			th:src="@{${sketch.imageLocation}}"></li>
+	</ul>
+</body>
+</html>

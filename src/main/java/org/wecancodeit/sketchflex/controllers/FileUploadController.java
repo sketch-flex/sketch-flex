@@ -30,10 +30,10 @@ import org.wecancodeit.sketchflex.storage.StorageService;
 public class FileUploadController {
 
 	private final StorageService storageService;
-	
+
 	@Autowired
 	private SketchRepository sketchRepo;
-	
+
 	@Autowired
 	private SketchDeckRepository sketchDeckRepo;
 
@@ -42,7 +42,7 @@ public class FileUploadController {
 		this.storageService = storageService;
 	}
 
-	@GetMapping("/")
+	@GetMapping("/upload")
 	public String listUploadedFiles(Model model) throws IOException, StorageException {
 
 		model.addAttribute("files",
@@ -51,9 +51,8 @@ public class FileUploadController {
 								.fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString())
 								.build().toString())
 						.collect(Collectors.toList()));
-		
 
-		return "uploadForm";
+		return "sketch-upload-template";
 	}
 
 	@GetMapping("/images/{filename:.+}")
@@ -66,22 +65,24 @@ public class FileUploadController {
 				.body(file);
 	}
 
-	@PostMapping("/")
-	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
-			throws StorageException {
-		
+	@PostMapping("/upload")
+	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,
+			String sketchDeckName) throws StorageException {
+
 		storageService.store(file);
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 		String sketchName = file.getOriginalFilename();
-		String imageLocation = "/images/"+file.getOriginalFilename();
-		SketchDeck defaultDeck = new SketchDeck("default");
-		sketchDeckRepo.save(defaultDeck);
-		Sketch sketchAdded = new Sketch(sketchName,imageLocation,defaultDeck);
+		String imageLocation = "/images/" + file.getOriginalFilename();
+		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
+		if (sketchDeck == null) {
+			sketchDeck = new SketchDeck(sketchDeckName);
+			sketchDeckRepo.save(sketchDeck);
+		}
+		Sketch sketchAdded = new Sketch(sketchName, imageLocation, sketchDeck);
 		sketchRepo.save(sketchAdded);
-		
-		
-		return "redirect:/";
+
+		return "redirect:/upload";
 	}
 
 	@ExceptionHandler(StorageFileNotFoundException.class)

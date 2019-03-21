@@ -5,4 +5,6 @@ import org.wecancodeit.sketchflex.models.SketchDeck;
 
 public interface SketchDeckRepository extends CrudRepository<SketchDeck, Long> {
 
+	SketchDeck findByNameContainingIgnoreCase(String sketchDeckName);
+
 }

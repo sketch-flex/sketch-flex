@@ -2,7 +2,6 @@ package org.wecancodeit.sketchflex.controllers;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -21,6 +20,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.wecancodeit.sketchflex.storage.StorageFileNotFoundException;
 import org.wecancodeit.sketchflex.storage.StorageService;
 
@@ -41,20 +41,20 @@ public class FileUploadMvcTest {
         given(this.storageService.loadAll())
                 .willReturn(Stream.of(Paths.get("first.txt"), Paths.get("second.txt")));
 
-        this.mvc.perform(get("/")).andExpect(status().isOk())
+        this.mvc.perform(get("/upload")).andExpect(status().isOk())
                 .andExpect(model().attribute("files",
                         Matchers.contains("http://localhost/images/first.txt",
                                 "http://localhost/images/second.txt")));
     }
 	
-	@SuppressWarnings("deprecation")
+	
 	@Test
     public void shouldSaveUploadedFile() throws Exception {
         MockMultipartFile multipartFile = new MockMultipartFile("file", "test.txt",
                 "text/plain", "Spring Framework".getBytes());
-        this.mvc.perform(fileUpload("/").file(multipartFile))
+        this.mvc.perform(MockMvcRequestBuilders.multipart("/upload").file(multipartFile).param("sketchDeckName", "value"))
                 .andExpect(status().isFound())
-                .andExpect(header().string("Location", "/"));
+                .andExpect(header().string("Location", "/upload"));
 
         then(this.storageService).should().store(multipartFile);
     }
