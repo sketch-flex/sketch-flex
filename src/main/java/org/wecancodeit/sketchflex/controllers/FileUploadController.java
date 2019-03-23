@@ -76,9 +76,6 @@ public class FileUploadController {
 		String imageLocation = "/images/" + file.getOriginalFilename();
 		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
 		if (sketchDeck == null) {
-			if(sketchDeckName.equals("")) {
-				sketchDeckName = "none";
-			}
 			sketchDeck = new SketchDeck(sketchDeckName);
 			sketchDeckRepo.save(sketchDeck);
 		}

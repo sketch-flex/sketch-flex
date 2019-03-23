@@ -5,12 +5,10 @@
 <title>Sketches</title>
 </head>
 <body>
-	<h1>Sketches</h1>
 	<ul>
-		<li th:each="sketch : ${sketches}">
-			<a th:text="${sketch.name}"></a>
-			<h3 th:text="${'SketchDeck: ' + sketch.sketchDeck.name}"></h3> 
-			<a th:href= "@{/sketch(id=${sketch.id})}"><img th:src="@{${sketch.imageLocation}}"></a></li>
+		<li th:each="sketch : ${sketches}"><a th:text="${sketch.name}"></a>
+			<a>SketchDeck: </a><a th:text="${sketch.sketchDeck.name}"></a> <img
+			th:src="@{${sketch.imageLocation}}"></li>
 	</ul>
 </body>
 </html>
