@@ -1,5 +1,11 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
 <body>
+<div class = "navbar"> 
+	<h1 id="pageName">Logo goes here</h1>
+	<nav id="navbar"></nav>
+</div>
 
 	<div th:if="${message}">
 		<h2 th:text="${message}"/>
@@ -29,4 +35,5 @@
 	</div>
 
 </body>
+<script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

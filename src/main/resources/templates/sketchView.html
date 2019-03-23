@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
 <head>
 	<title></title>
 </head>
 <body onload="init()">
+	<div class = "navbar"> 
+	<h1 id="pageName">Logo goes here</h1>
+	<nav id="navbar"></nav>
+</div>
 	<h1>XI. Canvas</h1>
 				<p></p>
 				<input type="submit" value="Clear Sketchpad" onclick="clearCanvas(canvas, ctx);"/>
@@ -11,4 +16,5 @@
 				<canvas id="sketchpad" ></canvas>
 	</div>
 </body>
+<script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

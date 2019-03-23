@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
   <head>
-  		<link rel="stylesheet" type="text/css" href="./css/canvas.css">
+  		<link rel="stylesheet" type="text/css" href="@{/css/canvas.css}">
 
   </head>
   <body>
+    <div class = "navbar"> 
+  <h1 id="pageName">Logo goes here</h1>
+  <nav id="navbar"></nav>
+  </div>
+
     <div class="container">
     <button id="eraser"> Eraser</button>
     <button id="draw">Draw</button>
@@ -20,9 +26,10 @@
     <input type="range" id="opacity" min="0" max="1" value="1" step="0.1">
     <h3> Opacity (<span id="opacityValue">100 </span>%)</h3>
     </div>
-
+  <p></p>
   </body>
 
   
   <script  src="./js/testJavaScript.js"></script>
+  <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>
