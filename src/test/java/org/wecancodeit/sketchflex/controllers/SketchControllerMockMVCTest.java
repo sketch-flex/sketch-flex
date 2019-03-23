@@ -50,6 +50,7 @@ public class SketchControllerMockMVCTest {
 	@Test
 	public void shouldBeOkayForSingleSketch() throws Exception {
 		long id = 1;
+		when(sketch1.getSketchDeck()).thenReturn(sketchDeck1);
 		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
 
 		mvc.perform(get("/sketch?id=1")).andExpect(status().isOk());
@@ -63,6 +64,7 @@ public class SketchControllerMockMVCTest {
 	@Test
 	public void shouldRouteToSingleSketchView() throws Exception {
 		long id = 1;
+		when(sketch1.getSketchDeck()).thenReturn(sketchDeck1);
 		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
 
 		mvc.perform(get("/sketch?id=1")).andExpect(view().name("sketch-view-template"));
@@ -71,6 +73,7 @@ public class SketchControllerMockMVCTest {
 	@Test
 	public void shouldAddSingleSketchToModel() throws Exception {
 		long id = 1;
+		when(sketch1.getSketchDeck()).thenReturn(sketchDeck1);
 		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
 
 		mvc.perform(get("/sketch?id=1")).andExpect(model().attribute("sketch", sketch1));
