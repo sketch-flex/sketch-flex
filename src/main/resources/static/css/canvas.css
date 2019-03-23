@@ -1,4 +1,8 @@
 canvas#sketchbox {
-			left: 150px;
-			top: 45px;
-		}
+	left: 150px;
+	top: 72px;
+
+}
+.container {
+  display:flex;
+}
