@@ -79,13 +79,13 @@ public class SketchDeckControllerMockMVCTest {
   }
   
   @Test
-  public void shouldBeOkayForAllSketchDecks() throws Exception
+  public void shouldBeOkayForAllSketches() throws Exception
   {
    mvc.perform(get("/sketchdecks")).andExpect(status().isOk());
   }
   
   @Test
-  public void shouldRouteToAllSketchDecksView() throws Exception
+  public void shouldRouteToAllSketchesView() throws Exception
   {
    mvc.perform(get("/sketchdecks")).andExpect(view().name("all-sketchdecks-template"));
   }
