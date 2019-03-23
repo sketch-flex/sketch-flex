@@ -4,7 +4,6 @@ var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 5;
 var currentColor = "rgb(0,0,0)";
-var currentOpacity = "1";
 
 defineInitialCanvas();
 
@@ -32,17 +31,12 @@ function defineInitialCanvas() {
     document.getElementById('eraser').addEventListener('click', eraser);
     document.getElementById('draw').addEventListener('click', draw);
 	  document.getElementById('download').addEventListener('click', function() {
-			downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
+			downloadCanvas(this, 'sketchbox', 'mastersketch.png');
 		}, false);
     document.getElementById("clear").addEventListener('click', defineInitialCanvas);
     document.getElementById("penColor").addEventListener('change', function() {
 			currentColor = this.value;
 		});
-    document.getElementById("pensize").addEventListener('change', function() {
-    currentSize= this.value; document.getElementById("dotSize").innerHTML= this.value;
-  })
-  document.getElementById("opacity").addEventListener('change', function() {sketchbox.style.opacity = this.value; document.getElementById("opacityValue").innerHTML= this.value * 100;})
-                                                                
 
   //Eraser Function
 
