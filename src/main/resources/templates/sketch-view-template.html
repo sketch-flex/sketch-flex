@@ -11,7 +11,7 @@
 	<nav id="navbar"></nav>
 </div>
 	<h1 th:text="${sketch.name}"></h1>
-	<h3 th:text="${'SketchDeck: ' + sketch.sketchDeck.name}"></h3>
+	<h3 th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
 	<img th:src="@{${sketch.imageLocation}}">
 	
 </body>
