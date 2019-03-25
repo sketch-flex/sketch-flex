@@ -1,0 +1,108 @@
+*{margin: 0;padding: 0;}
+
+html, .container {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	font-family: 'Raleway', serif;
+}
+
+.top-bar{
+	background: #e6624d;
+	padding: 10px;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	font-size: 50px;
+    padding-bottom: 15px;
+    background: no-repeat bottom center url(../images/pencil-dash.png);
+    background-size: 100%;;
+}
+
+.menu {
+	display: flex;
+	list-style: none;
+	align-items: center;
+}
+
+.menu li {
+	text-align: center;
+
+}
+
+.menu li a {
+	text-decoration: none;
+	font-size: 25px;
+	color: #fff;
+	padding: 10px;
+}
+
+.menu li:last-of-type,
+.menu li:last-of-type:after,
+.menu li:last-of-type:before {
+	display: inline-block;
+	height: 5px;
+	width: 20px;
+	background-color: #fff;
+	left: 0;
+	border-radius: 5px;
+}
+
+.menu li:last-of-type {
+	position: relative;
+}
+
+.menu li:last-of-type:after {
+	position: absolute;
+	content: '';
+	top: -10px;
+}
+
+.menu li:last-of-type:before {
+	position: absolute;
+	content: '';
+	bottom: -10px;
+}
+
+main {
+	height: 100%;
+}
+
+.home {
+	height: 100%;
+	background: #e6e3d4 20% 30% no-repeat url("../images/storyboard-template.jpg");
+	
+}
+
+.splash-tagline {
+	position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 45px;
+    line-height: 1.4;
+    color: #e6624d;
+}
+
+.fixed-callout-button {
+	position: fixed;
+	right: 0;
+	bottom: 50px;
+}
+
+.button {
+	display: inline-block;
+	font-size: 25px;
+	padding: 15px 30px;
+	text-decoration: none;
+}
+
+.primary-button {
+	background-color: #e6624d;
+	color: #fff;
+}
