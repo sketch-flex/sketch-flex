@@ -55,7 +55,7 @@ public class FileUploadController {
 		return "sketch-upload-template";
 	}
 
-	@GetMapping("/images/{filename:.+}")
+	@GetMapping("/saved-sketches/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) throws StorageFileNotFoundException {
 
@@ -73,7 +73,7 @@ public class FileUploadController {
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 		String sketchName = file.getOriginalFilename();
-		String imageLocation = "/images/" + file.getOriginalFilename();
+		String imageLocation = "/saved-sketches/" + file.getOriginalFilename();
 		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
 		if (sketchDeck == null) {
 			if(sketchDeckName.equals("")) {

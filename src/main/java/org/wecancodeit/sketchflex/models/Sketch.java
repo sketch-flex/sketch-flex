@@ -3,6 +3,7 @@ package org.wecancodeit.sketchflex.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -12,6 +13,7 @@ public class Sketch {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	@Lob
 	private String imageLocation;
 	
 	@ManyToOne

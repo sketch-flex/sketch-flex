@@ -6,6 +6,7 @@ currentSize = 5;
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
 
+
 defineInitialCanvas();
 
 
@@ -97,6 +98,7 @@ function defineInitialCanvas() {
 
 		function mouseup() {
 			isMouseDown=false
+			document.getElementById('lob').value = document.getElementById('sketchbox').toDataURL(); //changes value of 'lob' input when mouseup
 			store()
 		}
 	// Download Sketchbox
