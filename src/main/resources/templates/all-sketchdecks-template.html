@@ -5,9 +5,12 @@
   </head>
   <body>
   	<div class = "navbar"> 
-	<h1 id="pageName">Logo goes here</h1>
-	<nav id="navbar"></nav>
-</div>
+		<h1 id="pageName">Logo goes here</h1>
+		<nav id="navbar"></nav>
+    </div>
+    <div th:each = "sketchdeck : ${sketchdeck}">
+       <h2 th:text = "${sketchdeck.name}"></h2>
+    </div>
   </body>
   <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

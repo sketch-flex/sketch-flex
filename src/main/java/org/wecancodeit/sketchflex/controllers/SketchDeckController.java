@@ -39,5 +39,10 @@ public class SketchDeckController {
 		
 		return "all-sketchdecks-template";	
 	}
+	
+	@RequestMapping("/home")
+	public String displayHome() {
+		return "index";
+	}
 
 }
