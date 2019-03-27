@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
+import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
 import org.wecancodeit.sketchflex.storage.StorageService;
 
@@ -43,6 +44,9 @@ public class SketchControllerMockMVCTest {
 
 	@MockBean
 	private SketchRepository sketchRepo;
+	
+	@MockBean
+	private SketchDeckRepository sketchDeckRepo;
 
 	@MockBean
 	private StorageService storageService;

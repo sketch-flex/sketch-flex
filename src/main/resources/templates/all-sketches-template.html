@@ -6,16 +6,17 @@
 <title>Sketches</title>
 </head>
 <body>
-	<div class = "navbar"> 
-	<h1 id="pageName">Logo goes here</h1>
-	<nav id="navbar"></nav>
-</div>
+	<div class="navbar">
+		<h1 id="pageName">Logo goes here</h1>
+		<nav id="navbar"></nav>
+	</div>
 	<h1>Sketches</h1>
 	<ul>
 		<li th:each="sketch : ${sketches}">
 			<a th:text="${sketch.name}"></a>
-			<h3 th:text="${'SketchDeck: ' + sketch.sketchDeck.name}"></h3> 
-			<a th:href= "@{/sketch(id=${sketch.id})}"><img th:src="@{${sketch.imageLocation}}"></a></li>
+			<h3 th:text="${'SketchDeck: ' + sketch.sketchDeck.name}"></h3>  
+			<a th:href="@{/sketch(id=${sketch.id})}"><img th:src="@{${sketch.imageLocation}}"></a>
+		</li>
 	</ul>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>

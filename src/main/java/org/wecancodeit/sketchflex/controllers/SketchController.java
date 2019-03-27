@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
+import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
 
 @Controller
@@ -17,6 +18,9 @@ public class SketchController {
 
 	@Resource
 	private SketchRepository sketchRepo;
+
+	@Resource
+	private SketchDeckRepository sketchDeckRepo;
 
 	@RequestMapping("/sketches")
 	public String findAllSketches(Model model) {
@@ -39,13 +43,28 @@ public class SketchController {
 	public String addSketch(String name, String address, SketchDeck sketchDeck) {
 		if (sketchDeck != null) {
 			Sketch sketch = sketchRepo.findByName(name);
-			if(sketch == null) {
+			if (sketch == null) {
 				sketchRepo.save(new Sketch(name, address, sketchDeck));
 			}
 		}
-		return "redirect:/all-sketches-template";
+		return "redirect:/sketches";
 	}
-	
+
+	@RequestMapping("/add-sketch-lob")
+	public String addSketchLob(String name, String lob, String sketchDeckName) {
+		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
+		if (sketchDeck == null) {
+			sketchDeck = sketchDeckRepo.save(new SketchDeck(sketchDeckName));
+		}
+		Sketch sketch = sketchRepo.findByName(name);
+		if (sketch == null) {
+			sketchRepo.save(new Sketch(name, lob, sketchDeck));
+		}
+		System.out.println("saved");
+
+		return "redirect:/sketches";
+	}
+
 	@RequestMapping("/draw")
 	public String goToDraw() {
 		return "sketch-draw-template";

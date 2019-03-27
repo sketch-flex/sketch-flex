@@ -17,10 +17,10 @@ public class SketchflexApplication {
 	}
 
 	@Bean
-    CommandLineRunner init(StorageService storageService) {
-        return (args) -> {
-            storageService.deleteAll();
-            storageService.init();
-        };
-    }
+	CommandLineRunner init(StorageService storageService) {
+		return (args) -> {
+			storageService.deleteAll(); // deletes the static/saved-sketches folder on startup
+			storageService.init();
+		};
+	}
 }

@@ -27,6 +27,19 @@
     <h3> Opacity (<span id="opacityValue">100 </span>%)</h3>
     </div>
   <p></p>
+  
+  <!-- saves sketch with Lob in 'imageLocation' field  -->
+  <form method="POST">
+		<div>
+			<input type="text" name = "name" value = "Sketch Name"/>
+			<input id = "lob" type = "hidden" name = "lob" value = ""/>
+			<input type="text" name="sketchDeckName" value = "SketchDeck Name"/>
+		</div>
+		<div>
+			<button th:formaction="@{add-sketch-lob}" >Upload Sketch</button>
+		</div>
+	</form>
+  
   </body>
 
   
