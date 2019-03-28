@@ -1,6 +1,6 @@
 package org.wecancodeit.sketchflex.models;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,30 +16,31 @@ public class SketchDeck {
 	private String name;
 
 	@OneToMany(mappedBy = "sketchDeck")
-	private Collection<Sketch> sketches;
-	
+	private List<Sketch> sketches;
+
 	public Long getId() {
 		return id;
 	}
+
 	public String getName() {
 		return name;
 	}
-	
-	public Collection<Sketch> getSketches() {
+
+	public List<Sketch> getSketches() {
 		return sketches;
 	}
+
 	protected SketchDeck() {
-		//WHYYYYYYYYYY?
+		// WHYYYYYYYYYY?
 	}
-	
+
 	public SketchDeck(String name) {
 		this.name = name;
 	}
 
-	
 	public void add(Sketch sketch) {
 		sketches.add(sketch);
-		
+
 	}
 
 	@Override
@@ -66,6 +67,6 @@ public class SketchDeck {
 			return false;
 		return true;
 	}
-	
+
 
 }
