@@ -4,7 +4,11 @@ import static org.hamcrest.CoreMatchers.is;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -27,86 +31,85 @@ public class JPAMappingsSketchTest {
 
 	@MockBean
 	private StorageService storageService;
-	
+
 	@Resource
 	private TestEntityManager entityManager;
-	
+
 	@Resource
 	private SketchDeckRepository sketchDeckRepo;
-	
+
 	@Resource
 	private SketchRepository sketchRepo;
- 
-	
+
 	@Test
 	public void shouldBeAbleToSaveASketchDeck() {
 		SketchDeck sketchDeck1 = new SketchDeck("Start");
 		sketchDeckRepo.save(sketchDeck1);
 		Long id = sketchDeck1.getId();
-		
+
 		entityManager.flush();
 		entityManager.clear();
-		
+
 		Optional<SketchDeck> sketchResult = sketchDeckRepo.findById(id);
 		sketchDeck1 = sketchResult.get();
 		assertThat(sketchDeck1.getName(), is("Start"));
-		}
-	
+	}
+
 	@Test
-	public void shouldBeAbleToSaveAndLoadASketch(){
+	public void shouldBeAbleToSaveAndLoadASketch() {
 		SketchDeck sketchDeck1 = new SketchDeck("Start");
 		sketchDeckRepo.save(sketchDeck1);
 		Sketch sketch1 = new Sketch("First", "address", sketchDeck1);
 		sketchRepo.save(sketch1);
 		Long id = sketch1.getId();
-		
+
 		entityManager.flush();
 		entityManager.clear();
-		
+
 		Optional<Sketch> sketchResult = sketchRepo.findById(id);
 		sketch1 = sketchResult.get();
 		assertThat(sketch1.getName(), is("First"));
 	}
-	
+
 	@Test
 	public void shouldEstablishRelationshipBetweenSketchAndSketchDeck() {
 		SketchDeck sketchDeck1 = new SketchDeck("Start");
 		sketchDeckRepo.save(sketchDeck1);
 		Long id = sketchDeck1.getId();
-		
+
 		Sketch sketch1 = new Sketch("First", "address1", sketchDeck1);
 		sketchRepo.save(sketch1);
-		
+
 		Sketch sketch2 = new Sketch("Second", "address2", sketchDeck1);
 		sketchRepo.save(sketch2);
-		
+
 		entityManager.flush();
 		entityManager.clear();
-		
+
 		Optional<SketchDeck> sketchResult = sketchDeckRepo.findById(id);
 		sketchDeck1 = sketchResult.get();
-		assertThat(sketchDeck1.getSketches(), containsInAnyOrder(sketch1,sketch2));
+		assertThat(sketchDeck1.getSketches(), containsInAnyOrder(sketch1, sketch2));
 	}
-	
+
 	@Test
 	public void canMoveASketchToADifferentSketchDeck() {
 		SketchDeck sketchDeck1 = new SketchDeck("Start");
 		sketchDeckRepo.save(sketchDeck1);
-		
+
 		SketchDeck sketchDeck2 = new SketchDeck("Start");
 		sketchDeckRepo.save(sketchDeck2);
-		
+
 		Sketch sketch1 = new Sketch("First", "address1", sketchDeck1);
 		sketchRepo.save(sketch1);
-		
+
 		sketch1.moveDeck(sketchDeck2);
-		
+
 		entityManager.flush();
 		entityManager.clear();
-		
-		
-		assertThat(sketch1.getSketchDeck(),is(sketchDeck2));
+
+		assertThat(sketch1.getSketchDeck(), is(sketchDeck2));
 	}
+
 	@Test
 	public void shouldBeAbleToRenameASketch() {
 		SketchDeck sketchDeck1 = new SketchDeck("Start");
@@ -114,11 +117,37 @@ public class JPAMappingsSketchTest {
 		Sketch sketch1 = new Sketch("First", "address1", sketchDeck1);
 		sketchRepo.save(sketch1);
 		sketch1.changeName("new name");
-			
+
 		entityManager.flush();
 		entityManager.clear();
+
+		assertThat(sketch1.getName(), is("new name"));
+
+	}
+
+	@Test
+	public void shouldSaveSketchesAsListAndBeAbleToReturnNextSketch() {
+		SketchDeck sketchDeck = new SketchDeck("Start");
+		Sketch sketch1 = new Sketch("First", "address1", sketchDeck);
+		Sketch sketch2 = new Sketch("Second", "address2", sketchDeck);
+		sketchDeckRepo.save(sketchDeck);
+		sketchRepo.save(sketch1);
+		sketchRepo.save(sketch2);
+
+		entityManager.flush();
+		entityManager.clear();
+
+		List<Sketch> list = sketchRepo.findAllBySketchDeck(sketchDeck);
+		Iterator<Sketch> it = list.listIterator(1);
+		assertThat(it.hasNext(), is(true));
+		assertThat(it.next(), is(sketch2));
+		assertThat(it.hasNext(), is(false));
 		
-		assertThat(sketch1.getName(),is("new name"));
+		it = list.listIterator(0);
+		assertThat(it.next(), is(sketch1));
 		
 	}
+	
+	
+
 }

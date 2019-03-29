@@ -6,14 +6,18 @@
 <title th:text="${sketch.name}"></title>
 </head>
 <body>
-	<div class = "navbar"> 
-	<h1 id="pageName">Logo goes here</h1>
-	<nav id="navbar"></nav>
-</div>
-	<h1 th:text="${sketch.name}"></h1>
+	<div class="navbar">
+		<h1 id="pageName">Logo goes here</h1>
+		<nav id="navbar"></nav>
+	</div>
+	<h1 id="name" th:text="${sketch.name}"></h1>
+	<img id="image" th:src="@{${sketch.imageLocation}}">
 	<h3 th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
-	<img th:src="@{${sketch.imageLocation}}">
-	
+	<div id="next-previous-menu">
+		<a id="json" hidden th:text="${JSONsketches}"></a>
+	</div>
+
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
+<script type="text/javascript" th:src="@{/js/next-previous-menu.js}"></script>
 </html>

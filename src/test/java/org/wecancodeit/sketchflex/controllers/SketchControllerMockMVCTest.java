@@ -71,7 +71,7 @@ public class SketchControllerMockMVCTest {
 		when(sketch1.getSketchDeck()).thenReturn(sketchDeck1);
 		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
 
-		mvc.perform(get("/sketch?id=1")).andExpect(view().name("sketch-view-template"));
+		mvc.perform(get("/sketch?id=1")).andExpect(view().name("single-sketch-template"));
 	}
 
 	@Test

@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -26,13 +27,13 @@ public class SketchControllerTest {
 
 	@Mock
 	private SketchRepository sketchRepo;
-	
+
 	@Mock
 	private Sketch sketch1;
-	
+
 	@Mock
 	private Sketch sketch2;
-	
+
 	@Mock
 	private SketchDeck sketchDeck;
 
@@ -48,28 +49,39 @@ public class SketchControllerTest {
 	public void shouldAddAllSketchesToModel() {
 		Collection<Sketch> allSketches = Arrays.asList(sketch1, sketch2);
 		when(sketchRepo.findAll()).thenReturn(allSketches);
-		
+
 		underTest.findAllSketches(model);
-		verify(model).addAttribute("sketches" ,allSketches);
+		verify(model).addAttribute("sketches", allSketches);
 	}
-	
+
 	@Test
 	public void shouldAddOneSketchToModel() throws SketchNotFoundException {
 		Long id = 1L;
 		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
-		
+
 		underTest.findOneSketch(id, model);
 		verify(model).addAttribute("sketch", sketch1);
 	}
-	
+
 	@Test
 	public void shouldAddAdditionalSketchToModel() {
 		String name = "name";
 		String address = "address";
 		underTest.addSketch(name, address, sketchDeck);
-		ArgumentCaptor<Sketch> sketchArgument= ArgumentCaptor.forClass(Sketch.class);
+		ArgumentCaptor<Sketch> sketchArgument = ArgumentCaptor.forClass(Sketch.class);
 		verify(sketchRepo).save(sketchArgument.capture());
 		assertEquals("name", sketchArgument.getValue().getName());
 	}
 
+	@Test
+	public void shouldAddAllSketchesInSketchDeckToModel() throws SketchNotFoundException {
+		Long id = 1L;
+		List<Sketch> allSketches = Arrays.asList(sketch1, sketch2);
+		when(sketchRepo.findById(id)).thenReturn(Optional.of(sketch1));
+		when(sketch1.getSketchDeck()).thenReturn(sketchDeck);
+		when(sketchRepo.findAllBySketchDeck(sketchDeck)).thenReturn(allSketches);
+		underTest.findOneSketch(id, model);
+		verify(model).addAttribute("sketches", allSketches);
+		
+	}
 }

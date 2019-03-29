@@ -6,14 +6,19 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 public class Sketch {
 
 	@Id
 	@GeneratedValue
+	@Expose
 	private Long id;
+	@Expose
 	private String name;
 	@Lob
+	@Expose
 	private String imageLocation;
 	
 	@ManyToOne

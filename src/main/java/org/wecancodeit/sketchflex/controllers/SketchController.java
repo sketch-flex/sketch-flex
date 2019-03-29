@@ -1,8 +1,10 @@
 package org.wecancodeit.sketchflex.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Resource;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,9 @@ import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @Controller
 public class SketchController {
@@ -34,7 +39,13 @@ public class SketchController {
 		Optional<Sketch> sketch = sketchRepo.findById(id);
 		if (sketch.isPresent()) {
 			model.addAttribute("sketch", sketch.get());
-			return "sketch-view-template";
+			SketchDeck sketchDeck = sketch.get().getSketchDeck();
+			List<Sketch> list = sketchRepo.findAllBySketchDeck(sketchDeck);
+			model.addAttribute("sketches", list);
+			Gson gsonBuilder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+			String jsonList = gsonBuilder.toJson(list);
+			model.addAttribute("JSONsketches", jsonList);
+			return "single-sketch-template";
 		}
 		throw new SketchNotFoundException();
 	}
@@ -60,7 +71,6 @@ public class SketchController {
 		if (sketch == null) {
 			sketchRepo.save(new Sketch(name, lob, sketchDeck));
 		}
-		System.out.println("saved");
 
 		return "redirect:/sketches";
 	}
