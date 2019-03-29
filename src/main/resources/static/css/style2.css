@@ -222,18 +222,20 @@ nav ul li{
 
 #imageone{
   position:absolute;
-  transform: rotate(-20deg) translate(20px,10px);
-  
+  transform: translate(93px);
+  box-shadow:2px 2px 10px 2px #666;
 }
 #imagetwo{
   position:absolute;
   z-index:1;
-  transform: rotate(-10deg) translate(10px,10px);;
+  transform: rotate(-5deg) translate(0px,10px);
+  box-shadow:2px 2px 10px 2px #666;
 }
 #imagethree{
  position:relative;
  z-index:2;
- transform: translate(0px,10px);
+ transform: rotate(5deg) translate(103px,12px);
+ box-shadow:2px 2px 10px 2px #666;
 }
 
 
