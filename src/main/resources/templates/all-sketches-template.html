@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style2.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Sketches</title>
 </head>
 <body>
-	<div class="navbar">
-		<h1 id="pageName">Logo goes here</h1>
-		<nav id="navbar"></nav>
-	</div>
+<div id = "container">
+   <div class = "navbar"> 
+		<div id="pageName">SketchFlex</div>
+		<a href="javascript:void(0);" id="hamburger">
+						<i class = "fa fa-bars"></i>
+		</a>
+    </div>	
+	<nav id="navbar"></nav>
 	<h1>Sketches</h1>
 	<ul>
 		<li th:each="sketch : ${sketches}">
@@ -18,6 +24,13 @@
 			<a th:href="@{/sketch(id=${sketch.id})}"><img th:src="@{${sketch.imageLocation}}"></a>
 		</li>
 	</ul>
+	<footer>
+	  	<ul id="footerlist">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+		</ul>
+	</footer>
+</div>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>
