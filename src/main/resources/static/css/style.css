@@ -16,7 +16,7 @@ align-content:center;
 #container{
  display:grid;
  background: #e6e3d4 20% 30%; 
- height:90%;
+ min-height:90%;
  width:90%;
  margin:auto;
   box-sizing:border-box;
@@ -61,14 +61,14 @@ footer{
   align-items:flex-start;
   background-color: transparent; 
   height:0px;
-  overflow:visible;/*Coral?? Addie guessed*/
+  overflow:visible;
  
 }
 
 .navbar{
  display:flex;
  justify-content:space-between;
- background-color: #e6624d;/*Coral?? Addie guessed*/
+ background-color: #e6624d;
  position:sticky;
  top:0px;
  left:0px;
