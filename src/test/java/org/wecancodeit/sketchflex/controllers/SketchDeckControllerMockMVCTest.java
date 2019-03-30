@@ -75,7 +75,7 @@ public class SketchDeckControllerMockMVCTest {
    long id = 1;
    when(sketchDeckRepo.findById(id)).thenReturn(Optional.of(sketchDeck1));
    
-   mvc.perform(get("/sketchdeck?id=1")).andExpect(model().attribute("single-sketchdeck",sketchDeck1));
+   mvc.perform(get("/sketchdeck?id=1")).andExpect(model().attribute("sketchdeck",sketchDeck1));
   }
   
   @Test
@@ -96,7 +96,7 @@ public class SketchDeckControllerMockMVCTest {
    Collection<SketchDeck> allSketchDecks = Arrays.asList(sketchDeck1,sketchDeck2); 
    when(sketchDeckRepo.findAll()).thenReturn(allSketchDecks);
 	  
-   mvc.perform(get("/sketchdecks")).andExpect(model().attribute("all-sketchdecks",allSketchDecks));
+   mvc.perform(get("/sketchdecks")).andExpect(model().attribute("sketchDecks",allSketchDecks));
   }
   
   
