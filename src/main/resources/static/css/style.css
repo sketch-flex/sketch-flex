@@ -69,14 +69,11 @@ body {
 	bottom: -10px;
 }
 
-main {
-	height: 100%;
-}
 
 .home {
-	height: 100%;
-	background: #e6e3d4 20% 30% no-repeat url("../images/storyboard-template.jpg");
-	
+    display:flex;
+    background-color:transparent;
+	height: 100%;	
 }
 
 .splash-tagline {
@@ -105,4 +102,12 @@ main {
 .primary-button {
 	background-color: #e6624d;
 	color: #fff;
+}
+
+#main{
+  display:flex;
+  box-sizing:border-box;
+  justify-content:flex-start;
+  align-content:center;
+  padding:20px;
 }

@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style2.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
 <meta charset="ISO-8859-1">
 <title th:text="${sketch.name}"></title>
 </head>
 <body>
-	<div class="navbar">
+  <div id = "container">
+    <div class = "navbar"> 
 		<h1 id="pageName">Logo goes here</h1>
-		<nav id="navbar"></nav>
-	</div>
+		<a href="javascript:void(0);" id="hamburger">
+						<i class = "fa fa-bars"></i>
+		</a>
+    </div>	
+	<nav id="navbar"></nav>
 	<h1 id="name" th:text="${sketch.name}"></h1>
 	<img id="image" th:src="@{${sketch.imageLocation}}">
 	<h3 th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
 	<div id="next-previous-menu">
 		<a id="json" hidden th:text="${JSONsketches}"></a>
 	</div>
-
+	<footer>
+	  	<ul id="footerlist">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+		</ul>
+	</footer>
+ </div>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 <script type="text/javascript" th:src="@{/js/next-previous-menu.js}"></script>

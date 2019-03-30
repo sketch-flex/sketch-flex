@@ -1,5 +1,5 @@
 var sketchbox = document.createElement("canvas");
-var body = document.getElementsByTagName("body")[0];
+var main = document.getElementById("main");
 var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 5;
@@ -15,12 +15,11 @@ function defineInitialCanvas() {
   sketchbox.id = "sketchbox";
   sketchbox.width = 400;
   sketchbox.height = 400;
-  sketchbox.style.zIndex = 8;
-  sketchbox.style.position = "absolute";
+  sketchbox.style.zIndex = 1;
 	sketchbox.style.border = "1px solid";
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
- body.appendChild(sketchbox);
+ main.appendChild(sketchbox);
 }
 
 	// DRAWING EVENT HANDLERS
