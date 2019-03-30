@@ -241,5 +241,35 @@ nav ul li{
  -webkit-backface-visibility: hidden;
 }
 
+.sketches-list{
+	/*display:flex;
+	flex-wrap:wrap;
+	justify-content:space-around;*/
+	
+	display:grid;
+	max-width:100%;
+	grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+	gap:20px;
+	
+	
+}
+
+.sketchDeck-name{
+	padding: 3%;
+	text-align:center;
+}
+.name-and-image{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	
+}
+.name-and-image img{
+	width:400px;
+	height:auto;
+}
+h1 {
+	text-align: center;
+}
 
 
