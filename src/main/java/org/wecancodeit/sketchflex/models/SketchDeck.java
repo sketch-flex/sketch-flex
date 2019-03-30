@@ -29,6 +29,10 @@ public class SketchDeck {
 	public List<Sketch> getSketches() {
 		return sketches;
 	}
+	
+	public Sketch getSketch() {
+		return sketches.get(0);
+	}
 
 	protected SketchDeck() {
 		// WHYYYYYYYYYY?
