@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
+import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
 
 public class SketchControllerTest {
@@ -27,6 +28,9 @@ public class SketchControllerTest {
 
 	@Mock
 	private SketchRepository sketchRepo;
+	
+	@Mock
+	private SketchDeckRepository sketchDeckRepo;
 
 	@Mock
 	private Sketch sketch1;
@@ -49,7 +53,7 @@ public class SketchControllerTest {
 	public void shouldAddAllSketchesToModel() {
 		Collection<Sketch> allSketches = Arrays.asList(sketch1, sketch2);
 		when(sketchRepo.findAll()).thenReturn(allSketches);
-
+		when(sketchDeckRepo.findAll()).thenReturn(Arrays.asList(sketchDeck));
 		underTest.findAllSketches(model);
 		verify(model).addAttribute("sketches", allSketches);
 	}

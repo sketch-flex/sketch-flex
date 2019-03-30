@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <title th:text="${sketchdeck.name}"></title>
   </head>
   <body>
     <div id = "container">
@@ -15,6 +16,15 @@
 			</a>
 	    </div>	
 		<nav id="navbar"></nav>
+		<h1 class = "sketchDeck-name" th:text="${sketchdeck.name}"></h1>
+		<section  class="sketches-list" >
+			<a class="name-and-image" th:each="sketch:${sketches}" th:href="@{/sketch(id=${sketch.id})}">
+				
+				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
+				<img th:src="@{${sketch.imageLocation}}">
+				
+			</a>
+		</section>
 		<footer>
 		  	<ul id="footerlist">
 						<li><a href="#">About</a></li>

@@ -21,12 +21,14 @@
 		<h1 >All Sketches</h1>
 		<div th:each="sketchDeck:${sketchDecks}">
 			<h2 class = "sketchDeck-name" th:text="${sketchDeck.name}"></h2>
-			<ul  class="sketches-list" >
-				<li class="name-and-image" th:each="sketch:${sketchDeck.sketches}"><a
-					th:text="${sketch.name}"></a>
-					 <a th:href="@{/sketch(id=${sketch.id})}"><img
-						th:src="@{${sketch.imageLocation}}"></a></li>
-			</ul>
+			<section  class="sketches-list" >
+			<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">
+				
+				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
+				<img th:src="@{${sketch.imageLocation}}">
+				
+			</a>
+			</section>
 		</div>
 		<footer>
 			<ul id="footerlist">

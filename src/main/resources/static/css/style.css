@@ -168,6 +168,15 @@ nav ul li{
   padding:20px;
 }
 
+#single-sketch-main{
+	display:flex;
+	flex-direction:column;
+  box-sizing:border-box;
+  justify-content:flex-start;
+  align-content:center;
+  padding:20px;
+}
+
 .home {
 	height: 100%;
 	display: flex;
@@ -249,7 +258,8 @@ nav ul li{
 	display:grid;
 	max-width:100%;
 	grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-	gap:20px;
+	gap:3rem;
+	padding:3rem;
 	
 	
 }
@@ -258,18 +268,35 @@ nav ul li{
 	padding: 3%;
 	text-align:center;
 }
+h1{
+	text-align:center;
+}
 .name-and-image{
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	
+	background-color: #e6624d;
+	border-radius:2%;
+	padding: 1rem 0px;
+	text-decoration:none;
+	color:white;
+	box-shadow:1px 1px 5px 2px black inset;
+}
+
+#next-previous{
+	flex-direction:row;
+	justify-content:center;
 }
 .name-and-image img{
 	width:400px;
 	height:auto;
 }
-h1 {
-	text-align: center;
+.sketch-name{
+	font-weight:normal;
 }
+#next-previous-menu{
+	text-align:center;
+}
+
 
 
