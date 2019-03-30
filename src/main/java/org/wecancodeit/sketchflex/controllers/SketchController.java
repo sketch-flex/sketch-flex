@@ -30,6 +30,7 @@ public class SketchController {
 	@RequestMapping("/sketches")
 	public String findAllSketches(Model model) {
 		model.addAttribute("sketches", sketchRepo.findAll());
+		model.addAttribute("sketchDecks", sketchDeckRepo.findAll());
 		return "all-sketches-template";
 
 	}
