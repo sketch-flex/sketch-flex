@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" th:href="@{/css/stickyNav.css}">
+<link rel="stylesheet" type="text/css" href="../css/stickyNav.css">
   <head>
-  		<link rel="stylesheet" type="text/css" href="@{/css/canvas.css}">
+  		<link rel="stylesheet" type="text/css" href="../css/canvas.css">
 
   </head>
   <body>
@@ -30,12 +30,12 @@
   
   <!-- saves sketch with Lob in 'imageLocation' field  -->
   <form method="POST">
-		<div>
+		<div class ="uploader">
 			<input type="text" name = "name" value = "Sketch Name"/>
 			<input id = "lob" type = "hidden" name = "lob" value = ""/>
 			<input type="text" name="sketchDeckName" value = "SketchDeck Name"/>
 		</div>
-		<div>
+		<div class="uploader">
 			<button th:formaction="@{add-sketch-lob}" >Upload Sketch</button>
 		</div>
 	</form>
@@ -43,6 +43,6 @@
   </body>
 
   
-  <script  src="./js/testJavaScript.js"></script>
+  <script  src="../js/testJavaScript.js"></script>
   <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

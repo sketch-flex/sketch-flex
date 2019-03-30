@@ -6,13 +6,15 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  background-color: #fc8958; /*Coral?? Addie guessed*/
+  /*background-color: #fc8958; Coral?? Addie guessed*/
+  background-color: #e6624d;
 }
 
 .navbar{
  display:flex;
  justify-content:space-between;
- background-color: #fc8958; /*Coral?? Addie guessed*/
+ /*background-color: #fc8958; Coral?? Addie guessed*/
+ background-color: #e6624d;
  height:100%;
  box-shadow:0px 2px 10px 2px #666;
  position:sticky;
@@ -49,4 +51,5 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 }

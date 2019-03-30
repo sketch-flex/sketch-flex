@@ -12,11 +12,12 @@ defineInitialCanvas();
 
 // Create Sketch Pad
 function defineInitialCanvas() {
-	sketchbox.id = "sketchbox";
-	sketchbox.width = (screen.width - 160);
-  sketchbox.height =  600;
+  sketchbox.id = "sketchbox";
+  sketchbox.width = 400;
+  sketchbox.height = 400;
   sketchbox.style.zIndex = 8;
   sketchbox.style.position = "absolute";
+	sketchbox.style.border = "1px solid";
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
  body.appendChild(sketchbox);
