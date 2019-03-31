@@ -1,6 +1,6 @@
 canvas#sketchbox {
-	left: 150px;
-	top: 72px;
+	/*left: 150px;
+	top: 72px;*/
 
 }
 #sidetools {
@@ -9,7 +9,8 @@ canvas#sketchbox {
   border: 100px;
   background-color: #e6624d;
   padding: 10px;
-  width: 140px;
+  /*width: 160px;*/
+  box-sizing:border-box;
 }
 
 #sidetools.sideclosed {
