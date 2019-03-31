@@ -1,16 +1,17 @@
 
 var previousButton = document.createElement("button");
-previousButton.innerHTML = "Previous";
+previousButton.innerHTML = "&#10094";
 
 var nextButton = document.createElement("button");
-nextButton.innerHTML = "Next";
-
-var nextMenu = document.getElementById("next-previous-menu");
-nextMenu.appendChild(previousButton);
-nextMenu.appendChild(nextButton);
+nextButton.innerHTML = "&#10095";
 
 var displayName = document.getElementById("name");
 var displayImage = document.getElementById("image");
+
+var nextMenu = document.getElementsByClassName("name-and-image")[0];
+nextMenu.insertBefore(previousButton, displayImage);
+nextMenu.appendChild(nextButton);
+
 
 nextButton.addEventListener("click", function() {
 	//gets json data created by GSON in the sketch controller.

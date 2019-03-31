@@ -24,8 +24,8 @@ public class SketchDeckController {
 	        Optional<SketchDeck> sketchDeck = sketchDeckRepo.findById(id);
 			
 			if(sketchDeck.isPresent()){
-				model.addAttribute("single-sketchdeck", sketchDeck.get());
-				// model.addAttribute("all-sketches",sketchDeck.get().getSketches());
+				model.addAttribute("sketchdeck", sketchDeck.get());
+				model.addAttribute("sketches",sketchDeck.get().getSketches());
 				
 				return "single-sketchdeck-template";
 			}
@@ -35,7 +35,7 @@ public class SketchDeckController {
 	@RequestMapping("/sketchdecks")
 	public String findAllSketches(Model model) {
 		
-		model.addAttribute("all-sketchdecks",sketchDeckRepo.findAll());
+		model.addAttribute("sketchDecks",sketchDeckRepo.findAll());
 		
 		return "all-sketchdecks-template";	
 	}

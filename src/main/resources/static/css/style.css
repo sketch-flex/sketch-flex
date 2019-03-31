@@ -16,7 +16,7 @@ align-content:center;
 #container{
  display:grid;
  background: #e6e3d4 20% 30%; 
- height:90%;
+ min-height:90%;
  width:90%;
  margin:auto;
   box-sizing:border-box;
@@ -61,14 +61,14 @@ footer{
   align-items:flex-start;
   background-color: transparent; 
   height:0px;
-  overflow:visible;/*Coral?? Addie guessed*/
+  overflow:visible;
  
 }
 
 .navbar{
  display:flex;
  justify-content:space-between;
- background-color: #e6624d;/*Coral?? Addie guessed*/
+ background-color: #e6624d;
  position:sticky;
  top:0px;
  left:0px;
@@ -168,6 +168,15 @@ nav ul li{
   padding:20px;
 }
 
+#single-sketch-main{
+	display:flex;
+	flex-direction:column;
+  box-sizing:border-box;
+  justify-content:flex-start;
+  align-content:center;
+  padding:20px;
+}
+
 .home {
 	height: 100%;
 	display: flex;
@@ -239,6 +248,54 @@ nav ul li{
  transform: rotate(5deg) translate(103px,12px);
  box-shadow:2px 2px 10px 2px #666;
  -webkit-backface-visibility: hidden;
+}
+
+.sketches-list{
+	/*display:flex;
+	flex-wrap:wrap;
+	justify-content:space-around;*/
+	
+	display:grid;
+	max-width:100%;
+	grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+	gap:3rem;
+	padding:3rem;
+	
+	
+}
+
+.sketchDeck-name{
+	padding: 3%;
+	text-align:center;
+}
+h1{
+	text-align:center;
+}
+.name-and-image{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	background-color: #e6624d;
+	border-radius:2%;
+	padding: 1rem 0px;
+	text-decoration:none;
+	color:white;
+	box-shadow:1px 1px 5px 2px black inset;
+}
+
+#next-previous{
+	flex-direction:row;
+	justify-content:center;
+}
+.name-and-image img{
+	width:400px;
+	height:auto;
+}
+.sketch-name{
+	font-weight:normal;
+}
+#next-previous-menu{
+	text-align:center;
 }
 
 

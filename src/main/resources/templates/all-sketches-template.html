@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Sketches</title>
 </head>
 <body>
-<div id = "container">
-   <div class = "navbar"> 
-		<div id="pageName">SketchFlex</div>
-		<a href="javascript:void(0);" id="hamburger">
-						<i class = "fa fa-bars"></i>
-		</a>
-    </div>	
-	<nav id="navbar"></nav>
-	<h1>Sketches</h1>
-	<ul>
-		<li th:each="sketch : ${sketches}">
-			<a th:text="${sketch.name}"></a>
-			<h3 th:text="${'SketchDeck: ' + sketch.sketchDeck.name}"></h3>  
-			<a th:href="@{/sketch(id=${sketch.id})}"><img th:src="@{${sketch.imageLocation}}"></a>
-		</li>
-	</ul>
-	<footer>
-	  	<ul id="footerlist">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
-</div>
+	<div id="container">
+		<div class="navbar">
+			<div id="pageName">SketchFlex</div>
+			<a href="javascript:void(0);" id="hamburger"> <i
+				class="fa fa-bars"></i>
+			</a>
+		</div>
+		<nav id="navbar"></nav>
+		<h1 >All Sketches</h1>
+		<div th:each="sketchDeck:${sketchDecks}">
+			<h2 class = "sketchDeck-name" th:text="${sketchDeck.name}"></h2>
+			<section  class="sketches-list" >
+			<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">
+				
+				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
+				<img th:src="@{${sketch.imageLocation}}">
+				
+			</a>
+			</section>
+		</div>
+		<footer>
+			<ul id="footerlist">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</footer>
+	</div>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

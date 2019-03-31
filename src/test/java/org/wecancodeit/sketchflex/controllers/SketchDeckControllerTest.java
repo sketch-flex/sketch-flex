@@ -46,7 +46,7 @@ public class SketchDeckControllerTest {
 		when(sketchDeckRepo.findById(id)).thenReturn(Optional.of(sketchDeck1));
 		
 		sketchDeckControl.findOneSketchDeck(id, model);
-		verify(model).addAttribute("single-sketchdeck",sketchDeck1);
+		verify(model).addAttribute("sketchdeck",sketchDeck1);
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class SketchDeckControllerTest {
 		when(sketchDeckRepo.findAll()).thenReturn(allSketchDecks);
 		
 		sketchDeckControl.findAllSketches(model);
-		verify(model).addAttribute("all-sketchdecks",allSketchDecks);
+		verify(model).addAttribute("sketchDecks",allSketchDecks);
 	}
 
 }

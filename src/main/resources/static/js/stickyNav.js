@@ -11,9 +11,9 @@ navbar.innerHTML = `
 	`;
 	
 
-var hamburger = document.getElementById("hambuger");
+var hamburger = document.getElementById("hamburger");
 
-hamburger = document.addEventListener("click", myFunction);
+hamburger = hamburger.addEventListener("click", myFunction);
 	
 function myFunction() {
     var x = document.getElementById("myLinks");
