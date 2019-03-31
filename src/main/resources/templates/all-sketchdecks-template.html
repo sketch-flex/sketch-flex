@@ -16,7 +16,9 @@
 	<nav id="navbar"></nav>
 	<div><h1>All SketchDecks</h1></div>
     <div th:each="sketchDeck:${sketchDecks}">
-       <h2 class = "sketchDeck-name"><a th:text = "${sketchDeck.name}" th:href="@{/sketchdeck(id=${sketchDeck.id})}"></a></h2>
+       <h2 class = "sketchDeck-name">
+       	<a th:text = "${sketchDeck.name}" th:href="@{/sketchdeck(id=${sketchDeck.id})}"></a>
+       </h2>
     </div>
     
 	<footer>

@@ -23,7 +23,7 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		SketchDeck dinosaurs =new SketchDeck("Dinosaurs");
 		sketchDeckRepo.save(dinosaurs);
 		
-		Sketch tRex = new Sketch("T-Rex","/populator/t-rex.jpg",dinosaurs);
+		Sketch tRex = new Sketch("T-Rex","/populator/t-rex.jpg",dinosaurs, "Rawr!");
 		sketchRepo.save(tRex);
 		
 		Sketch tric = new Sketch("Triceratops","/populator/triceratops.gif",dinosaurs);
@@ -32,7 +32,7 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		Sketch raptor = new Sketch("Velociraptor","/populator/raptor.jpg",dinosaurs);
 		sketchRepo.save(raptor);
 		
-		Sketch tRex2 = new Sketch("T-Rex kids drawing","/populator/t-rex2.png",dinosaurs);
+		Sketch tRex2 = new Sketch("T-Rex kids drawing","/populator/t-rex2.png",dinosaurs,"silly sketch works!!");
 		sketchRepo.save(tRex2);
 		
 		SketchDeck beverages =new SketchDeck("Beverages");

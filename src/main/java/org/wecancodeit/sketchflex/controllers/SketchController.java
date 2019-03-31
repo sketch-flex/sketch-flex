@@ -8,7 +8,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
@@ -79,6 +81,19 @@ public class SketchController {
 	@RequestMapping("/draw")
 	public String goToDraw() {
 		return "sketch-draw-template";
+	}
+	
+	@RequestMapping(path = "/{id}/note/{note}", method = RequestMethod.POST)
+	public String updateNote(@PathVariable("note") String note, @PathVariable("id") Long id, Model model) {
+		
+		Sketch sketch = sketchRepo.findById(id).get(); 
+		sketch.setNote(note); 
+		sketchRepo.save(sketch);
+		List<Sketch> list = sketchRepo.findAllBySketchDeck(sketch.getSketchDeck());
+		Gson gsonBuilder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String jsonList = gsonBuilder.toJson(list);
+		model.addAttribute("JSONsketches", jsonList);
+		return "partials/sketch-note-updated";		
 	}
 
 }
