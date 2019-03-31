@@ -5,6 +5,7 @@ var isMouseDown = false;
 currentSize = 1;
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
+var insertCanvas = document.getElementById("insertCanvasHere");
 
 
 defineInitialCanvas();
@@ -15,16 +16,18 @@ function defineInitialCanvas() {
    
 	sketchbox.id = "sketchbox";
 	sketchbox.style.border = "1px solid";
-	var insertCanvas = document.getElementById("insertCanvasHere");
 	var width = document.getElementById("main").getBoundingClientRect().width - 310;
 	var height = document.getElementById("main").getBoundingClientRect().height - 100;
 	console.log(width);
 	console.log(height);
 	sketchbox.setAttribute("width",width);
 	sketchbox.setAttribute("height",height);
+	insertCanvas.style.height = height + "px";
+	insertCanvas.style.width = width + "px";
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
-	main.appendChild(sketchbox);
+	insertCanvas.style.backgroundColor = "white";
+	insertCanvas.appendChild(sketchbox);
 	
 }
 
@@ -34,8 +37,15 @@ const delay = 0;  // Your delay here
 
 const originalResize = evt => {
   console.log(evt);  
-  main.removeChild(sketchbox);
-  defineInitialCanvas();
+  main.removeChild(insertCanvas);
+  insertCanvas.removeChild(sketchbox);
+  var width = document.getElementById("main").getBoundingClientRect().width - 310;
+  var height = document.getElementById("main").getBoundingClientRect().height - 100;
+  insertCanvas.style.height = height + "px";
+  insertCanvas.style.width = width + "px";
+  main.appendChild(insertCanvas);
+  insertCanvas.appendChild(sketchbox);
+  // defineInitialCanvas();
 };
 
 

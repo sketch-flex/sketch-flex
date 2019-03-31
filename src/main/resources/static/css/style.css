@@ -309,6 +309,8 @@ h1{
 	text-align:center;
 }
 #insertCanvasHere{
+  overflow:hidden;
+   border:1px solid black;
 }
 
 
