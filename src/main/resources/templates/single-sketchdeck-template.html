@@ -17,9 +17,9 @@
 	    </div>	
 		<nav id="navbar"></nav>
 		<h1 class = "sketchDeck-name" th:text="${sketchdeck.name}"></h1>
+		<div class = "sketchDeck-description" th:text="${sketchdeck.description}"></div>
 		<section  class="sketches-list" >
 			<a class="name-and-image" th:each="sketch:${sketches}" th:href="@{/sketch(id=${sketch.id})}">
-				
 				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
 				<img th:src="@{${sketch.imageLocation}}">
 				

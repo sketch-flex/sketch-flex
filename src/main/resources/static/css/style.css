@@ -276,6 +276,10 @@ nav ul li{
 h1{
 	text-align:center;
 }
+.sketchDeck-description {
+	text-align:center;
+	font-weight:bold;
+}
 .name-and-image{
 	display:flex;
 	flex-direction:column;
