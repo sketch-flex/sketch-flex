@@ -20,18 +20,29 @@ public class Sketch {
 	@Lob
 	@Expose
 	private String imageLocation;
-	
+
 	@ManyToOne
 	private SketchDeck sketchDeck;
 	
+	@Lob
+	@Expose
+	private String note;
+
 	protected Sketch() {
-		//WHYYYYY????????
+		// WHYYYYY????????
 	}
 
 	public Sketch(String name, String imageLocation, SketchDeck sketchDeck) {
 		this.name = name;
 		this.setImageLocation(imageLocation);
 		this.sketchDeck = sketchDeck;
+	}
+
+	public Sketch(String name, String imageLocation, SketchDeck sketchDeck, String note) {
+		this.name = name;
+		this.setImageLocation(imageLocation);
+		this.sketchDeck = sketchDeck;
+		this.note = note;
 	}
 
 	public Sketch(String name, String imageLocation) {
@@ -58,12 +69,22 @@ public class Sketch {
 	public SketchDeck getSketchDeck() {
 		return sketchDeck;
 	}
+
 	public void moveDeck(SketchDeck newSketchDeck) {
 		this.sketchDeck = newSketchDeck;
-		
+
 	}
+
+	public String getNote() {
+		return note;
+	}
+
 	public void changeName(String newName) {
 		this.name = newName;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 	@Override
@@ -90,8 +111,5 @@ public class Sketch {
 			return false;
 		return true;
 	}
-
-
-
 
 }

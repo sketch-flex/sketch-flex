@@ -283,9 +283,11 @@ h1{
 	box-shadow:1px 1px 5px 2px black inset;
 }
 
-#next-previous{
+.next-button{
+	display:flex;
 	flex-direction:row;
 	justify-content:center;
+	align-items:center;
 }
 .name-and-image img{
 	width:400px;
