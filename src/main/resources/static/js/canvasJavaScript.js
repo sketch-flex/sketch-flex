@@ -5,23 +5,54 @@ var isMouseDown = false;
 currentSize = 1;
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
-var boundaryRect = sketchbox.getBoundingClientRect();
-console.log(boundaryRect);
+
 
 defineInitialCanvas();
 
 
 // Create Sketch Pad
 function defineInitialCanvas() {
+   
 	sketchbox.id = "sketchbox";
-	sketchbox.style.zIndex = 1;
 	sketchbox.style.border = "1px solid";
-	sketchbox.style.width = "100%";
-	sketchbox.style.height = "100%";
+	var insertCanvas = document.getElementById("insertCanvasHere");
+	var width = document.getElementById("main").getBoundingClientRect().width - 310;
+	var height = document.getElementById("main").getBoundingClientRect().height - 100;
+	console.log(width);
+	console.log(height);
+	sketchbox.setAttribute("width",width);
+	sketchbox.setAttribute("height",height);
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
 	main.appendChild(sketchbox);
+	
 }
+
+
+//dynamic-resize
+const delay = 0;  // Your delay here
+
+const originalResize = evt => {
+  console.log(evt);  
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+};
+
+
+(() => {
+  resizeTaskId = null;
+
+  window.addEventListener('resize', evt => {
+    if (resizeTaskId !== null) {
+      clearTimeout(resizeTaskId);
+    }
+
+    resizeTaskId = setTimeout(() => {
+      resizeTaskId = null;
+      originalResize(evt);
+    }, delay);
+  });
+})();
 
 // DRAWING EVENT HANDLERS
 
@@ -63,6 +94,9 @@ function draw() {
 
 function getMousePos(sketchbox, event) {
 	
+	var boundaryRect = sketchbox.getBoundingClientRect();
+    console.log(boundaryRect);
+    
 	return {
 		x: event.clientX - boundaryRect.left,
 		y: event.clientY - boundaryRect.top
