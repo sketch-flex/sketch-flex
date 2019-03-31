@@ -1,63 +1,46 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-
-<head>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-	<link rel="stylesheet" type="text/css" href="../css/canvas.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
-</head>
-
-
-<body>
-	
-		<div id="container">
-			<div class="navbar">
-
-				<div id="pageName">SketchFlex</div>
-				<a href="javascript:void(0);" id="hamburger">
-					<i class="fa fa-bars"></i>
-				</a>
-			</div>
-			<nav id="navbar"></nav>
-			<div id="main">
-				<div id="sidetools">
-					<div id="buttons">
-						<button id="sidetooltoggle">Collapse</button>
-						<div id="collapsablebtns">
-						<button id="eraser"> Eraser</button>
-						<button id="draw">Draw</button>
-						<button><a id="download" href="" download>Download</a></button>
-						<button id="clear">Clear All</button>
-						<button id="colorpicker">
-							<input type="color" id="penColor" value="#000000"></input>
-						</button>
-						<input type="range" id="pensize" min="1" max="50" value="1" step="1">
-						<span style="width: 1px; height: 1px; border-radius:1px; margin-left:-0.5px; margin-top:-0.5px;"></span>
-						<h3> Size (<span id="dotSize">1</span>)</h3>
-						<input type="text" id="textbox" value="" placeholder="Enter SketchID">
-						<input type="range" id="opacity" min="0" max="1" value="1" step="0.1">
-						<h3> Opacity (<span id="opacityValue">100 </span>%)</h3>
-
-						<p></p>
-						
-						
-						<!-- saves sketch with Lob in 'imageLocation' field  -->
-						<form method="POST">
-							<div>
-								<input type="text" name="name" value="Sketch Name" />
-								<input id="lob" type="hidden" name="lob" value="" />
-								<input type="text" name="sketchDeckName" value="SketchDeck Name" />
-							</div>
-							<div>
-								<button th:formaction="@{add-sketch-lob}">Upload Sketch</button>
-							</div>
-						</form>
-					</div>
-					</div>
+  <head>
+  		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  </head>
+  <body>
+  <div id = "container">
+     <div class = "navbar"> 
+		<div id="pageName">SketchFlex</div>
+		<a href="javascript:void(0);" id="hamburger">
+						<i class = "fa fa-bars"></i>
+		</a>
+     </div>	
+	<nav id="navbar"></nav>
+	<div id="main">
+		<div id="buttons">
+		    <button id="eraser"> Eraser</button>
+		    <button id="draw">Draw</button>
+		    <button ><a id="download" href="" download>Download</a></button>
+		    <button id="clear">Clear All</button>
+		    <button id="colorpicker">
+		      <input type= "color" id="penColor" value="#000000"></input>
+		    </button> 
+		    <input type="range" id="pensize" min="1" max="50" value="1" step="1">
+		    <span style="width: 1px; height: 1px; border-radius:1px; margin-left:-0.5px; margin-top:-0.5px;"></span>
+		  <h3> Size (<span id="dotSize">1</span>)</h3>
+		    <input type="text" id="textbox" value="" placeholder="Enter SketchID">
+		    <input type="range" id="opacity" min="0" max="1" value="1" step="0.1">
+		    <h3> Opacity (<span id="opacityValue">100 </span>%)</h3>
+		
+		  <p></p>
+		  
+		  <!-- saves sketch with Lob in 'imageLocation' field  -->
+		  <form method="POST">
+				<div>
+					<input type="text" name = "name" value = "Sketch Name"/>
+					<input id = "lob" type = "hidden" name = "lob" value = ""/>
+					<input type="text" name="sketchDeckName" value = "SketchDeck Name"/>
 				</div>
-				<footer>
+        	<footer>
 					<ul id="footerlist">
 						<li><a href="#">About</a></li>
 						<li><a href="#">Contact</a></li>
@@ -67,5 +50,4 @@
 	<script src="./js/canvasJavaScript.js"></script>
 	<script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </body>
-
 </html>
