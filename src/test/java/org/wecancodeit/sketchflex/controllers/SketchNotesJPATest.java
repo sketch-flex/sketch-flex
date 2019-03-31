@@ -45,8 +45,8 @@ public class SketchNotesJPATest {
 		entityManager.flush();
 		entityManager.clear();
 
-		String foundnote = sketchRepo.findById(id).get().getNote();
-		assertThat(foundnote, is("note"));
+		String foundNote = sketchRepo.findById(id).get().getNote();
+		assertThat(foundNote, is("note"));
 	}
 
 	@Test

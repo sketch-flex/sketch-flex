@@ -21,6 +21,7 @@
 		<h1 >All Sketches</h1>
 		<div th:each="sketchDeck:${sketchDecks}">
 			<h2 class = "sketchDeck-name" th:text="${sketchDeck.name}"></h2>
+			<div class = "sketchDeck-description" th:text="${sketchDeck.description}"></div>
 			<section  class="sketches-list" >
 			<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">		
 				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
