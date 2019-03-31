@@ -2,7 +2,7 @@ var sketchbox = document.createElement("canvas");
 var main = document.getElementById("main");
 var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
-currentSize = 5;
+currentSize = 1;
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
 
@@ -12,15 +12,47 @@ defineInitialCanvas();
 
 // Create Sketch Pad
 function defineInitialCanvas() {
+   
 	sketchbox.id = "sketchbox";
-	sketchbox.width = 400;
-	sketchbox.height = 400;
-	sketchbox.style.zIndex = 1;
 	sketchbox.style.border = "1px solid";
+	var insertCanvas = document.getElementById("insertCanvasHere");
+	var width = document.getElementById("main").getBoundingClientRect().width - 310;
+	var height = document.getElementById("main").getBoundingClientRect().height - 100;
+	console.log(width);
+	console.log(height);
+	sketchbox.setAttribute("width",width);
+	sketchbox.setAttribute("height",height);
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
 	main.appendChild(sketchbox);
+	
 }
+
+
+//dynamic-resize
+const delay = 0;  // Your delay here
+
+const originalResize = evt => {
+  console.log(evt);  
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+};
+
+
+(() => {
+  resizeTaskId = null;
+
+  window.addEventListener('resize', evt => {
+    if (resizeTaskId !== null) {
+      clearTimeout(resizeTaskId);
+    }
+
+    resizeTaskId = setTimeout(() => {
+      resizeTaskId = null;
+      originalResize(evt);
+    }, delay);
+  });
+})();
 
 // DRAWING EVENT HANDLERS
 
@@ -61,7 +93,10 @@ function draw() {
 // GET MOUSE POSITION
 
 function getMousePos(sketchbox, event) {
+	
 	var boundaryRect = sketchbox.getBoundingClientRect();
+    console.log(boundaryRect);
+    
 	return {
 		x: event.clientX - boundaryRect.left,
 		y: event.clientY - boundaryRect.top
@@ -87,9 +122,9 @@ function mousemove(sketchbox, event) {
 
 	if (isMouseDown) {
 		var currentPosition = getMousePos(sketchbox, event);
-		ctx.lineTo(currentPosition.x, currentPosition.y)
+		ctx.lineTo(currentPosition.x, currentPosition.y);
 		ctx.stroke();
-		store(currentPosition.x, currentPosition.y, currentSize, currentColor);
+		//store(currentPosition.x, currentPosition.y, currentSize, currentColor);
 	}
 }
 
@@ -98,7 +133,7 @@ function mousemove(sketchbox, event) {
 function mouseup() {
 	isMouseDown = false
 	document.getElementById('lob').value = document.getElementById('sketchbox').toDataURL(); //changes value of 'lob' input when mouseup
-	store()
+	// store();
 }
 // Download Sketchbox
 
