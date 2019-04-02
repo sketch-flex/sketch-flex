@@ -18,6 +18,8 @@ justify-items:center;
  display:grid;
  background: #e6e3d4;  
  width:90%;
+ min-height:90%;
+ height:fit-content;
   box-sizing:border-box;
   box-shadow:0px 2px 5px 2px #666;
   grid-template-rows:auto 0px 1fr auto;
