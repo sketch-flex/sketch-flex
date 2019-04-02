@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
 @Entity
@@ -21,6 +22,7 @@ public class Sketch {
 	@Expose
 	private String imageLocation;
 
+	@JsonIgnore
 	@ManyToOne
 	private SketchDeck sketchDeck;
 	

@@ -47,7 +47,12 @@
                             <div>
                                 <input type="text" name="name" value="Sketch Name" />
                                 <input id="lob" type="hidden" name="lob" value="" />
-                                <input type="text" name="sketchDeckName" value="SketchDeck Name" />
+                                <input type="text" name="sketchDeckName" placeholder="SketchDeck Name" id="sketchDeckNameInput" />
+                            </div>
+                            <div>
+                                <select id="dropDown" value="test">
+                                </select>
+                                <button th:formaction="@{addsketchdeck}">add</button>
                             </div>
                             <div>
                                 <button th:formaction="@{add-sketch-lob}">Upload Sketch</button>
@@ -70,6 +75,7 @@
                 
     <script src="./js/canvasJavaScript.js"></script>
     <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
+    <script src="./js/dropDown.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 package org.wecancodeit.sketchflex.models;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ public class SketchDeck {
 	private Long id;
 	private String name;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "sketchDeck")
 	private List<Sketch> sketches;
 	

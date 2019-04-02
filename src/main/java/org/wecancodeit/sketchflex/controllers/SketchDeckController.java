@@ -44,5 +44,16 @@ public class SketchDeckController {
 	public String displayHome() {
 		return "index";
 	}
+	
+	@RequestMapping("/addsketchdeck")
+	public String addSketchDeck(String sketchDeckName) {
+		SketchDeck newSketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
+
+		if (newSketchDeck == null) {
+			newSketchDeck = sketchDeckRepo.save(new SketchDeck(sketchDeckName));
+		}
+		
+		return "redirect:/draw";
+	}
 
 }

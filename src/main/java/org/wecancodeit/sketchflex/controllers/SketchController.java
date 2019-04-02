@@ -95,5 +95,7 @@ public class SketchController {
 		model.addAttribute("JSONsketches", jsonList);
 		return "partials/sketch-note-updated";		
 	}
+	
+	}
+		
 
-}
