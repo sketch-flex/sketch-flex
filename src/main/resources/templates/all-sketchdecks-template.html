@@ -7,13 +7,17 @@
   </head>
   <body>
   <div id = "container">
-  	<div class = "navbar"> 
-		<div id="pageName">SketchFlex</div>
-		<a href="javascript:void(0);" id="hamburger">
-						<i class = "fa fa-bars"></i>
-		</a>
-    </div>	
-	<nav id="navbar"></nav>
+		<div class="navbar">
+		    <div id="beginNav">
+			<div id="pageName">SketchFlex</div>
+			<a href="javascript:void(0);" id="hamburger"> <i
+				class="fa fa-bars"></i>
+			</a>
+			</div>
+			<nav id="endNav">
+		
+			</nav>	
+		</div>
 	<div><h1>All SketchDecks</h1></div>
     <div th:each="sketchDeck:${sketchDecks}">
        <h2 class = "sketchDeck-name">

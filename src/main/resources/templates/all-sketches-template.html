@@ -12,12 +12,17 @@
 <body>
 	<div id="container">
 		<div class="navbar">
+		    <div id="beginNav">
 			<div id="pageName">SketchFlex</div>
 			<a href="javascript:void(0);" id="hamburger"> <i
 				class="fa fa-bars"></i>
 			</a>
+			</div>
+			<nav id="endNav">
+		
+			</nav>	
 		</div>
-		<nav id="navbar"></nav>
+		
 		<h1 >All Sketches</h1>
 		<div th:each="sketchDeck:${sketchDecks}">
 			<h2 class = "sketchDeck-name" th:text="${sketchDeck.name}"></h2>

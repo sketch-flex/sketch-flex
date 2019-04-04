@@ -10,13 +10,17 @@
 </head>
 <body>
   <div id = "container">
-    <div class = "navbar"> 
-    	<div id="pageName">SketchFlex</div>
-		<a href="javascript:void(0);" id="hamburger">
-						<i class = "fa fa-bars"></i>
-		</a>
-    </div>
-	<nav id="navbar"></nav>
+		<div class="navbar">
+		    <div id="beginNav">
+			<div id="pageName">SketchFlex</div>
+			<a href="javascript:void(0);" id="hamburger"> <i
+				class="fa fa-bars"></i>
+			</a>
+			</div>
+			<nav id="endNav">
+		
+			</nav>	
+		</div>
 	<div id="single-sketch-main">
 	<h1 id="name" th:text="${sketch.name}"></h1>
 	<section  class="sketches-list" >
