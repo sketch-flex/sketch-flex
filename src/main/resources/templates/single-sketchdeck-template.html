@@ -9,13 +9,17 @@
   </head>
   <body>
     <div id = "container">
-	  	<div class = "navbar"> 
+		<div class="navbar">
+		    <div id="beginNav">
 			<div id="pageName">SketchFlex</div>
-			<a href="javascript:void(0);" id="hamburger">
-							<i class = "fa fa-bars"></i>
+			<a href="javascript:void(0);" id="hamburger"> <i
+				class="fa fa-bars"></i>
 			</a>
-	    </div>	
-		<nav id="navbar"></nav>
+			</div>
+			<nav id="endNav">
+		
+			</nav>	
+		</div>
 		<h1 class = "sketchDeck-name" th:text="${sketchdeck.name}"></h1>
 		<div class = "sketchDeck-description" th:text="${sketchdeck.description}"></div>
 		<section  class="sketches-list" >

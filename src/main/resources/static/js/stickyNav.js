@@ -1,28 +1,26 @@
-var navbar = document.getElementById("navbar");
-navbar.innerHTML = `
-	<ul id = "myLinks">
+var ul = document.createElement("ul");
+ul.innerHTML = `
 		<li><a href="http://localhost:8080/home">Home</a></li>
-		<li><a href="http://localhost:8080/sketchdecks">SketchDecks</a></li>
+		<li><a href="http://localhost:8080/sketchdecks">Sketch Decks</a></li>
 		<li><a href="http://localhost:8080/draw">New Sketch</a></li>
 		<li><a href="http://localhost:8080/sketches">All Sketches</a></li>
 		<li><a class="active" href="http://localhost:8080/upload">Upload Sketch</a></li>
-	</ul>
-	
 	`;
-	
+ul.id = "myLinks";
+var endNav = document.getElementById("endNav");
+endNav.appendChild(ul);
 
 var hamburger = document.getElementById("hamburger");
 
 hamburger = hamburger.addEventListener("click", myFunction);
 	
 function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-      x.style.height = "0px";
-    } else {
-      x.style.display = "block";
-      x.style.height = "fit-content";
-      
+    console.log(ul.style.height);
+   
+    if(ul.style.height === "0px" || ul.style.height === ""){
+      ul.style.height = "240px";
+    }else{
+      ul.style.height = "0px";
     }
+     
   }

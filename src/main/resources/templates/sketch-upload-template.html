@@ -7,14 +7,17 @@
 </head>
 <body>
    <div id = "container">
-	<div class = "navbar"> 
-		<div id="pageName">SketchFlex</div>
-		<a href="javascript:void(0);" id="hamburger">
-						<i class = "fa fa-bars"></i>
-		</a>
-    </div>	
-	<nav id="navbar"></nav>
-
+		<div class="navbar">
+		    <div id="beginNav">
+			<div id="pageName">SketchFlex</div>
+			<a href="javascript:void(0);" id="hamburger"> <i
+				class="fa fa-bars"></i>
+			</a>
+			</div>
+			<nav id="endNav">
+		
+			</nav>	
+		</div>
 	<div th:if="${message}">
 		<h2 th:text="${message}"/>
 	</div>
