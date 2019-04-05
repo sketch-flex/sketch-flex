@@ -12,4 +12,6 @@ public interface SketchRepository extends CrudRepository<Sketch, Long> {
 
 	List<Sketch> findAllBySketchDeck(SketchDeck sketchDeck);
 
+	Sketch findFirstByName(String name);
+
 }
