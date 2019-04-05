@@ -7,7 +7,6 @@ var textBox = document.getElementById("deckTextBox")
 dropDown.addEventListener('change', dropDownChanged);
 
 function dropDownChanged(){
-	console.log(dropDown.value);
 	if(dropDown.value === "New SketchDeck..."){
 		textBox.style.display = "block";
 		dropDown.setAttribute("name", "");
