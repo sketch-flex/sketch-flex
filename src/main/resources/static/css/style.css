@@ -311,10 +311,6 @@ h1{
 #next-previous-menu{
 	text-align:center;
 }
-#insertCanvasHere{
-  overflow:hidden;
-   border:1px solid black;
-}
 
 #endNav{
  display:flex;

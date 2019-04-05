@@ -3,9 +3,9 @@ var main = document.getElementById("main");
 var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 1;
+var linesArray = [];
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
-var insertCanvas = document.getElementById("insertCanvasHere");
 
 
 defineInitialCanvas();
@@ -15,20 +15,18 @@ defineInitialCanvas();
 function defineInitialCanvas() {
    
 	sketchbox.id = "sketchbox";
-	sketchbox.style.border = "1px solid";
-	var width = document.getElementById("main").getBoundingClientRect().width - 310;
-	var height = document.getElementById("main").getBoundingClientRect().height - 100;
-	console.log(width);
-	console.log(height);
+	//sketchbox.style.border = "1px solid";
+	sketchbox.style.boxShadow = "2px 2px 5px 2px #666";
+	sketchbox.style.backfaceVisibility = "hidden";
+	var style = getComputedStyle(main);
+    var style2 = getComputedStyle(main.firstElementChild);
+    var width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) - parseInt(style.columnGap) - parseInt(style2.width);
+    var height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
 	sketchbox.setAttribute("width",width);
 	sketchbox.setAttribute("height",height);
-	insertCanvas.style.height = height + "px";
-	insertCanvas.style.width = width + "px";
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
-	insertCanvas.style.backgroundColor = "white";
-	insertCanvas.appendChild(sketchbox);
-	
+	main.appendChild(sketchbox);
 }
 
 
@@ -37,15 +35,9 @@ const delay = 0;  // Your delay here
 
 const originalResize = evt => {
   console.log(evt);  
-  main.removeChild(insertCanvas);
-  insertCanvas.removeChild(sketchbox);
-  var width = document.getElementById("main").getBoundingClientRect().width - 310;
-  var height = document.getElementById("main").getBoundingClientRect().height - 100;
-  insertCanvas.style.height = height + "px";
-  insertCanvas.style.width = width + "px";
-  main.appendChild(insertCanvas);
-  insertCanvas.appendChild(sketchbox);
-  // defineInitialCanvas();
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw();
 };
 
 
@@ -76,7 +68,10 @@ document.getElementById('draw').addEventListener('click', draw);
 document.getElementById('download').addEventListener('click', function () {
 	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
 }, false);
-document.getElementById("clear").addEventListener('click', defineInitialCanvas);
+document.getElementById("clear").addEventListener('click', function(){
+  defineInitialCanvas();
+  linesArray = [];
+});
 document.getElementById("penColor").addEventListener('change', function () {
 	currentColor = this.value;
 });
@@ -125,6 +120,7 @@ function mousedown(sketchbox, event) {
 	ctx.lineWidth = currentSize;
 	ctx.lineCap = "round";
 	ctx.strokeStyle = currentColor;
+	store(currentPosition.x, currentPosition.y, currentSize, currentColor);
 }
 // ON MOUSE MOVE
 
@@ -134,7 +130,7 @@ function mousemove(sketchbox, event) {
 		var currentPosition = getMousePos(sketchbox, event);
 		ctx.lineTo(currentPosition.x, currentPosition.y);
 		ctx.stroke();
-		//store(currentPosition.x, currentPosition.y, currentSize, currentColor);
+		store(currentPosition.x, currentPosition.y, currentSize, currentColor);
 	}
 }
 
@@ -143,7 +139,7 @@ function mousemove(sketchbox, event) {
 function mouseup() {
 	isMouseDown = false
 	document.getElementById('lob').value = document.getElementById('sketchbox').toDataURL(); //changes value of 'lob' input when mouseup
-	// store();
+	store();
 }
 // Download Sketchbox
 
@@ -166,3 +162,26 @@ function sketchToolToggle() {
 
 
 document.getElementById("sidetooltoggle").addEventListener("click", sketchToolToggle);
+
+
+function store(x, y, s, c) {
+		var line = {
+			"x": x,
+			"y": y,
+			"size": s,
+			"color": c
+		}
+		linesArray.push(line);
+	}
+	
+function redraw() {
+				for (var i = 1; i < linesArray.length; i++) {
+					ctx.beginPath();
+					ctx.moveTo(linesArray[i-1].x, linesArray[i-1].y);
+					ctx.lineWidth  = linesArray[i].size;
+					ctx.lineCap = "round";
+					ctx.strokeStyle = linesArray[i].color;
+					ctx.lineTo(linesArray[i].x, linesArray[i].y);
+					ctx.stroke();
+				}
+		}
