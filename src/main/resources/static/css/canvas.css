@@ -1,8 +1,4 @@
-canvas#sketchbox {
-	/*left: 150px;
-	top: 72px;*/
 
-}
 #sidetools {
   display:flex;
   flex-direction: column;
@@ -11,6 +7,7 @@ canvas#sketchbox {
   padding: 10px;
   /*width: 160px;*/
   box-sizing:border-box;
+  box-shadow: 2px 2px 5px 2px #666;
 }
 
 #sidetools.sideclosed {
