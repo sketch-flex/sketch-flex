@@ -339,7 +339,7 @@ h1{
    #myLinks{
        display:block;
        height:0px;
-	   transition:height 1s linear;
+	   transition:height .5s linear;
    }
    
    #myLinks a{
@@ -369,6 +369,7 @@ h1{
    }
 
 }
+
 
 
 
