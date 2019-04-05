@@ -24,3 +24,11 @@ function myFunction() {
     }
      
   }
+
+window.onresize = resetHeight;
+
+function resetHeight(){
+	if(window.matchMedia("(min-width: 567px)").matches){
+		ul.removeAttribute("style");
+	}
+}
