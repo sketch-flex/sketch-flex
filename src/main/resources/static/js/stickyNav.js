@@ -15,9 +15,9 @@ var hamburger = document.getElementById("hamburger");
 hamburger = hamburger.addEventListener("click", myFunction);
 	
 function myFunction() {
-
+    console.log(ul.style.height);
    
-    if(ul.style.height == "0px"){
+    if(ul.style.height === "0px" || ul.style.height === ""){
       ul.style.height = "240px";
     }else{
       ul.style.height = "0px";
