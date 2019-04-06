@@ -15,12 +15,11 @@ public class SketchDeck {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	@Lob
+	private String description;
 
 	@OneToMany(mappedBy = "sketchDeck")
 	private List<Sketch> sketches;
-	
-	@Lob
-	private String description;
 
 	public Long getId() {
 		return id;
@@ -29,21 +28,21 @@ public class SketchDeck {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 	public List<Sketch> getSketches() {
 		return sketches;
 	}
-	
+
 	public Sketch getSketch() {
 		return sketches.get(0);
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	protected SketchDeck() {
@@ -88,6 +87,5 @@ public class SketchDeck {
 			return false;
 		return true;
 	}
-
 
 }

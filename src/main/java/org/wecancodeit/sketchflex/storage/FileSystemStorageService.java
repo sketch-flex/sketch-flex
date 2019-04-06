@@ -6,6 +6,8 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.wecancodeit.sketchflex.exceptions.StorageException;
+import org.wecancodeit.sketchflex.exceptions.StorageFileNotFoundException;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

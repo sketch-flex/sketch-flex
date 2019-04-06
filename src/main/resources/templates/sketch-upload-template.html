@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
 </head>
 <body>
-   <div id = "container">
+	<div id = "container">
 		<div class="navbar">
-		    <div id="beginNav">
-			<div id="pageName">SketchFlex</div>
-			<a href="javascript:void(0);" id="hamburger"> <i
-				class="fa fa-bars"></i>
-			</a>
+			<div id="beginNav">
+				<div id="pageName">SketchFlex</div>
+				<a href="javascript:void(0);" id="hamburger">
+					<i class="fa fa-bars"></i>
+				</a>
 			</div>
-			<nav id="endNav">
-		
-			</nav>	
+			<nav id="endNav"></nav>	
 		</div>
-	<div th:if="${message}">
-		<h2 th:text="${message}"/>
-	</div>
-
-	<div>
-		<form method="POST" enctype="multipart/form-data" action="/upload">
-			<table>
-				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-			</table>
+		<div th:if="${message}">
+			<h2 th:text="${message}"/>
+		</div>
+		<div>
+			<form method="POST" enctype="multipart/form-data" action="/upload">
+				<table>
+					<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+					<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+				</table>
 				<input type="text" placeholder="SketchDeck Name:" name = "sketchDeckName"/>
-		</form>
+			</form>
+		</div>
+		<div>
+			<ul>
+				<li th:each="file : ${files}">
+					<a th:href="${file}" th:text="${file}" />
+				</li>
+			</ul>
+			<ul>
+				<li th:each="sketch : ${sketches}">
+					<a th:text = "${sketch.name}" />
+				</li>
+			</ul>
+		</div>
+		<footer>
+			<ul id="footerlist">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</footer>
 	</div>
-
-	<div>
-		<ul>
-			<li th:each="file : ${files}">
-				<a th:href="${file}" th:text="${file}" />
-			</li>
-		</ul>
-		<ul>
-			<li th:each="sketch : ${sketches}">
-				<a th:text = "${sketch.name}" />
-			</li>
-		</ul>
-	</div>
-	<footer>
-	  	<ul id="footerlist">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
-   </div>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>

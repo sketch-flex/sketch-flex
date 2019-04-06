@@ -1,4 +1,4 @@
-package org.wecancodeit.sketchflex.controllers;
+package org.wecancodeit.sketchflex.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,4 +1,4 @@
-package org.wecancodeit.sketchflex.storage;
+package org.wecancodeit.sketchflex.exceptions;
 
 import java.net.MalformedURLException;
 

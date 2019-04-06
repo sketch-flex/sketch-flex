@@ -21,7 +21,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.wecancodeit.sketchflex.storage.StorageFileNotFoundException;
+import org.wecancodeit.sketchflex.exceptions.StorageFileNotFoundException;
 import org.wecancodeit.sketchflex.storage.StorageService;
 
 @RunWith(SpringRunner.class)

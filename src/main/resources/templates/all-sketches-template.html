@@ -6,33 +6,30 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet" />
 <head>
-<meta charset="ISO-8859-1">
-<title>Sketches</title>
+	<meta charset="ISO-8859-1">
+	<title>Sketches</title>
 </head>
 <body>
 	<div id="container">
 		<div class="navbar">
-		    <div id="beginNav">
-			<div id="pageName">SketchFlex</div>
-			<a href="javascript:void(0);" id="hamburger"> <i
-				class="fa fa-bars"></i>
-			</a>
+			<div id="beginNav">
+				<div id="pageName">SketchFlex</div>
+					<a href="javascript:void(0);" id="hamburger"> 
+					<i class="fa fa-bars"></i>
+				</a>
 			</div>
-			<nav id="endNav">
-		
-			</nav>	
-		</div>
-		
+			<nav id="endNav"></nav>	
+		</div>		
 		<h1 >All Sketches</h1>
 		<div th:each="sketchDeck:${sketchDecks}">
 			<h2 class = "sketchDeck-name" th:text="${sketchDeck.name}"></h2>
 			<div class = "sketchDeck-description" th:text="${sketchDeck.description}"></div>
 			<section  class="sketches-list" >
-			<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">		
+				<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">
 				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
 				<img th:src="@{${sketch.imageLocation}}">
 				<div id="note" th:text="${sketch.note}"></div>			
-			</a>
+				</a>
 			</section>
 		</div>
 		<footer>

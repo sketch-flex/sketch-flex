@@ -16,6 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
+import org.wecancodeit.sketchflex.exceptions.SketchNotFoundException;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;

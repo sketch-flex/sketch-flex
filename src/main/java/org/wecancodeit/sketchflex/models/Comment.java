@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -16,28 +16,28 @@ public class Comment {
 	private String content;
 	@ManyToOne
 	private Sketch sketch;
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getContent() {
 		return content;
 	}
-	
+
 	public Sketch getSketch() {
 		return sketch;
 	}
-	
+
 	protected Comment() {
-	 //Why???	
+		// Why???
 	}
-	
+
 	public Comment(String content, Sketch sketch) {
 		this.content = content;
 		this.sketch = sketch;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,7 +45,7 @@ public class Comment {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

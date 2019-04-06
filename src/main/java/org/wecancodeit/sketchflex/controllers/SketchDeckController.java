@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.wecancodeit.sketchflex.exceptions.SketchDeckNotFoundException;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 
