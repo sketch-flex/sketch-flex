@@ -4,8 +4,10 @@ import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.wecancodeit.sketchflex.models.Comment;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
+import org.wecancodeit.sketchflex.repositories.CommentRepository;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
 
@@ -18,6 +20,9 @@ public class SketchFlexPopulator implements CommandLineRunner{
 	@Resource
 	private SketchDeckRepository sketchDeckRepo;
 	
+	@Resource
+	private CommentRepository commentRepo;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		SketchDeck dinosaurs =new SketchDeck("Dinosaurs");
@@ -25,6 +30,10 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		
 		Sketch tRex = new Sketch("T-Rex","/populator/t-rex.jpg",dinosaurs, "Rawr!");
 		sketchRepo.save(tRex);
+		Comment commentTRex1 = new Comment ("Picture of a t-rex!", tRex);
+		commentRepo.save(commentTRex1);
+		Comment commentTRex2 = new Comment ("Try and delete this note!!!!!", tRex);
+		commentRepo.save(commentTRex2);
 		
 		Sketch tric = new Sketch("Triceratops","/populator/triceratops.gif",dinosaurs);
 		sketchRepo.save(tric);

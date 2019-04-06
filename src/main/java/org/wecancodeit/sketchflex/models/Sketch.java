@@ -1,10 +1,12 @@
 package org.wecancodeit.sketchflex.models;
 
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.google.gson.annotations.Expose;
 
@@ -27,6 +29,9 @@ public class Sketch {
 	@Lob
 	@Expose
 	private String note;
+	
+	@OneToMany(mappedBy = "sketch")
+	private Collection<Comment> comments;
 
 	protected Sketch() {
 		// WHYYYYY????????
@@ -77,6 +82,10 @@ public class Sketch {
 
 	public String getNote() {
 		return note;
+	}
+	
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 
 	public void changeName(String newName) {
