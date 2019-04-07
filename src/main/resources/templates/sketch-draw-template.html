@@ -30,16 +30,20 @@
                         <input type="range" id="pensize" min="1" max="50" value="1" step="1">
                         <span style="width: 1px; height: 1px; border-radius:1px; margin-left:-0.5px; margin-top:-0.5px;"></span>
                         <h3> Size (<span id="dotSize">1</span>)</h3>
-                        <input type="text" id="textbox" value="" placeholder="Enter SketchID">
+                        <input hidden type="text" id="textbox" value="" placeholder="Enter SketchID">
                         <input type="range" id="opacity" min="0" max="1" value="1" step="0.1">
                         <h3> Opacity (<span id="opacityValue">100 </span>%)</h3>
                         <p></p>
                         <!-- saves sketch with Lob in 'imageLocation' field  -->
                         <form method="POST">
                             <div>
-                                <input type="text" name="name" value="Sketch Name" />
+                                <input type="text" name="name" placeholder="Enter a Sketch Name"/>
                                 <input id="lob" type="hidden" name="lob" value="" />
-                                <input type="text" name="sketchDeckName" value="SketchDeck Name" />
+                                <select id="deckDropDown" type= "text" name="sketchDeckName">
+                                	<option disabled selected hidden>Choose SketchDeck</option>
+                                	<option th:each = "sketchdeck: ${sketchDecks}" th:text = "${sketchdeck.name}"></option>
+                                	<option>New SketchDeck...</option>
+                                </select><input id= "deckTextBox" type="text" style="display: none;" placeholder= "Enter New SketchDeck"/>
                             </div>
                             <div>
                                 <button th:formaction="@{add-sketch-lob}">Upload Sketch</button>
@@ -56,6 +60,7 @@
                 </ul>
             </footer>
     </div>    
+    <script type="text/javascript" src="./js/dropdownDecks.js"></script>
     <script src="./js/canvasJavaScript.js"></script>
     <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </body>

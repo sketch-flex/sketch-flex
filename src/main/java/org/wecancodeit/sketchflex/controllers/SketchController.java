@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,34 +66,38 @@ public class SketchController {
 
 	@RequestMapping("/add-sketch-lob")
 	public String addSketchLob(String name, String lob, String sketchDeckName) {
-		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
-		if (sketchDeck == null) {
-			sketchDeck = sketchDeckRepo.save(new SketchDeck(sketchDeckName));
+		if (sketchDeckName != null) {
+			SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
+			if (sketchDeck == null) {
+				sketchDeck = sketchDeckRepo.save(new SketchDeck(sketchDeckName));
+			}
+			Sketch sketch = sketchRepo.findFirstByName(name);
+			if (sketch == null || name.equals("")) {
+				sketchRepo.save(new Sketch(name, lob, sketchDeck));
+			}
+			return "redirect:/sketchdeck?id=" + sketchDeck.getId();
+		} else {
+			return "redirect:/draw";
 		}
-		Sketch sketch = sketchRepo.findByName(name);
-		if (sketch == null) {
-			sketchRepo.save(new Sketch(name, lob, sketchDeck));
-		}
-
-		return "redirect:/sketches";
 	}
 
 	@RequestMapping("/draw")
-	public String goToDraw() {
+	public String goToDraw(Model model) {
+		model.addAttribute("sketchDecks", sketchDeckRepo.findAll());
 		return "sketch-draw-template";
 	}
-	
+
 	@RequestMapping(path = "/{id}/note/{note}", method = RequestMethod.POST)
 	public String updateNote(@PathVariable("note") String note, @PathVariable("id") Long id, Model model) {
-		
-		Sketch sketch = sketchRepo.findById(id).get(); 
-		sketch.setNote(note); 
+
+		Sketch sketch = sketchRepo.findById(id).get();
+		sketch.setNote(note);
 		sketchRepo.save(sketch);
 		List<Sketch> list = sketchRepo.findAllBySketchDeck(sketch.getSketchDeck());
 		Gson gsonBuilder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String jsonList = gsonBuilder.toJson(list);
 		model.addAttribute("JSONsketches", jsonList);
-		return "partials/sketch-note-updated";		
+		return "partials/sketch-note-updated";
 	}
 
 }
