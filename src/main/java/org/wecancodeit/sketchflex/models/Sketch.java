@@ -22,38 +22,15 @@ public class Sketch {
 	@Lob
 	@Expose
 	private String imageLocation;
-
-	@ManyToOne
-	private SketchDeck sketchDeck;
-	
 	@Lob
 	@Expose
 	private String note;
-	
+
+	@ManyToOne
+	private SketchDeck sketchDeck;
+
 	@OneToMany(mappedBy = "sketch")
 	private Collection<Comment> comments;
-
-	protected Sketch() {
-		// WHYYYYY????????
-	}
-
-	public Sketch(String name, String imageLocation, SketchDeck sketchDeck) {
-		this.name = name;
-		this.setImageLocation(imageLocation);
-		this.sketchDeck = sketchDeck;
-	}
-
-	public Sketch(String name, String imageLocation, SketchDeck sketchDeck, String note) {
-		this.name = name;
-		this.setImageLocation(imageLocation);
-		this.sketchDeck = sketchDeck;
-		this.note = note;
-	}
-
-	public Sketch(String name, String imageLocation) {
-		this.name = name;
-		this.setImageLocation(imageLocation);
-	}
 
 	public Long getId() {
 		return id;
@@ -67,23 +44,14 @@ public class Sketch {
 		return imageLocation;
 	}
 
-	public void setImageLocation(String imageLocation) {
-		this.imageLocation = imageLocation;
-	}
-
 	public SketchDeck getSketchDeck() {
 		return sketchDeck;
-	}
-
-	public void moveDeck(SketchDeck newSketchDeck) {
-		this.sketchDeck = newSketchDeck;
-
 	}
 
 	public String getNote() {
 		return note;
 	}
-	
+
 	public Collection<Comment> getComments() {
 		return comments;
 	}
@@ -92,7 +60,38 @@ public class Sketch {
 		this.name = newName;
 	}
 
+	public void setImageLocation(String imageLocation) {
+		this.imageLocation = imageLocation;
+	}
+
 	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public void moveDeck(SketchDeck newSketchDeck) {
+		this.sketchDeck = newSketchDeck;
+	}
+
+	protected Sketch() {
+		// WHYYYYY????????
+	}
+
+// Do we need this? If we require that all sketches be within a sketchDeck, then this constructor isn't needed
+	public Sketch(String name, String imageLocation) {
+		this.name = name;
+		this.setImageLocation(imageLocation);
+	}
+
+	public Sketch(String name, String imageLocation, SketchDeck sketchDeck) {
+		this.name = name;
+		this.setImageLocation(imageLocation);
+		this.sketchDeck = sketchDeck;
+	}
+
+	public Sketch(String name, String imageLocation, SketchDeck sketchDeck, String note) {
+		this.name = name;
+		this.setImageLocation(imageLocation);
+		this.sketchDeck = sketchDeck;
 		this.note = note;
 	}
 

@@ -2,67 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway"
-	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
 <head>
 <meta charset="ISO-8859-1">
 <title th:text="${sketch.name}"></title>
 </head>
 <body>
-  <div id = "container">
+	<div id = "container">
 		<div class="navbar">
-		    <div id="beginNav">
-			<div id="pageName">SketchFlex</div>
-			<a href="javascript:void(0);" id="hamburger"> <i
-				class="fa fa-bars"></i>
-			</a>
+			<div id="beginNav">
+				<div id="pageName">SketchFlex</div>
+				<a href="javascript:void(0);" id="hamburger">
+					<i class="fa fa-bars"></i>
+				</a>
 			</div>
-			<nav id="endNav">
-		
-			</nav>	
+			<nav id="endNav"></nav>	
 		</div>
-	<div id="single-sketch-main">
-	<h1 id="name" th:text="${sketch.name}"></h1>
-	<section  class="sketches-list" >
-			<div class="name-and-image">
-				<div class="next-button"><img id="image" th:src="@{${sketch.imageLocation}}"></div>
-				<input id="note" type="text" name="sketchNote" th:value="${sketch.note}"></input>
-				
-				<div th:each = "comment: ${sketch.comments}">
-					<p th:text = "${comment.content}"></p>
-					<form method = "POST">
-						<div>
-							<input type = "hidden" name = "commentId" th:value = "${comment.id}"/>
-							<button th:formaction="@{delete-comment}">Delete Comment</button>
-						</div>
-					</form>					
-				</div>
-				<form id = "add-comment" method="POST">
-					<div id = "comment-box-div">
-						<label>Enter New Comment:</label>
-						<textarea id = "comment-box" type="text" name = "commentContent" placeholder = "comment"></textarea>
-						<input type="hidden" name="sketchName" th:value = "${sketch.name}"/>
+		<div id="single-sketch-main">
+			<h1 id="name" th:text="${sketch.name}"></h1>
+			<section  class="sketches-list" >
+				<div class="name-and-image">
+					<div class="next-button"><img id="image" th:src="@{${sketch.imageLocation}}"></div>
+					<input id="note" type="text" name="sketchNote" th:value="${sketch.note}"></input>
+					<div th:each = "comment: ${sketch.comments}">
+						<p th:text = "${comment.content}"></p>
+						<form method = "POST">
+							<div>
+								<input type = "hidden" name = "commentId" th:value = "${comment.id}"/>
+								<button th:formaction="@{delete-comment}">Delete Comment</button>
+							</div>
+						</form>					
 					</div>
-				<div>
-					<button th:formaction="@{add-comment}" >Submit</button>
+					<form id = "add-comment" method="POST">
+						<div id = "comment-box-div">
+							<label>Enter New Comment:</label>
+							<textarea id = "comment-box" type="text" name = "commentContent" placeholder = "comment"></textarea>
+							<input type="hidden" name="sketchName" th:value = "${sketch.name}"/>
+						</div>
+						<div>
+							<button th:formaction="@{add-comment}" >Submit</button>
+						</div>
+					</form>
 				</div>
-				</form>
+			</section>
+			<div id="next-previous-menu">
+				<h3 class = "sketchDeck-name" th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
+				<a id="json" hidden th:text="${JSONsketches}"></a > <!-- string to parse into js array of sketches (next-previous.js)-->
 			</div>
-	</section>
-	
-	
-	<div id="next-previous-menu">
-		<h3 class = "sketchDeck-name" th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
-		<a id="json" hidden th:text="${JSONsketches}"></a > <!-- string to parse into js array of sketches (next-previous.js)-->
+		</div>
+		<footer>
+			<ul id="footerlist">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+			</ul>
+		</footer>
 	</div>
-	</div>
-	<footer>
-	  	<ul id="footerlist">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>
- </div>
 </body>
 <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 <script type="text/javascript" th:src="@{/js/update-note-and-buttons.js}"></script>

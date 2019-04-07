@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.wecancodeit.sketchflex.exceptions.StorageException;
+import org.wecancodeit.sketchflex.exceptions.StorageFileNotFoundException;
 import org.wecancodeit.sketchflex.models.Sketch;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
 import org.wecancodeit.sketchflex.repositories.SketchRepository;
-import org.wecancodeit.sketchflex.storage.StorageException;
-import org.wecancodeit.sketchflex.storage.StorageFileNotFoundException;
 import org.wecancodeit.sketchflex.storage.StorageService;
 
 @Controller

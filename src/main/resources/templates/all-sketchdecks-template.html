@@ -3,35 +3,33 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
-<head>
-  </head>
-  <body>
-  <div id = "container">
+<head></head>
+<body>
+	<div id = "container">
 		<div class="navbar">
-		    <div id="beginNav">
-			<div id="pageName">SketchFlex</div>
-			<a href="javascript:void(0);" id="hamburger"> <i
-				class="fa fa-bars"></i>
-			</a>
+			<div id="beginNav">
+				<div id="pageName">SketchFlex</div>
+				<a href="javascript:void(0);" id="hamburger"> 
+					<i class="fa fa-bars"></i>
+				</a>
 			</div>
-			<nav id="endNav">
-		
-			</nav>	
+			<nav id="endNav"></nav>	
 		</div>
-	<div><h1>All SketchDecks</h1></div>
-    <div th:each="sketchDeck:${sketchDecks}">
-       <h2 class = "sketchDeck-name">
-       	<a th:text = "${sketchDeck.name}" th:href="@{/sketchdeck(id=${sketchDeck.id})}"></a>
-       </h2>
-    </div>
-    
-	<footer>
-	  	<ul id="footerlist">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-		</ul>
-	</footer>    
-  </div>
-  </body>
-  <script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
+		<div>
+			<h1>All SketchDecks</h1>
+		</div>
+		<div th:each="sketchDeck:${sketchDecks}">
+			<h2 class = "sketchDeck-name">
+				<a th:text = "${sketchDeck.name}" th:href="@{/sketchdeck(id=${sketchDeck.id})}"></a>
+			</h2>
+		</div>
+		<footer>
+			<ul id="footerlist">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+			</ul>
+		</footer>    
+	</div>
+</body>
+<script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </html>
