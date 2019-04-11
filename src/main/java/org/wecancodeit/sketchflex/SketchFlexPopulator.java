@@ -38,17 +38,6 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		Sketch tric = new Sketch("Triceratops","/populator/triceratops.gif",dinosaurs);
 		sketchRepo.save(tric);
 		
-//		System.out.println("tRex: "+sketchRepo.findByName("T-Rex").getOrder());
-//		System.out.println("tric: "+sketchRepo.findByName("Triceratops").getOrder());
-//		tRex.setOrder(sketchRepo.findByName("Triceratops").getOrder());
-//		tric.setOrder(sketchRepo.findByName("T-Rex").getOrder());
-//		sketchRepo.save(tRex);
-//		sketchRepo.save(tric);
-//		System.out.println("tRex: "+sketchRepo.findByName("T-Rex").getOrder());
-//		System.out.println("tric: "+sketchRepo.findByName("Triceratops").getOrder());
-		
-		
-		
 		Sketch raptor = new Sketch("Velociraptor","/populator/raptor.jpg",dinosaurs);
 		sketchRepo.save(raptor);
 		
