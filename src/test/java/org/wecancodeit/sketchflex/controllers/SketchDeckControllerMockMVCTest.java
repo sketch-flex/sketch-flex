@@ -41,6 +41,9 @@ public class SketchDeckControllerMockMVCTest {
 	
   @MockBean
   private SketchDeckRepository sketchDeckRepo;
+	
+  @MockBean
+  private SketchRepository sketchRepo;	
   
   @MockBean  //Tests failed without this even though it's not being tested...do not delete
   private StorageService storageService;
