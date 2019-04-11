@@ -1,0 +1,8 @@
+:root{
+  --foreground: #e6624d;
+  --background: #e6e3d4;
+  --foreground-font-color:white;
+  --background-font-color:black;
+  --shadow:#666;
+  --button-hover-color:#333;
+}

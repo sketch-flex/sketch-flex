@@ -1,0 +1,74 @@
+@import "colorScheme.css";
+
+#main{
+  display:grid;
+  gap:50px;
+  width:100%;
+  grid-template-columns: 160px 1fr;
+  background: var(--background); 
+  box-sizing:border-box;
+  justify-items:center;
+  align-items:center;
+  padding:50px;
+}
+
+#sidetools {
+  display:flex;
+  flex-direction: column;
+  border: 100px;
+  background-color: var(--foreground);
+  padding: 10px;
+  box-sizing:border-box;
+  box-shadow: 2px 2px 5px 2px var(--shadow);
+}
+
+#sidetools.sideclosed {
+max-height: 10px;
+max-width:10px;
+
+}
+
+#collapsablebtns.closed {
+display:none;
+}
+
+#sidetoolstoggle {
+  z-index: 4;
+}
+button#sidetooltoggle.btnclosed {
+  max-width: 10px;
+  max-height:10px; 
+}
+
+button{
+	background-color: transparent;
+	color: white;
+	width: 140px;
+
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/*download button*/
+button a{
+	color: white;
+	text-decoration: none;
+}
+
+#deckDropDown{
+	width: 100%;
+}
+
+
+button:hover {
+	opacity: 0.7;
+		background-color: var(--foreground-font-color);  
+		color:var(--button-hover-color);
+		transition: 1s;
+	} 

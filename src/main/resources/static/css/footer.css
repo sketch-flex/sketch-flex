@@ -1,0 +1,21 @@
+@import "colorScheme.css";
+
+footer{
+ background-color:var(--foreground);
+ align-self:center;
+}
+
+#footerlist{
+  display:flex;
+  padding:0px 20px;
+}
+
+#footerlist li{
+  list-style-type:none;
+  padding:10px;
+}
+
+#footerlist li a{
+  color:var(--foreground-font-color);
+  text-decoration:none;
+}
