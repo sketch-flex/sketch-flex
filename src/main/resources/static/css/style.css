@@ -80,7 +80,12 @@ h1{
 	color:(--foreground-font-color);
 	box-shadow:2px 2px 5px 2px var(--shadow);
 }
-
+.name-and-image h2{
+	color: var(--foreground-font-color);
+}
+.name-and-image #note{
+	color: var(--foreground-font-color);
+}
 .next-button{
 	display:flex;
 	flex-direction:row;
