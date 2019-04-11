@@ -31,6 +31,8 @@ public class Sketch {
 
 	@OneToMany(mappedBy = "sketch")
 	private Collection<Comment> comments;
+	
+	private Long deckOrder;
 
 	public Long getId() {
 		return id;
@@ -51,6 +53,16 @@ public class Sketch {
 	public String getNote() {
 		return note;
 	}
+	
+	public Long getOrder() {
+		Long value;
+		if (deckOrder == null) {
+			value = id;
+		}else {
+			value = deckOrder;
+		}
+		return value;
+	}
 
 	public Collection<Comment> getComments() {
 		return comments;
@@ -66,6 +78,10 @@ public class Sketch {
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+	
+	public void setOrder(Long order) {
+		this.deckOrder = order;
 	}
 
 	public void moveDeck(SketchDeck newSketchDeck) {
