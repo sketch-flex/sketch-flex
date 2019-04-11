@@ -1,0 +1,169 @@
+@import "colorScheme.css";
+
+
+
+#beginNav{
+ margin:10px;
+}
+
+#pageName {
+	color: white;
+	width: fit-content;
+	margin-left:10px;
+	font-size: 50px;
+	font-family:raleway;
+    padding-bottom: 15px;
+    background: no-repeat bottom center url(../images/pencil-dash.png);
+    background-size: 100%;
+}
+
+
+#navbar {
+  display:flex;
+  justify-content:flex-end;
+  width:inherit;
+  align-items:center;
+  background-color: transparent; 
+  overflow:hidden;
+ 
+}
+
+.navbar{
+ display:flex;
+ justify-content:space-between;
+ background-color: var(--foreground);
+ position:sticky;
+ top:0px;
+ left:0px;
+ height:fit-content;
+ width:100%;
+ box-sizing:border-box;
+ z-index:8;
+}
+
+#myLinks{
+		display:flex;
+		justify-content:flex-end;
+		padding:0px;
+		margin:0px;
+		width:inherit;
+	}
+
+#myLinks a {
+  display:grid;
+  align-content:center;
+  color: white; ; 
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  height:fit-content;
+  box-sizing:border-box;
+  height:100%;
+  font-family:montserrat, sans-serif;
+}
+
+#myLinks a:hover {
+  opacity: 0.7;
+  background-color: var(--foreground-font);  
+  color:#333;
+  transition:1s;
+}
+
+
+
+#myLinks a:icon{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+#myLinks li{
+  list-style-type:none;
+  text-align: center;
+}
+
+#hamburger{
+	display:none;
+	
+}
+
+#hamburger i{
+	display:block;
+	margin-right:10px;
+	padding-right:10px;
+	padding-left:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius:10px;
+}
+
+#hamburger:link{
+	color:var(--foreground-font-color);
+	background:var(--foreground);
+	font-size:2rem;
+	text-decoration:none;
+	
+}
+
+#hamburger i:hover{
+	color: var(--foreground);
+	background-color:var(--foreground-font-color);
+}
+
+
+
+
+#endNav{
+ display:flex;
+ justify-content:flex-end;
+ align-content:center;
+ width:inherit;
+ overflow:hidden;
+}
+
+@media only screen and (max-width: 800px){
+ #myLinks a{
+   padding:7px 8px;
+   font-size:12px;
+ }
+ 
+ #pageName{
+ font-size:25px;
+ height:fit-content;
+ width:fit-content;
+
+}
+}
+
+@media only screen and (max-aspect-ratio:10/15),
+only screen and (max-width: 567px){
+    #myLinks{
+       display:block;
+       height:0px;
+	   transition:height .5s linear;
+   }
+   
+   #myLinks a{
+	   padding:14px 16px;
+	   font-size:17px;
+   }
+   
+   #hamburger{
+	   display:block;
+	   align-self:center;
+	   justify-self:end;
+	   width:fit-content;
+   }
+   .navbar{
+       flex-direction:column;
+   }
+   #beginNav{
+       display:flex;
+       justify-content:space-between;
+   }
+   #endNav{
+       justify-content:center;
+   }
+  
+}

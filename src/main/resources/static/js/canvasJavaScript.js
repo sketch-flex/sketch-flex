@@ -155,7 +155,7 @@ const sidetooltoggle = document.getElementById("sidetooltoggle");
 function sketchToolToggle() {
 	collapsablebtns.classList.toggle("closed");
 	sidetools.classList.toggle("sideclosed");
-		sidetooltoggle.classList.toggle("btnclosed");
+	sidetooltoggle.classList.toggle("btnclosed");
 		
 	}
 
