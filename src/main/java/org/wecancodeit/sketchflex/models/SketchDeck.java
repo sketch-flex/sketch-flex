@@ -1,5 +1,6 @@
 package org.wecancodeit.sketchflex.models;
 
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -34,6 +35,7 @@ public class SketchDeck {
 	}
 
 	public List<Sketch> getSketches() {
+		sketches.sort(Comparator.comparing(sketch->sketch.getOrder()));
 		return sketches;
 	}
 

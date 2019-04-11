@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.wecancodeit.sketchflex.models.SketchDeck;
 import org.wecancodeit.sketchflex.repositories.SketchDeckRepository;
+import org.wecancodeit.sketchflex.repositories.SketchRepository;
 import org.wecancodeit.sketchflex.storage.StorageService;
 import org.wecancodeit.sketchflex.controllers.SketchDeckController;
 
@@ -41,6 +42,9 @@ public class SketchDeckControllerMockMVCTest {
 	
   @MockBean
   private SketchDeckRepository sketchDeckRepo;
+	
+  @MockBean
+  private SketchRepository sketchRepo;	
   
   @MockBean  //Tests failed without this even though it's not being tested...do not delete
   private StorageService storageService;
