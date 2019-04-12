@@ -48,7 +48,7 @@ justify-items:center;
 
 
 
-.sketches-list{
+.sketches-list, .sketchdeck-list{
 
 	display:grid;
 	max-width:100%;
@@ -63,6 +63,7 @@ justify-items:center;
 	padding: 3%;
 	text-align:center;
 }
+
 h1{
 	text-align:center;
 }
@@ -83,6 +84,7 @@ h1{
 .name-and-image h2{
 	color: var(--foreground-font-color);
 }
+
 .name-and-image #note{
 	color: var(--foreground-font-color);
 }
@@ -103,5 +105,7 @@ h1{
 	text-align:center;
 }
 
-
+#note, #description{
+    color: var(--foreground-font-color);
+}
 

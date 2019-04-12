@@ -19,11 +19,13 @@
 		<div>
 			<h1>All SketchDecks</h1>
 		</div>
-		<div th:each="sketchDeck:${sketchDecks}">
-			<h2 class = "sketchDeck-name">
-				<a th:text = "${sketchDeck.name}" th:href="@{/sketchdeck(id=${sketchDeck.id})}"></a>
-			</h2>
-		</div>
+		<section  class = "sketchdeck-list" >
+			<a class="name-and-image" th:each="sketchDeck:${sketchDecks}" th:href="@{/sketchdeck(id=${sketchDeck.id})}">
+				<h2 class="sketch-name" th:text="${sketchDeck.name}"></h2>
+				<img th:src = "${sketchDeck.preview}">
+				<div id="description" th:text="${sketchDeck.description}"></div>			
+			</a>
+		</section>
 		<footer>
 			<ul id="footerlist">
 			<li><a href="#">About</a></li>

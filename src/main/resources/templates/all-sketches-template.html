@@ -24,7 +24,7 @@
 				<a class="name-and-image" th:each="sketch:${sketchDeck.sketches}" th:href="@{/sketch(id=${sketch.id})}">
 				<h2 class="sketch-name" th:text="${sketch.name}"></h2>
 				<img th:src="@{${sketch.imageLocation}}">
-				<div id="note" th:text="${sketch.note}"></div>			
+				<div class ="sketchDeck-description" th:text="${sketch.note}"></div>			
 				</a>
 			</section>
 		</div>
