@@ -34,8 +34,6 @@ justify-items:center;
   grid-template-rows:auto 1fr auto;
 }
 
-
-
 #single-sketch-main{
 	display:flex;
 	flex-direction:column;
@@ -45,18 +43,12 @@ justify-items:center;
   padding:20px;
 }
 
-
-
-
 .sketches-list, .sketchdeck-list{
-
 	display:grid;
 	max-width:100%;
 	grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
 	gap:3rem;
-	padding:3rem;
-	
-	
+	padding:3rem;	
 }
 
 .sketchDeck-name{
@@ -67,10 +59,12 @@ justify-items:center;
 h1{
 	text-align:center;
 }
+
 .sketchDeck-description {
 	text-align:center;
 	font-weight:bold;
 }
+
 .name-and-image{
 	display:flex;
 	flex-direction:column;
@@ -81,26 +75,35 @@ h1{
 	color:(--foreground-font-color);
 	box-shadow:2px 2px 5px 2px var(--shadow);
 }
+
 .name-and-image h2{
 	color: var(--foreground-font-color);
 }
 
 .name-and-image #note{
-	color: var(--foreground-font-color);
+	padding: 1rem 0px;
+	width: 400px;
+	text-align: center;
+	color: var(--background-font-color);
 }
+
 .next-button{
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
 	align-items:center;
 }
+
 .name-and-image img{
+	padding: 1rem 0px;
 	width:400px;
 	height:auto;
 }
+
 .sketch-name{
 	font-weight:normal;
 }
+
 #next-previous-menu{
 	text-align:center;
 }
