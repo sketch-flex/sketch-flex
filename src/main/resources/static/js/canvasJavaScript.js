@@ -29,6 +29,23 @@ function defineInitialCanvas() {
 	main.appendChild(sketchbox);
 }
 
+function defineClosedCanvas() {
+   
+	sketchbox.id = "sketchbox";
+	//sketchbox.style.border = "1px solid";
+	sketchbox.style.boxShadow = "2px 2px 5px 2px #666";
+	sketchbox.style.backfaceVisibility = "hidden";
+	var style = getComputedStyle(main);
+    var style2 = getComputedStyle(main.firstElementChild);
+    var width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight);
+    var height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
+	sketchbox.setAttribute("width",width);
+	sketchbox.setAttribute("height",height);
+	ctx.fillStyle = "white";
+	ctx.fillRect(0, 0, sketchbox.width, sketchbox.height);
+	main.appendChild(sketchbox);
+}
+
 
 //dynamic-resize
 const delay = 0;  // Your delay here
@@ -150,18 +167,30 @@ function downloadCanvas(link, sketchbox, filename) {
 
 const collapsablebtns = document.getElementById("collapsablebtns");
 const sidetools = document.getElementById("sidetools");
-const sidetooltoggle = document.getElementById("sidetooltoggle");
+const sidetooltoggle = document.getElementById("sidetoolstoggle");
+const plusMinus = document.getElementById("plusMinus");
 
 function sketchToolToggle() {
 	collapsablebtns.classList.toggle("closed");
 	sidetools.classList.toggle("sideclosed");
 	sidetooltoggle.classList.toggle("btnclosed");
-		
+	plusMinus.classList.toggle("fa-plus-circle");
+	main.classList.toggle("mainClosed");	
+	 main.removeChild(sketchbox);
+	 
+	if(plusMinus.classList.contains("fa-plus-circle")){
+      defineClosedCanvas();
+    }
+    else{
+      defineInitialCanvas();
+    }
+    sketchbox.classList.toggle("sketchbox");
+    redraw();
 	}
 
 
 
-document.getElementById("sidetooltoggle").addEventListener("click", sketchToolToggle);
+sidetooltoggle.addEventListener("click", sketchToolToggle);
 
 
 function store(x, y, s, c) {
