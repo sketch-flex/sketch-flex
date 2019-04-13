@@ -8,11 +8,11 @@ function drawButtons(){
 	var eachSketch = document.getElementsByClassName("name-and-image");
 	for(i=0; i < eachSketch.length; i++){
 		var pButton = document.createElement("button");
-		pButton.innerHTML = "<";
+		pButton.innerHTML = "&#10094";
 		pButton.setAttribute("id", i);
 	
 		var nButton = document.createElement("button");
-		nButton.innerHTML = ">";
+		nButton.innerHTML = "&#10095";
 		nButton.setAttribute("id", i);
 	
 		var menu = document.createElement("div");
