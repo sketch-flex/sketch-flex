@@ -25,6 +25,33 @@ public class SketchFlexPopulator implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
+		SketchDeck plantBulb = new SketchDeck("Plant Bulbs");
+		sketchDeckRepo.save(plantBulb);
+		
+		Sketch choose = new Sketch("Choose","/populator/ChoiceBulbs.png",plantBulb, "Pick!");
+		sketchRepo.save(choose);
+		Comment step1 = new Comment ("Step 1", choose);
+		commentRepo.save(step1);
+		Comment commentChoose = new Comment ("Choose a bulb.", choose);
+		commentRepo.save(commentChoose);
+		Sketch choice = new Sketch("Choice","/populator/TulipBulb.png",plantBulb, "Chosen: Tulip");
+		sketchRepo.save(choice);
+		Sketch dig = new Sketch("Dig","/populator/Dig.png",plantBulb, "Dig a hole");
+		sketchRepo.save(dig);
+		Sketch plant = new Sketch("Plant","/populator/PlantBulb.png",plantBulb, "Plant the Tulip bulb");
+		sketchRepo.save(plant);
+		Sketch water = new Sketch("Water","/populator/Water.png",plantBulb, "Water");
+		sketchRepo.save(water);
+		Sketch gowing1 = new Sketch("Wait","/populator/TulipGrowing.png",plantBulb, "wait...");
+		sketchRepo.save(gowing1);
+		Sketch gowing2 = new Sketch("Wait2","/populator/TulipBudding.png",plantBulb, "wait more...");
+		sketchRepo.save(gowing2);
+		Sketch gowing3 = new Sketch("Wait3","/populator/TulipBuddingWithePetals.png",plantBulb, "Almost there...");
+		sketchRepo.save(gowing3);
+		Sketch tulip = new Sketch("Tulip","/populator/TulipBloom.png",plantBulb, "Success!");
+		sketchRepo.save(tulip);
+		
+		
 		SketchDeck dinosaurs =new SketchDeck("Dinosaurs");
 		sketchDeckRepo.save(dinosaurs);
 		
