@@ -147,7 +147,7 @@ function mousedown(sketchbox, event) {
 function mousemove(sketchbox, event) {
 
 	if (isMouseDown) {
-	    ctx.moveTo(currentposition.x,currentPosition.y);
+	    ctx.moveTo(currentPosition.x,currentPosition.y);
 		currentPosition = getMousePos(sketchbox, event);
 		ctx.lineTo(currentPosition.x, currentPosition.y);
 		ctx.stroke();
