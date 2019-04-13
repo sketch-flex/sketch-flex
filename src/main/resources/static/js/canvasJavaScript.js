@@ -75,9 +75,12 @@ const originalResize = evt => {
 
 // DRAWING EVENT HANDLERS
 
-sketchbox.addEventListener('mousedown', function () { mousedown(sketchbox, event); });
+sketchbox.addEventListener('mousedown', function (event) { 
+event.preventDefault();
+mousedown(sketchbox, event); 
+});
 sketchbox.addEventListener('mousemove', function () { mousemove(sketchbox, event); });
-sketchbox.addEventListener('mouseup', mouseup);
+document.addEventListener('mouseup', mouseup);
 
 //Button Event Handler
 document.getElementById('eraser').addEventListener('click', eraser);
