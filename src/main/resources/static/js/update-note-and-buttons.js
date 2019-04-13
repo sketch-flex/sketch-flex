@@ -43,23 +43,25 @@ function drawButtons(){
 		xhr.open("POST", "/previous/" + sketchId, true);
 		xhr.send();
 	});
+	document.getElementById("note").addEventListener("keydown",	function(e) {
+		if (!e) {
+			var e = window.event;
+		}
+			
+		// Enter is pressed
+		if (e.keyCode == 13) {
+			updateNote();
+		}
+	}, false);
 }
 
 
 
 
 function updateNote() {
-	var name = document.getElementById("name").textContent;
-//	console.log(name);
 	var note = document.getElementById("note").value;
-//	console.log(note);
-	console.log(sketchList);
-	for (var i = 0; i < sketchList.length; i += 1) {
-		if (name === sketchList[i].name) {
-			var sketchId = sketchList[i].id;
-			sketchList[i].note = note;
-		}
-	}
+	var sketchId = document.getElementById("getId").href;
+	sketchId = sketchId.split("=")[1];
 	
 	submitNote(sketchId, note);
 }
@@ -69,14 +71,3 @@ function submitNote(id, note) {
 	xhr.send();
 }
 
-document.getElementById("note").addEventListener("keydown",
-		function(e) {
-			if (!e) {
-				var e = window.event;
-			}
-
-			// Enter is pressed
-			if (e.keyCode == 13) {
-				updateNote();
-			}
-		}, false);
