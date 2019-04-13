@@ -75,7 +75,15 @@ document.getElementById("clear").addEventListener('click', function(){
 document.getElementById("penColor").addEventListener('change', function () {
 	currentColor = this.value;
 });
-
+document.getElementById("pensizesmall").addEventListener('click',function(){
+	currentSize = 1;
+})
+document.getElementById("pensizemedium").addEventListener('click',function(){
+	currentSize = 5;
+})
+document.getElementById("pensizelarge").addEventListener('click',function(){
+	currentSize = 10;
+})
 
 //Eraser Function
 
