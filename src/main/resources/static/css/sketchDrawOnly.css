@@ -11,6 +11,9 @@
   align-items:center;
   padding:50px;
 }
+#buttons{
+  width: 40px;
+}
 
 #sidetools {
   display:flex;
@@ -43,8 +46,6 @@ button#sidetooltoggle.btnclosed {
 button{
 	background-color: transparent;
 	color: white;
-	width: 140px;
-
   border: none;
   padding: 5px 10px;
   text-align: center;
