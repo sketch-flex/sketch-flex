@@ -39,8 +39,9 @@ public class SketchDeck {
 		return sketches;
 	}
 
-	public Sketch getSketch() {
-		return sketches.get(0);
+	public String getPreview() {
+		sketches.sort(Comparator.comparing(sketch->sketch.getOrder()));
+		return sketches.get(0).getImageLocation();
 	}
 
 	public void setDescription(String description) {
