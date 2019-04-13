@@ -1,7 +1,32 @@
 
-<head>
-<meta charset="ISO-8859-1">
-</head>
-<body>
-
-</body>
+			<h1 id="name" th:text="${sketch.name}"></h1>
+			<a th:href="@{/sketch(id=${sketch.id})}" id="getId"></a>
+			<section  class="sketches-list" >
+				<div class="name-and-image">
+					<div class="next-button"><img id="image" th:src="@{${sketch.imageLocation}}"></div>
+					<input id="note" type="text" name="sketchNote" th:value="${sketch.note}"></input>
+					<div th:each = "comment: ${sketch.comments}">
+						<p th:text = "${comment.content}"></p>
+						<form method = "POST">
+							<div>
+								<input type = "hidden" name = "commentId" th:value = "${comment.id}"/>
+								<button th:formaction="@{delete-comment}">Delete Comment</button>
+							</div>
+						</form>					
+					</div>
+					<form id = "add-comment" method="POST">
+						<div id = "comment-box-div">
+							<label>Enter New Comment:</label>
+							<textarea id = "comment-box" type="text" name = "commentContent" placeholder = "comment"></textarea>
+							<input type="hidden" name="sketchName" th:value = "${sketch.name}"/>
+						</div>
+						<div>
+							<button th:formaction="@{add-comment}" >Submit</button>
+						</div>
+					</form>
+				</div>
+			</section>
+			<div id="next-previous-menu">
+				<h3 class = "sketchDeck-name" th:text="'SketchDeck: ' + ${sketch.sketchDeck.name}"></h3>
+				<a id="json" hidden th:text="${JSONsketches}"></a > <!-- string to parse into js array of sketches (next-previous.js)-->
+			</div>

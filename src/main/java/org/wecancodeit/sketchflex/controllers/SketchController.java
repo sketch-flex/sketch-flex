@@ -99,5 +99,37 @@ public class SketchController {
 		model.addAttribute("JSONsketches", jsonList);
 		return "partials/sketch-note-updated";
 	}
+	
+	@RequestMapping(path= "/next/{sketchId}", method = RequestMethod.POST)
+	public String nextSketch(@PathVariable("sketchId") Long id, Model model) {
+		System.out.println(id);
+		Sketch sketch = sketchRepo.findById(id).get();
+		SketchDeck sketchDeck = sketch.getSketchDeck();
+		List<Sketch> sketches = sketchDeck.getSketches();
+		int index = sketches.indexOf(sketch);
+		if (index < sketches.size()-1) {
+			index ++;
+			sketch = sketches.get(index);
+			model.addAttribute("sketch", sketch);
+		}
+		return "partials/sketch-note-updated";
+	}
+	
+	@RequestMapping(path= "/previous/{sketchId}", method = RequestMethod.POST)
+	public String previousSketch(@PathVariable("sketchId") Long id, Model model) {
+		System.out.println(id);
+		Sketch sketch = sketchRepo.findById(id).get();
+		SketchDeck sketchDeck = sketch.getSketchDeck();
+		List<Sketch> sketches = sketchDeck.getSketches();
+		int index = sketches.indexOf(sketch);
+		if (index > 0) {
+			index --;
+			sketch = sketches.get(index);
+			model.addAttribute("sketch", sketch);
+		}
+		return "partials/sketch-note-updated";
+	}
+	
+	
 
 }
