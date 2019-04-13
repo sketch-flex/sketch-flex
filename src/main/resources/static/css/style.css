@@ -63,6 +63,12 @@ h1{
 .sketchDeck-description {
 	text-align:center;
 	font-weight:bold;
+	color: var(--background-font-color);
+}
+
+.sketch-note{
+	text-align: center;
+	color: var(--foreground-font-color)
 }
 
 .name-and-image{
@@ -85,6 +91,28 @@ h1{
 	width: 400px;
 	text-align: center;
 	color: var(--background-font-color);
+}
+
+.name-and-image #comment{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 1rem 0px;
+	width: 400px;
+}
+
+.name-and-image #comment button{
+	justify-content: flex-end;
+	width: 2rem;
+}
+
+
+.name-and-image #add-comment{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 1rem 0px;
+	width: 400px;
 }
 
 .next-button{
