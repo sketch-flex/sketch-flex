@@ -16,12 +16,10 @@
             </div>
             <nav id="endNav"></nav>	
         </div>
-        <div id = "main" class="main">
-            <article id="sidetools">
-                <section id="buttons">
-                    <a id = "sidetoolstoggle" href="javascript:void(0);"> 
-                       <i id = "plusMinus" class="fas fa-minus-circle"></i>
-                    </a>
+        <div id="main">
+            <div id="sidetools">
+                <div id="buttons">
+                    <button id="sidetooltoggle">Collapse</button>
                     <div id="collapsablebtns">
                         <button id="eraser">Eraser</button>
                         <button id="draw">Draw</button>
@@ -50,9 +48,9 @@
                                 <button th:formaction="@{add-sketch-lob}">Upload Sketch</button>
                             </div>
                         </form>
-                   	 </div>
-                </section>
-            </article>
+                    </div>
+                </div>
+            </div>
         </div> 
             <footer>
                 <ul id="footerlist">
