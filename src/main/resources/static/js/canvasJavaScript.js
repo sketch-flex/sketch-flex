@@ -177,13 +177,9 @@ function sketchToolToggle() {
 	plusMinus.classList.toggle("fa-plus-circle");
 	main.classList.toggle("mainClosed");	
 	 main.removeChild(sketchbox);
-	 
-	if(plusMinus.classList.contains("fa-plus-circle")){
-      defineClosedCanvas();
-    }
-    else{
-      defineInitialCanvas();
-    }
+	
+     defineInitialCanvas();
+ 
     sketchbox.classList.toggle("sketchbox");
     redraw();
 	}

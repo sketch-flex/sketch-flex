@@ -15,15 +15,15 @@
 
 
 .mainClosed{
- grid-template-columns: 1fr;
+ grid-template-columns: 36px 1fr;
+ gap:0px;
+ padding-left:14px;
  grid-template-rows:1fr;
  
  
 }
 
 .sketchbox{
-grid-row:1/2;
-grid-column:1/2;
 }
 /* all side tools stuff */
 
@@ -38,8 +38,6 @@ grid-column:1/2;
 }
 
 #sidetools.sideclosed {
-grid-row:1/2;
-grid-column:1/2;
 z-index: 4;
 box-shadow:none;
 background-color:transparent;
