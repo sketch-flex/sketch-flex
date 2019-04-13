@@ -89,20 +89,15 @@ public class SketchController {
 
 	@RequestMapping(path = "/{id}/note/{note}", method = RequestMethod.POST)
 	public String updateNote(@PathVariable("note") String note, @PathVariable("id") Long id, Model model) {
-
 		Sketch sketch = sketchRepo.findById(id).get();
 		sketch.setNote(note);
 		sketchRepo.save(sketch);
-		List<Sketch> list = sketchRepo.findAllBySketchDeck(sketch.getSketchDeck());
-		Gson gsonBuilder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String jsonList = gsonBuilder.toJson(list);
-		model.addAttribute("JSONsketches", jsonList);
+		model.addAttribute("sketch", sketch);
 		return "partials/sketch-note-updated";
 	}
 	
 	@RequestMapping(path= "/next/{sketchId}", method = RequestMethod.POST)
 	public String nextSketch(@PathVariable("sketchId") Long id, Model model) {
-		System.out.println(id);
 		Sketch sketch = sketchRepo.findById(id).get();
 		SketchDeck sketchDeck = sketch.getSketchDeck();
 		List<Sketch> sketches = sketchDeck.getSketches();
@@ -117,7 +112,6 @@ public class SketchController {
 	
 	@RequestMapping(path= "/previous/{sketchId}", method = RequestMethod.POST)
 	public String previousSketch(@PathVariable("sketchId") Long id, Model model) {
-		System.out.println(id);
 		Sketch sketch = sketchRepo.findById(id).get();
 		SketchDeck sketchDeck = sketch.getSketchDeck();
 		List<Sketch> sketches = sketchDeck.getSketches();
