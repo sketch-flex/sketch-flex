@@ -65,9 +65,9 @@ sketchbox.addEventListener('mouseup', mouseup);
 //Button Event Handler
 document.getElementById('eraser').addEventListener('click', eraser);
 document.getElementById('draw').addEventListener('click', draw);
-document.getElementById('download').addEventListener('click', function () {
-	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
-}, false);
+// document.getElementById('download').addEventListener('click', function () {
+// 	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
+// }, false);
 document.getElementById("clear").addEventListener('click', function(){
   defineInitialCanvas();
   linesArray = [];
@@ -75,10 +75,6 @@ document.getElementById("clear").addEventListener('click', function(){
 document.getElementById("penColor").addEventListener('change', function () {
 	currentColor = this.value;
 });
-document.getElementById("pensize").addEventListener('change', function () {
-	currentSize = this.value; document.getElementById("dotSize").innerHTML = this.value;
-})
-document.getElementById("opacity").addEventListener('change', function () { sketchbox.style.opacity = this.value; document.getElementById("opacityValue").innerHTML = this.value * 100; })
 
 
 //Eraser Function

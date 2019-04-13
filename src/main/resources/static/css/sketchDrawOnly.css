@@ -2,17 +2,29 @@
 
 #main{
   display:grid;
-  gap:50px;
+  gap:10px;
   width:100%;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 60px 1fr;
   background: var(--background); 
   box-sizing:border-box;
   justify-items:center;
   align-items:center;
-  padding:50px;
+  padding:10px;
 }
 #buttons{
   width: 40px;
+}
+#sizeButtons{
+  display: grid;
+  grid-template-columns: 13px 13px 13px;
+}
+#sizeButtons img{
+  max-width: 13px;
+  max-height: 20px;
+}
+#sizeButtons button {
+  padding: 0;
+  margin: 0;
 }
 
 #sidetools {
@@ -23,6 +35,7 @@
   padding: 10px;
   box-sizing:border-box;
   box-shadow: 2px 2px 5px 2px var(--shadow);
+  align-self: start;
 }
 
 #sidetools.sideclosed {
