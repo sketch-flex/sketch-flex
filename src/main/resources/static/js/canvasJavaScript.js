@@ -128,15 +128,18 @@ function getMousePos(sketchbox, event) {
 
 // Mouse Down Event Function
 
+var currentPosition;
+
 function mousedown(sketchbox, event) {
 	var mousePos = getMousePos(sketchbox, event);
-	isMouseDown = true
-	var currentPosition = getMousePos(sketchbox, event);
-	ctx.moveTo(currentPosition.x, currentPosition.y)
+	isMouseDown = true;
+	currentPosition = getMousePos(sketchbox, event);
+	ctx.moveTo(currentPosition.x, currentPosition.y);
 	ctx.beginPath();
 	ctx.lineWidth = currentSize;
 	ctx.lineCap = "round";
 	ctx.strokeStyle = currentColor;
+	ctx.stroke();
 	store(currentPosition.x, currentPosition.y, currentSize, currentColor);
 }
 // ON MOUSE MOVE
@@ -144,7 +147,8 @@ function mousedown(sketchbox, event) {
 function mousemove(sketchbox, event) {
 
 	if (isMouseDown) {
-		var currentPosition = getMousePos(sketchbox, event);
+	    ctx.moveTo(currentposition.x,currentPosition.y);
+		currentPosition = getMousePos(sketchbox, event);
 		ctx.lineTo(currentPosition.x, currentPosition.y);
 		ctx.stroke();
 		store(currentPosition.x, currentPosition.y, currentSize, currentColor);
