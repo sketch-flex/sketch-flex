@@ -84,6 +84,16 @@ document.getElementById("pensizemedium").addEventListener('click',function(){
 document.getElementById("pensizelarge").addEventListener('click',function(){
 	currentSize = 10;
 })
+document.getElementById("collapse").addEventListener('click',function(){
+	const buttons = document.getElementById('collapsablebtns');
+	buttons.classList.toggle('closed');
+})
+
+document.getElementById('save').addEventListener('click', function(){
+	const  saveButton = document.querySelector('.js-form');
+	saveButton.classList.toggle('formHidden');
+	main.classList.toggle('expand');
+})
 
 //Eraser Function
 
@@ -152,20 +162,6 @@ function downloadCanvas(link, sketchbox, filename) {
 	link.download = filename;
 }
 
-const collapsablebtns = document.getElementById("collapsablebtns");
-const sidetools = document.getElementById("sidetools");
-const sidetooltoggle = document.getElementById("sidetooltoggle");
-
-function sketchToolToggle() {
-	collapsablebtns.classList.toggle("closed");
-	sidetools.classList.toggle("sideclosed");
-	sidetooltoggle.classList.toggle("btnclosed");
-		
-	}
-
-
-
-document.getElementById("sidetooltoggle").addEventListener("click", sketchToolToggle);
 
 
 function store(x, y, s, c) {

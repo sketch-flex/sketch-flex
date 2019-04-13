@@ -4,15 +4,21 @@
   display:grid;
   gap:10px;
   width:100%;
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 68px 1fr;
   background: var(--background); 
   box-sizing:border-box;
   justify-items:center;
   align-items:center;
   padding:10px;
 }
-#buttons{
-  width: 40px;
+#main.expand{
+  grid-template-columns: 160px 1fr;
+}
+
+#collapsablebtns{
+display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 #sizeButtons{
   display: grid;
@@ -38,23 +44,13 @@
   align-self: start;
 }
 
-#sidetools.sideclosed {
-max-height: 10px;
-max-width:10px;
 
-}
 
 #collapsablebtns.closed {
 display:none;
 }
 
-#sidetoolstoggle {
-  z-index: 4;
-}
-button#sidetooltoggle.btnclosed {
-  max-width: 10px;
-  max-height:10px; 
-}
+
 
 button{
 	background-color: transparent;
@@ -85,4 +81,8 @@ button:hover {
 		background-color: var(--foreground-font-color);  
 		color:var(--button-hover-color);
 		transition: 1s;
-	} 
+  } 
+  
+  .formHidden{
+    display: none;
+  }
