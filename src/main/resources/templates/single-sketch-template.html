@@ -18,6 +18,7 @@
 		</div>
 		<div id="single-sketch-main">
 			<h1 id="name" th:text="${sketch.name}"></h1>
+			<a th:href="@{/sketch(id=${sketch.id})}" id="getId"></a>
 			<section  class="sketches-list" >
 				<div class="name-and-image">
 					<div class="next-button"><img id="image" th:src="@{${sketch.imageLocation}}"></div>
