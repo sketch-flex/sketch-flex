@@ -22,7 +22,7 @@ function drawButtons(){
 		menu.appendChild(pButton);
 		var text = document.createElement("a");
 		text.setAttribute("class", "reorderText");
-		text.innerHTML = "Reorder Sketch";
+		text.innerHTML = "";
 		menu.appendChild(text);
 		menu.appendChild(nButton);
 	

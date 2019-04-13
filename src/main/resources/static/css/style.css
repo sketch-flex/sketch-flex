@@ -80,6 +80,20 @@ h1{
 	color: var(--foreground-font-color);
 }
 
+.name-and-image p{
+	color: var(--foreground-font-color);
+}
+
+.reorderMenu{
+	width: 27rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.reorderMenu button{
+	width: 2rem;
+}
+
 .name-and-image #note{
 	padding: 1rem 0px;
 	width: 400px;
