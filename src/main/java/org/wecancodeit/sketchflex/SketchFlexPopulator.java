@@ -71,7 +71,7 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		Sketch tRex2 = new Sketch("T-Rex kids drawing","/populator/t-rex2.png",dinosaurs,"silly sketch works!!");
 		sketchRepo.save(tRex2);
 		
-		SketchDeck beverages =new SketchDeck("Beverages", "A list of beverages");
+		SketchDeck beverages =new SketchDeck("Beverages");
 		sketchDeckRepo.save(beverages);
 		
 		Sketch coffee = new Sketch("Coffee", "/populator/coffee.jpg",beverages);
