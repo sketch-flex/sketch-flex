@@ -90,3 +90,6 @@ button:hover img{
   .formHidden{
     display: none;
   }
+  #colorPicker{
+    display: none;
+  }

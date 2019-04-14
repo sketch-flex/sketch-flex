@@ -75,9 +75,15 @@ document.getElementById("clear").addEventListener('click', function(){
   defineInitialCanvas();
   linesArray = [];
 });
-document.getElementById("penColor").addEventListener('change', function () {
+document.getElementById("penColor").addEventListener('click', function () {
+	const colorPicker = document.getElementById("colorPicker");
+	colorPicker.click();
+});
+document.getElementById("colorPicker").addEventListener('change',function(){
 	currentColor = this.value;
 });
+
+
 document.getElementById("pensizesmall").addEventListener('click',function(){
 	currentSize = 1;
 })
