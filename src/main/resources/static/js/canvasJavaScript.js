@@ -68,9 +68,9 @@ document.addEventListener('mouseup', mouseup);
 //Button Event Handler
 document.getElementById('eraser').addEventListener('click', eraser);
 document.getElementById('draw').addEventListener('click', draw);
-document.getElementById('download').addEventListener('click', function () {
-	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
-}, false);
+// document.getElementById('download').addEventListener('click', function () {
+// 	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
+// }, false);
 document.getElementById("clear").addEventListener('click', function(){
   defineInitialCanvas();
   linesArray = [];
@@ -78,11 +78,25 @@ document.getElementById("clear").addEventListener('click', function(){
 document.getElementById("penColor").addEventListener('change', function () {
 	currentColor = this.value;
 });
-document.getElementById("pensize").addEventListener('change', function () {
-	currentSize = this.value; document.getElementById("dotSize").innerHTML = this.value;
+document.getElementById("pensizesmall").addEventListener('click',function(){
+	currentSize = 1;
 })
-document.getElementById("opacity").addEventListener('change', function () { sketchbox.style.opacity = this.value; document.getElementById("opacityValue").innerHTML = this.value * 100; })
+document.getElementById("pensizemedium").addEventListener('click',function(){
+	currentSize = 5;
+})
+document.getElementById("pensizelarge").addEventListener('click',function(){
+	currentSize = 10;
+})
+document.getElementById("collapse").addEventListener('click',function(){
+	const buttons = document.getElementById('collapsablebtns');
+	buttons.classList.toggle('closed');
+})
 
+document.getElementById('save').addEventListener('click', function(){
+	const  saveButton = document.querySelector('.js-form');
+	saveButton.classList.toggle('formHidden');
+	main.classList.toggle('expand');
+})
 
 //Eraser Function
 
@@ -155,20 +169,6 @@ function downloadCanvas(link, sketchbox, filename) {
 	link.download = filename;
 }
 
-const collapsablebtns = document.getElementById("collapsablebtns");
-const sidetools = document.getElementById("sidetools");
-const sidetooltoggle = document.getElementById("sidetooltoggle");
-
-function sketchToolToggle() {
-	collapsablebtns.classList.toggle("closed");
-	sidetools.classList.toggle("sideclosed");
-	sidetooltoggle.classList.toggle("btnclosed");
-		
-	}
-
-
-
-document.getElementById("sidetooltoggle").addEventListener("click", sketchToolToggle);
 
 
 function store(x, y, s, c) {

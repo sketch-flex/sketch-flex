@@ -2,14 +2,35 @@
 
 #main{
   display:grid;
-  gap:50px;
+  gap:10px;
   width:100%;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 68px 1fr;
   background: var(--background); 
   box-sizing:border-box;
   justify-items:center;
   align-items:center;
-  padding:50px;
+  padding:10px;
+}
+#main.expand{
+  grid-template-columns: 160px 1fr;
+}
+
+#collapsablebtns{
+display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#sizeButtons{
+  display: grid;
+  grid-template-columns: 13px 13px 13px;
+}
+#sizeButtons img{
+  max-width: 13px;
+  max-height: 20px;
+}
+#sizeButtons button {
+  padding: 0;
+  margin: 0;
 }
 
 #sidetools {
@@ -20,31 +41,20 @@
   padding: 10px;
   box-sizing:border-box;
   box-shadow: 2px 2px 5px 2px var(--shadow);
+  align-self: start;
 }
 
-#sidetools.sideclosed {
-max-height: 10px;
-max-width:10px;
 
-}
 
 #collapsablebtns.closed {
 display:none;
 }
 
-#sidetoolstoggle {
-  z-index: 4;
-}
-button#sidetooltoggle.btnclosed {
-  max-width: 10px;
-  max-height:10px; 
-}
+
 
 button{
 	background-color: transparent;
 	color: white;
-	width: 140px;
-
   border: none;
   padding: 5px 10px;
   text-align: center;
@@ -71,4 +81,8 @@ button:hover {
 		background-color: var(--foreground-font-color);  
 		color:var(--button-hover-color);
 		transition: 1s;
-	} 
+  } 
+  
+  .formHidden{
+    display: none;
+  }
