@@ -86,3 +86,6 @@ button:hover {
   .formHidden{
     display: none;
   }
+  #colorPicker{
+    display: none;
+  }
