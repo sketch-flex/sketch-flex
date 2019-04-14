@@ -23,16 +23,16 @@
 		<div id = "uploadChoices">
 			<form method="POST" enctype="multipart/form-data" action="/upload">
 				<table>
-					<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+					<tr><td>File to upload:</td><td><input id= "file" type="file" name="file" /></td></tr>
 				</table>
 				<div id = "inputFields">
-					<input type="text" name="name" placeholder="Enter Sketch Name"/>
+					<input id= "name" type="text" name="name" placeholder="Enter Sketch Name" defaultvalue= ""/>
 					<select id="deckDropDown" type= "text" name="sketchDeckName">
                     	<option disabled selected hidden>Choose SketchDeck</option>
                     	<option th:each = "sketchdeck: ${sketchDecks}" th:text = "${sketchdeck.name}"></option>
                 		<option>New SketchDeck...</option>
                 	</select><input id= "deckTextBox" type="text" style="display: none;" placeholder= "Enter New SketchDeck"/>
-					<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+					<tr><td></td><td><input id= "upload" type="submit" value="Upload" /></td></tr>
 				</div>
 			</form>
 		</div>
@@ -53,6 +53,7 @@
         </footer>  
 	</div>
 	<script type="text/javascript" src="./js/dropdownDecks.js"></script>
+	<script type="text/javascript" src="./js/uploadButton.js"></script>
 	<script type="text/javascript" th:src="@{/js/stickyNav.js}"></script>
 </body>
 </html>
