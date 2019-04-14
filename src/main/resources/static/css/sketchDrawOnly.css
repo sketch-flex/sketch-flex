@@ -82,6 +82,10 @@ button:hover {
 		color:var(--button-hover-color);
 		transition: 1s;
   } 
+button:hover img{
+  filter: invert(9%) sepia(17%) saturate(1021%) hue-rotate(106deg) brightness(90%) contrast(84%);
+  transition:filter 1s;
+}
   
   .formHidden{
     display: none;
