@@ -56,14 +56,31 @@ const originalResize = evt => {
   });
 })();
 
-// DRAWING EVENT HANDLERS
+// PC Drawing Event Handlers
 
 sketchbox.addEventListener('mousedown', function (event) { 
 event.preventDefault();
 mousedown(sketchbox, event); 
 });
+
 sketchbox.addEventListener('mousemove', function () { mousemove(sketchbox, event); });
 document.addEventListener('mouseup', mouseup);
+
+// Touch Drawing Event Handlers
+sketchbox.addEventListener('touchstart', function (event) {
+	event.preventDefault();
+	mousedown(sketchbox,event);
+});
+
+sketchbox.addEventListener('touchmove', function (event) {
+	event.preventDefault();
+	mousemove(sketchbox,event);
+});
+
+sketchbox.addEventListener('touchend', function (event) {
+    event.preventDefault();
+    mouseup();
+});
 
 //Button Event Handler
 document.getElementById('eraser').addEventListener('click', eraser);
@@ -139,12 +156,19 @@ function draw() {
 function getMousePos(sketchbox, event) {
 	
 	var boundaryRect = sketchbox.getBoundingClientRect();
-    console.log(boundaryRect);
     
-	return {
-		x: event.clientX - boundaryRect.left,
-		y: event.clientY - boundaryRect.top
-	};
+          
+    if(event.touches != null){
+		return {
+		  x:event.touches[0].clientX - boundaryRect.left,
+		  y:event.touches[0].clientY - boundaryRect.top
+		};
+	}else{
+	    return{
+	      x: event.clientX - boundaryRect.left,
+		  y: event.clientY - boundaryRect.top
+		};
+	}
 }
 
 
