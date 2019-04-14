@@ -36,12 +36,12 @@ public class SketchFlexPopulator implements CommandLineRunner{
 		commentRepo.save(commentChoose);
 		Sketch choice = new Sketch("Choice","/populator/TulipBulb.png",plantBulb, "Chosen: Tulip");
 		sketchRepo.save(choice);
+		Sketch water = new Sketch("Water","/populator/Water.png",plantBulb, "Water");
+		sketchRepo.save(water);
 		Sketch dig = new Sketch("Dig","/populator/Dig.png",plantBulb, "Dig a hole");
 		sketchRepo.save(dig);
 		Sketch plant = new Sketch("Plant","/populator/PlantBulb.png",plantBulb, "Plant the Tulip bulb");
 		sketchRepo.save(plant);
-		Sketch water = new Sketch("Water","/populator/Water.png",plantBulb, "Water");
-		sketchRepo.save(water);
 		Sketch gowing1 = new Sketch("Wait","/populator/TulipGrowing.png",plantBulb, "wait...");
 		sketchRepo.save(gowing1);
 		Sketch gowing2 = new Sketch("Wait2","/populator/TulipBudding.png",plantBulb, "wait more...");
