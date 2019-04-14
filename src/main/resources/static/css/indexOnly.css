@@ -27,7 +27,8 @@
 }
 
 #works{
-  background-color:#e6624d;
+
+	background-color: var(--turquoise);
   align-self: flex-end;
   padding: 15px 30px;
   margin-bottom:50px;
