@@ -1,10 +1,10 @@
 var ul = document.createElement("ul");
 ul.innerHTML = `
-		<li><a href="http://localhost:8080/home">Home</a></li>
-		<li><a href="http://localhost:8080/sketchdecks">SketchDecks</a></li>
-		<li><a href="http://localhost:8080/draw">Draw Sketch</a></li>
-		<li><a href="http://localhost:8080/sketches">All Sketches</a></li>
-		<li><a class="active" href="http://localhost:8080/upload">Upload Sketch</a></li>
+		<li><a href="/home">Home</a></li>
+		<li><a href="/sketchdecks">SketchDecks</a></li>
+		<li><a href="/draw">Draw Sketch</a></li>
+		<li><a href="/sketches">All Sketches</a></li>
+		<li><a class="active" href="/upload">Upload Sketch</a></li>
 	`;
 ul.id = "myLinks";
 var endNav = document.getElementById("endNav");
