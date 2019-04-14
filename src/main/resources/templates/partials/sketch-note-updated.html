@@ -5,19 +5,17 @@
 				<div class="name-and-image">
 					<div class="next-button"><img id="image" th:src="@{${sketch.imageLocation}}"></div>
 					<input id="note" type="text" name="sketchNote" th:value="${sketch.note}"></input>
-					<div th:each = "comment: ${sketch.comments}">
+					<div id="comment" th:each = "comment: ${sketch.comments}">
 						<p th:text = "${comment.content}"></p>
 						<form method = "POST">
-							<div>
-								<input type = "hidden" name = "commentId" th:value = "${comment.id}"/>
-								<button th:formaction="@{delete-comment}">Delete Comment</button>
-							</div>
+							<input type = "hidden" name = "commentId" th:value = "${comment.id}"/>
+							<button th:formaction="@{delete-comment}">X</button>
 						</form>					
 					</div>
 					<form id = "add-comment" method="POST">
 						<div id = "comment-box-div">
-							<label>Enter New Comment:</label>
-							<textarea id = "comment-box" type="text" name = "commentContent" placeholder = "comment"></textarea>
+							<!-- <label>Enter New Comment:</label> -->
+							<textarea id = "comment-box" type="text" name = "commentContent" placeholder = "Enter New Comment:"></textarea>
 							<input type="hidden" name="sketchName" th:value = "${sketch.name}"/>
 						</div>
 						<div>
