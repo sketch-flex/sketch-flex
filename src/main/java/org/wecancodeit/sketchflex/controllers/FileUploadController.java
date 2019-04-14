@@ -51,6 +51,7 @@ public class FileUploadController {
 								.fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString())
 								.build().toString())
 						.collect(Collectors.toList()));
+		model.addAttribute("sketchDecks", sketchDeckRepo.findAll());
 
 		return "sketch-upload-template";
 	}
@@ -67,12 +68,12 @@ public class FileUploadController {
 
 	@PostMapping("/upload")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,
-			String sketchDeckName) throws StorageException {
+			String sketchDeckName, String name) throws StorageException {
 
 		storageService.store(file);
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
-		String sketchName = file.getOriginalFilename();
+		String sketchName = name;
 		String imageLocation = "/saved-sketches/" + file.getOriginalFilename();
 		SketchDeck sketchDeck = sketchDeckRepo.findByNameContainingIgnoreCase(sketchDeckName);
 		if (sketchDeck == null) {
