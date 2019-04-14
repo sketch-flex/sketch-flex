@@ -93,3 +93,17 @@ button:hover img{
   #colorPicker{
     display: none;
   }
+  
+#sizeButtons{
+  align-self:center;
+}  
+  
+.inUse{
+   opacity: 0.7 !important;
+   background-color: var(--foreground-font-color) !important;
+}
+
+.inUse img{
+ filter: invert(9%) sepia(17%) saturate(1021%) hue-rotate(106deg) brightness(90%) contrast(84%);
+  transition:filter 1s;
+ }

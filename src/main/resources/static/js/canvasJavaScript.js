@@ -86,12 +86,28 @@ document.getElementById("colorPicker").addEventListener('change',function(){
 
 document.getElementById("pensizesmall").addEventListener('click',function(){
 	currentSize = 1;
+	if(document.querySelector(".inUse") === null){
+	  document.getElementById("pensizesmall").classList.toggle("inUse");
+	}
+	document.querySelector(".inUse").classList.toggle("inUse");
+	document.getElementById("pensizesmall").classList.toggle("inUse");
+	
 })
 document.getElementById("pensizemedium").addEventListener('click',function(){
 	currentSize = 5;
+	if(document.querySelector(".inUse") === null){
+	  document.getElementById("pensizemedium").classList.toggle("inUse");
+	}
+	document.querySelector(".inUse").classList.toggle("inUse");
+	document.getElementById("pensizemedium").classList.toggle("inUse");
 })
 document.getElementById("pensizelarge").addEventListener('click',function(){
 	currentSize = 10;
+	if(document.querySelector(".inUse") === null){
+	  document.getElementById("pensizelarge").classList.toggle("inUse");
+	}
+	document.querySelector(".inUse").classList.toggle("inUse");
+	document.getElementById("pensizelarge").classList.toggle("inUse");
 })
 document.getElementById("collapse").addEventListener('click',function(){
 	const buttons = document.getElementById('collapsablebtns');
