@@ -14,6 +14,9 @@ xhr.onreadystatechange = function() {
 		const res = xhr.response;
 		main.innerHTML = res;
 		drawButtons();
+		var titleText = document.getElementsByTagName("h1")[0].innerText;
+		var titleHead = document.getElementsByTagName("title")[0];
+		titleHead.innerText = titleText;
 	}
 }
 
