@@ -16,23 +16,37 @@
 #collapsablebtns{
 	display: flex;
 	flex-direction: column;
+	align-content: center;
 	align-items: center;
+	justify-content: space-around;
+	justify-items:space-around;
+	height:inherit;
 }
 
 
 #sidetools {
-  display:flex;
-  flex-direction: column;
+  display:grid;
   background-color: var(--foreground);
   box-sizing:border-box;
   box-shadow: 2px 2px 5px 2px var(--shadow);
-  align-self: start;
+  width:100%;
+  height:100%;
 }
+
+
+.sideclosed{
+  height:fit-content !important;
+  width:fit-content !important;
+}
+
 #sidetools form {
   height:fit-content;
   
 }
 
+#fullscreen{
+ font-family:font awesome;
+}
 
 #collapsablebtns.closed {
 display:none !important;
@@ -46,8 +60,6 @@ button{
   border: none;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
   cursor: pointer;
 }
 
@@ -95,7 +107,8 @@ button:active {
    display:flex;
    flex-direction:column;
    align-content:center;
-   justify-content:center;
+   justify-content:space-around;
+   height:100%;
    
  }
  
@@ -147,12 +160,12 @@ button:active {
  flex-direction:inherit;
  }
  
-@media only screen and (min-height:556px){
+@media only screen and (min-height:606px){
  
  @media only screen and (max-aspect-ratio:10/15),
-only screen and (max-width: 567px){
+only screen and (max-width: 617px){
 
-
+   
 	#main{
 	   grid-template-columns:1fr;
 	   grid-template-rows: max-content 1fr;
@@ -160,13 +173,24 @@ only screen and (max-width: 567px){
 	   
 	#buttons, #collapsablebtns{
 	  flex-direction:row !important;
+	  justify-content:space-around;
+	  align-content:center;
 	}
 }
 }
 
 
 @media only screen and (orientation:portrait){
-@media only screen and (min-resolution:192dpi){
+@media only screen and (min-resolution:192dpi),(-webkit-min-device-pixel-ratio:2){
+    #main{
+	   grid-template-columns:1fr;
+	   grid-template-rows: max-content 1fr;
+	   }
+	   
+	#buttons, #collapsablebtns{
+	  flex-direction:row !important;
+	}
+    
     #buttons button{
        width:100px;
        height:100px;
@@ -184,9 +208,9 @@ only screen and (max-width: 567px){
  }
  }
  
+ 
 
-
-@media only screen and (max-width:470px){
+@media only screen and (max-width:520px){
    #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;
@@ -199,7 +223,7 @@ only screen and (max-width: 567px){
 }
 
 @media only screen and (min-width:800px){
-@media only screen and (max-height:585px){
+@media only screen and (max-height:635px){
     #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;
@@ -217,7 +241,7 @@ only screen and (max-width: 567px){
 }
 }
 
-@media only screen and (max-height:556px){
+@media only screen and (max-height:606px){
     #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;

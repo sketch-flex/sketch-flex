@@ -129,12 +129,13 @@ document.getElementById('save').addEventListener('click', function(){
     
     const style3 = getComputedStyle(document.getElementById("collapsablebtns"));
     if(style3.display === "flex" && style3.flexDirection === "row"){
-        document.getElementById('collapsablebtns').classList.toggle('closed');
+        document.getElementById('collapsablebtns').classList.toggle('closed');        
         document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
 		main.removeChild(sketchbox);
         defineInitialCanvas();
     	redraw();
     }
+ 
 })
 
 
@@ -145,13 +146,19 @@ document.getElementById('save').addEventListener('click', function(){
 function collapse(){
   	const buttons = document.getElementById('collapsablebtns');
 	buttons.classList.toggle('closed');
+	document.getElementById("sidetools").classList.toggle("sideclosed");
 	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
+	main.removeChild(sketchbox);
+	defineInitialCanvas();
+	redraw();
+	
 	if(!document.querySelector('.js-form').classList.contains("formHidden")){
 	  document.querySelector('.js-form').classList.toggle('formHidden');
 	  main.removeChild(sketchbox);
 	  defineInitialCanvas();
 	  redraw();
 	}
+
 }
 
 
@@ -215,7 +222,7 @@ function mousemove(sketchbox, event) {
 		currentPosition = getMousePos(sketchbox, event);
 		ctx.lineTo(currentPosition.x, currentPosition.y);
 		ctx.stroke();
-		store(currentPosition.x, currentPosition.y, currentSize, currentColor);
+		store(currentPosition.x, currentPosition.y,  currentSize, currentColor);
 	}
 }
 
@@ -255,3 +262,17 @@ function redraw() {
 					ctx.stroke();
 				}
 		}
+function toggleFullScreen() {
+
+  var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
+  var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
+  
+  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  
+if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    requestFullScreen.call(main);
+  }
+  else {
+    cancelFullScreen.call(document);
+  }
+}		

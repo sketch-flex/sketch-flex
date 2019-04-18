@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Draw</title>
 </head>
 <body>
@@ -19,7 +21,7 @@
         <div id="main">
             <article id="sidetools">
                 <section id="buttons">
-                    
+                    <button id = "fullscreen" title = "fullscreen" onclick = "toggleFullScreen()"><i class="fas fa-window-maximize"></i></button>
                     <button id="collapse" title = "expand collapse"><i id = "plusMinus" class="fas fa-minus-circle"></i></button>
                     <div id="collapsablebtns">
 

@@ -157,7 +157,7 @@
 
 
 @media only screen and (max-aspect-ratio:10/15),
-only screen and (max-width: 567px){
+(max-width: 567px),(-webkit-min-device-pixel-ratio:2){
     #myLinks{
        display:block;
        height:0px;
