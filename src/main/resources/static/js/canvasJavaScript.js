@@ -22,10 +22,10 @@ function defineInitialCanvas() {
     const style2 = getComputedStyle(document.getElementById("sidetools"));
     let width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) - parseInt(style.columnGap) - parseInt(style2.width);
     let height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
-    const style3 = getComputedStyle(document.getElementById("collapsablebtns"));
+    let style3 = getComputedStyle(document.getElementById("collapsablebtns"));
     if((style3.display === "flex" || style3.display === "none") && style3.flexDirection === "row"){
      width = parseInt(style.width) - parseInt(style.paddingLeft) -  parseInt(style.paddingRight);
-     height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style2.height)- parseInt(style.rowGap);
+     height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style3.height) - parseInt(style.rowGap);
     }
 	sketchbox.setAttribute("width",width);
 	sketchbox.setAttribute("height",height);
@@ -274,6 +274,9 @@ function toggleFullScreen() {
   var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
   
   document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw();
   
 if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
     requestFullScreen.call(main);

@@ -167,7 +167,7 @@ button:active {
 @media only screen and (min-height:606px){
  
  @media only screen and (max-aspect-ratio:10/15),
-only screen and (max-width: 617px){
+(max-width: 617px){
 
    
 	#main{
@@ -177,7 +177,7 @@ only screen and (max-width: 617px){
 	   
 	#buttons, #collapsablebtns{
 	  flex-direction:row !important;
-	  justify-content:space-around;
+	  justify-content:space-around !important;
 	  align-content:center;
 	}
 }
@@ -201,24 +201,39 @@ only screen and (max-width: 617px){
        font-size:60px;
     }
     #pensizesmall{
-      font-size:20px;
+      font-size:10px;
     }
     #pensizemedium{
-      font-size:40px;
+      font-size:20px;
     }
     #pensizelarge{
-      font-size:60px;
+      font-size:30px;
     }
     #upload{
-   width:fit-content !important;
-   
- }
+   width:fit-content !important; 
+   }
  }
  }
  
  
 
 @media only screen and (max-width:520px){
+    #buttons button{
+       width:30px;
+       height:30px;
+       font-size:15px;
+    }
+    #pensizesmall{
+      font-size:5px !important;
+    }
+    #pensizemedium{
+      font-size:10px !important;
+    }
+    #pensizelarge{
+      font-size:15px !important;
+    }
+
+   @media only screen and (-webkit-max-device-pixel-ratio:2){
    #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;
@@ -226,6 +241,7 @@ only screen and (max-width: 617px){
    #buttons, #collapsablebtns{
      display:flex !important;
      flex-direction:column !important;
+   }
    }
    
 }
