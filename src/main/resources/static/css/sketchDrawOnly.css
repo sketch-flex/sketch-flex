@@ -27,10 +27,12 @@
 #sidetools {
   display:grid;
   background-color: var(--foreground);
-  box-sizing:border-box;
   box-shadow: 2px 2px 5px 2px var(--shadow);
   width:100%;
+  max-width:100%;
   height:100%;
+  max-height:100%;
+  box-sizing:border-box;
 }
 
 
@@ -157,7 +159,9 @@ button:active {
  }
  .js-form{
  display:flex;
+ justify-content:space-around;
  flex-direction:inherit;
+ width:100%;
  }
  
 @media only screen and (min-height:606px){
@@ -192,8 +196,8 @@ only screen and (max-width: 617px){
 	}
     
     #buttons button{
-       width:100px;
-       height:100px;
+       width:80px;
+       height:80px;
        font-size:60px;
     }
     #pensizesmall{
@@ -205,6 +209,10 @@ only screen and (max-width: 617px){
     #pensizelarge{
       font-size:60px;
     }
+    #upload{
+   width:fit-content !important;
+   
+ }
  }
  }
  
