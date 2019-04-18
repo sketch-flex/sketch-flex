@@ -146,7 +146,6 @@ document.getElementById('save').addEventListener('click', function(){
 
 function collapse(){
   	const buttons = document.getElementById('collapsablebtns');
-	buttons.classList.toggle("closed");
 	document.getElementById("sidetools").classList.toggle("sideclosed");
 	document.getElementById("buttons").classList.toggle("sideclosed");
 	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
@@ -154,7 +153,7 @@ function collapse(){
 	defineInitialCanvas();
 	redraw();
 	
-	if(!document.classList.containts("fa-plus-circle")){
+	if(!document.querySelector("#fullscreen i").classList.contains("fa-plus-circle")){
 	  document.getElementById('lob').value = sketchbox.toDataURL();
 	}
 	
@@ -164,6 +163,7 @@ function collapse(){
 	    document.getElementById("buttons").classList.toggle("sideclosed");
 	  }
 	  document.querySelector('.js-form').classList.toggle('formHidden');
+	
 	  main.removeChild(sketchbox);
 	  defineInitialCanvas();
 	  redraw(); 
