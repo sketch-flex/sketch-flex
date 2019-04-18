@@ -135,6 +135,26 @@
 
 }
 }
+@media only screen and (min-aspect-ratio:15/10){
+
+@media only screen and (min-resolution:192dpi){
+
+
+ #myLinks a{
+   padding:7px 8px;
+   font-size:12px;
+ }
+ 
+ #pageName{
+	 font-size:25px;
+	 height:fit-content;
+	 width:fit-content;
+
+ }
+ 
+}
+}
+
 
 @media only screen and (max-aspect-ratio:10/15),
 only screen and (max-width: 567px){

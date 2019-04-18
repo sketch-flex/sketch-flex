@@ -4,50 +4,38 @@
   display:grid;
   gap:10px;
   width:100%;
-  grid-template-columns: 68px 1fr;
+  grid-template-columns: max-content 1fr;
   background: var(--background); 
-  box-sizing:border-box;
-  justify-items:center;
-  align-items:center;
   padding:10px;
-}
-#main.expand{
-  grid-template-columns: 160px 1fr;
+  box-sizing:border-box;
+  justify-items:start;
+  
 }
 
+
 #collapsablebtns{
-display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-#sizeButtons{
-  display: grid;
-  grid-template-columns: 13px 13px 13px;
-}
-#sizeButtons img{
-  max-width: 13px;
-  max-height: 20px;
-}
-#sizeButtons button {
-  padding: 0;
-  margin: 0;
-}
+
 
 #sidetools {
   display:flex;
   flex-direction: column;
-  border: 100px;
   background-color: var(--foreground);
-  padding: 10px;
   box-sizing:border-box;
   box-shadow: 2px 2px 5px 2px var(--shadow);
   align-self: start;
 }
-
+#sidetools form {
+  height:fit-content;
+  
+}
 
 
 #collapsablebtns.closed {
-display:none;
+display:none !important;
 }
 
 
@@ -56,54 +44,188 @@ button{
 	background-color: transparent;
 	color: white;
   border: none;
-  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
 }
 
 /*download button*/
-button a{
-	color: white;
+button {
+	color: var(--foreground-font-color);
 	text-decoration: none;
 }
 
 #deckDropDown{
-	width: 100%;
+	width:100px;
 }
+
 
 
 button:hover {
 	opacity: 0.7;
 		background-color: var(--foreground-font-color);  
-		color:var(--button-hover-color);
+		color:var(--turquoise);
 		transition: 1s;
   } 
-button:hover img{
-  filter: invert(9%) sepia(17%) saturate(1021%) hue-rotate(106deg) brightness(90%) contrast(84%);
-  transition:filter 1s;
+
+button:active {
+    color:var(--foreground-font-color);
+    background:transparent;
 }
-  
+
   .formHidden{
-    display: none;
+    display: none !important;
   }
   #colorPicker{
     display: none;
   }
   
-#sizeButtons{
-  align-self:center;
-}  
+
   
 .inUse{
    opacity: 0.7 !important;
    background-color: var(--foreground-font-color) !important;
+   color:var(--turquoise);
 }
 
-.inUse img{
- filter: invert(9%) sepia(17%) saturate(1021%) hue-rotate(106deg) brightness(90%) contrast(84%);
-  transition:filter 1s;
+
+  #buttons{
+   display:flex;
+   flex-direction:column;
+   align-content:center;
+   
  }
+ 
+ #buttons button{
+   width:50px;
+   height:50px;
+   font-size:30px;
+ }
+ 
+
+ #pensizesmall{
+	 font-size:10px !important;
+	 padding:0px;
+ }
+ #pensizemedium{
+	 font-size:20px !important;
+	 padding:0px;
+ }
+ #pensizelarge{
+     padding:0px;
+	 font-size:30px !important;
+	 align-self:center;
+	 justify-self:center;
+ }
+ 
+ #clear{
+   font-size:30px;
+   font-family:font awesome !important;
+ }
+ 
+ #upload{
+   width:100px !important;
+   
+ }
+ 
+ #collapse:visited{
+   background:transparent;
+ }
+ 
+ #name-sketch{
+  width:100px;
+  box-sizing:border-box;
+ }
+ .js-form{
+ display:flex;
+ flex-direction:inherit;
+ }
+ 
+@media only screen and (min-height:556px){
+ 
+ @media only screen and (max-aspect-ratio:10/15),
+only screen and (max-width: 567px){
+
+
+	#main{
+	   grid-template-columns:1fr;
+	   grid-template-rows: max-content 1fr;
+	   }
+	   
+	#buttons, #collapsablebtns{
+	  flex-direction:row !important;
+	}
+}
+}
+
+
+@media only screen and (orientation:portrait){
+@media only screen and (min-resolution:192dpi){
+    #buttons button{
+       width:100px;
+       height:100px;
+       font-size:60px;
+    }
+    #pensizesmall{
+      font-size:20px;
+    }
+    #pensizemedium{
+      font-size:40px;
+    }
+    #pensizelarge{
+      font-size:60px;
+    }
+ }
+ }
+ 
+
+
+@media only screen and (max-width:470px){
+   #main{
+   grid-template-rows:1fr !important;
+   grid-template-columns: max-content 1fr !important;
+   }
+   #buttons, #collapsablebtns{
+     display:flex !important;
+     flex-direction:column !important;
+   }
+   
+}
+
+@media only screen and (min-width:800px){
+@media only screen and (max-height:585px){
+    #main{
+   grid-template-rows:1fr !important;
+   grid-template-columns: max-content 1fr !important;
+   }
+   #buttons, #collapsablebtns{
+     display:flex !important;
+     flex-direction:column !important;
+   }
+   #collapsablebtns{
+    display:grid !important;
+    grid-template-rows:repeat(4, max-content) !important;
+    grid-template-columns:repeat(2, max-content) !important;
+   }
+   
+}
+}
+
+@media only screen and (max-height:556px){
+    #main{
+   grid-template-rows:1fr !important;
+   grid-template-columns: max-content 1fr !important;
+   }
+   #buttons, #collapsablebtns{
+     display:flex !important;
+     flex-direction:column !important;
+   }
+   #collapsablebtns{
+    display:grid !important;
+    grid-template-rows:repeat(4, max-content) !important;
+    grid-template-columns:repeat(2, max-content) !important;
+   }
+   
+}

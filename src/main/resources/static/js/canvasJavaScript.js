@@ -18,10 +18,16 @@ function defineInitialCanvas() {
 	//sketchbox.style.border = "1px solid";
 	sketchbox.style.boxShadow = "2px 2px 5px 2px #666";
 	sketchbox.style.backfaceVisibility = "hidden";
-	var style = getComputedStyle(main);
-    var style2 = getComputedStyle(main.firstElementChild);
-    var width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) - parseInt(style.columnGap) - parseInt(style2.width);
-    var height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
+	const style = getComputedStyle(main);
+    const style2 = getComputedStyle(document.getElementById("sidetools"));
+    let width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) - parseInt(style.columnGap) - parseInt(style2.width);
+    let height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
+    const style3 = getComputedStyle(document.getElementById("collapsablebtns"));
+    if((style3.display === "flex" || style3.display === "none") && style3.flexDirection === "row"){
+     width = parseInt(style.width) - parseInt(style.paddingLeft) -  parseInt(style.paddingRight);
+     height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style2.height)- parseInt(style.rowGap);
+     console.log("this happened");
+    }
 	sketchbox.setAttribute("width",width);
 	sketchbox.setAttribute("height",height);
 	ctx.fillStyle = "white";
@@ -31,30 +37,12 @@ function defineInitialCanvas() {
 
 
 //dynamic-resize
-const delay = 0;  // Your delay here
-
-const originalResize = evt => {
-  console.log(evt);  
+window.addEventListener('resize', evt => {  
   main.removeChild(sketchbox);
   defineInitialCanvas();
   redraw();
-};
-
-
-(() => {
-  resizeTaskId = null;
-
-  window.addEventListener('resize', evt => {
-    if (resizeTaskId !== null) {
-      clearTimeout(resizeTaskId);
-    }
-
-    resizeTaskId = setTimeout(() => {
-      resizeTaskId = null;
-      originalResize(evt);
-    }, delay);
-  });
-})();
+  
+});
 
 // PC Drawing Event Handlers
 
@@ -127,15 +115,45 @@ document.getElementById("pensizelarge").addEventListener('click',function(){
 	document.getElementById("pensizelarge").classList.toggle("inUse");
 })
 document.getElementById("collapse").addEventListener('click',function(){
-	const buttons = document.getElementById('collapsablebtns');
-	buttons.classList.toggle('closed');
+   collapse();
 })
 
 document.getElementById('save').addEventListener('click', function(){
-	const  saveButton = document.querySelector('.js-form');
-	saveButton.classList.toggle('formHidden');
-	main.classList.toggle('expand');
+    document.getElementById('lob').value = sketchbox.toDataURL();
+	const  form = document.querySelector('.js-form');
+	form.classList.toggle('formHidden');
+	main.removeChild(sketchbox);
+    defineInitialCanvas();
+    redraw();
+    
+    
+    const style3 = getComputedStyle(document.getElementById("collapsablebtns"));
+    if(style3.display === "flex" && style3.flexDirection === "row"){
+        document.getElementById('collapsablebtns').classList.toggle('closed');
+        document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
+		main.removeChild(sketchbox);
+        defineInitialCanvas();
+    	redraw();
+    }
 })
+
+
+
+
+
+
+function collapse(){
+  	const buttons = document.getElementById('collapsablebtns');
+	buttons.classList.toggle('closed');
+	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
+	if(!document.querySelector('.js-form').classList.contains("formHidden")){
+	  document.querySelector('.js-form').classList.toggle('formHidden');
+	  main.removeChild(sketchbox);
+	  defineInitialCanvas();
+	  redraw();
+	}
+}
+
 
 //Eraser Function
 
@@ -205,13 +223,12 @@ function mousemove(sketchbox, event) {
 
 function mouseup() {
 	isMouseDown = false
-	document.getElementById('lob').value = document.getElementById('sketchbox').toDataURL(); //changes value of 'lob' input when mouseup
 	store();
 }
 // Download Sketchbox
 
 function downloadCanvas(link, sketchbox, filename) {
-	link.href = document.getElementById(sketchbox).toDataURL();
+	link.href = document.sketchbox.toDataURL();
 	link.download = filename;
 }
 

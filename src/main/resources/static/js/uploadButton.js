@@ -14,11 +14,13 @@ file.addEventListener("input", function(){
 
 var deck = document.getElementById("deckDropDown")
 deck.addEventListener("change", function(){
-	deckChosen = true;
-	enableUpload();
+
+		deckChosen = true;
+		enableUpload();
 })
 
 function enableUpload(){
+    
 	if(fileChosen===true&&deckChosen===true){
 		upload.disabled = false;
 	}

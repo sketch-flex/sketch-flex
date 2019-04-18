@@ -3,13 +3,8 @@
 @import "footer.css";
 @import "indexOnly.css";
 @import "sketchDrawOnly.css";
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-
-
-*{
- font-family:raleway;
-}
 
 html, body{
  height:100%;
@@ -17,6 +12,7 @@ html, body{
 }
 
 body{
+font-family:raleway;
 margin:0px;
 display:grid;
 align-items:center;
@@ -26,6 +22,7 @@ justify-items:center;
 #container{
  display:grid;
  background: var(--background);  
+ max-width:100%;
  width:100%;
  min-height:100%;
  height:fit-content;

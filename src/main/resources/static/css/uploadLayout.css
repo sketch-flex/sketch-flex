@@ -1,13 +1,5 @@
 @charset "ISO-8859-1";
 
-#deckDropDown{
-	max-width: 10rem;
-}
-
-#inputFields{
-	
-	max-width: 10rem;
-}
 
 #uploadChoices{
 	display:flex;

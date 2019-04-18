@@ -5,5 +5,5 @@
   --background-font-color:black;
   --shadow:#666;
   --button-hover-color:#333;
-  --turquoise: #66CDAA;
+  --turquoise: #66CDAA !important;
 }
