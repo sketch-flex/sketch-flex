@@ -146,7 +146,7 @@ document.getElementById('save').addEventListener('click', function(){
 
 function collapse(){
   	const buttons = document.getElementById('collapsablebtns');
-	
+	buttons.classList.toggle("closed");
 	document.getElementById("sidetools").classList.toggle("sideclosed");
 	document.getElementById("buttons").classList.toggle("sideclosed");
 	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
