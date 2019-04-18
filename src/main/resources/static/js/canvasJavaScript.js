@@ -154,6 +154,10 @@ function collapse(){
 	defineInitialCanvas();
 	redraw();
 	
+	if(!document.classList.containts("fa-plus-circle")){
+	  document.getElementById('lob').value = sketchbox.toDataURL();
+	}
+	
 	if(!document.querySelector('.js-form').classList.contains("formHidden")){
 	  if(buttons.classList.contains("closed")){
 	    document.getElementById("sidetools").classList.toggle("sideclosed");
