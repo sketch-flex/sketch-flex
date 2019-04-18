@@ -26,7 +26,6 @@ function defineInitialCanvas() {
     if((style3.display === "flex" || style3.display === "none") && style3.flexDirection === "row"){
      width = parseInt(style.width) - parseInt(style.paddingLeft) -  parseInt(style.paddingRight);
      height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style2.height)- parseInt(style.rowGap);
-     console.log("this happened");
     }
 	sketchbox.setAttribute("width",width);
 	sketchbox.setAttribute("height",height);
@@ -120,6 +119,7 @@ document.getElementById("collapse").addEventListener('click',function(){
 
 document.getElementById('save').addEventListener('click', function(){
     document.getElementById('lob').value = sketchbox.toDataURL();
+
 	const  form = document.querySelector('.js-form');
 	form.classList.toggle('formHidden');
 	main.removeChild(sketchbox);
@@ -145,7 +145,7 @@ document.getElementById('save').addEventListener('click', function(){
 
 function collapse(){
   	const buttons = document.getElementById('collapsablebtns');
-	buttons.classList.toggle('closed');
+	
 	document.getElementById("sidetools").classList.toggle("sideclosed");
 	document.getElementById("buttons").classList.toggle("sideclosed");
 	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
@@ -154,12 +154,17 @@ function collapse(){
 	redraw();
 	
 	if(!document.querySelector('.js-form').classList.contains("formHidden")){
+	  if(buttons.classList.contains("closed")){
+	    document.getElementById("sidetools").classList.toggle("sideclosed");
+	    document.getElementById("buttons").classList.toggle("sideclosed");
+	  }
 	  document.querySelector('.js-form').classList.toggle('formHidden');
 	  main.removeChild(sketchbox);
 	  defineInitialCanvas();
-	  redraw();
+	  redraw(); 
 	}
-
+	
+	buttons.classList.toggle('closed');
 }
 
 
