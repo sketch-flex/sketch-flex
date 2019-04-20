@@ -46,15 +46,20 @@ window.addEventListener('resize', evt => {
 });
 
 window.addEventListener("orientationchange", function() {
-  if(window.orientation === 180 || window.orientation === 0){
+
+
+window.setTimeout(function() {
+  if(window.innerWidth < window.innerHeight){
     main.removeChild(sketchbox);
     defineInitialCanvas();
     redraw();
-  }else if(window.orienation === 90 || window.orientation === -90){
+  }
+  else if(window.innerWidth > window.innerHeight){
     main.removeChild(sketchbox);
     defineInitialCanvas();
     redrawhorizontal();
   }
+ },100);
 });
 
 // PC Drawing Event Handlers
