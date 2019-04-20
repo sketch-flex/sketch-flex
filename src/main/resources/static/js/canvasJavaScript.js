@@ -298,7 +298,7 @@ function redrawhorizontal(){
 					ctx.lineWidth  = linesArray[i].size;
 					ctx.lineCap = "round";
 					ctx.strokeStyle = linesArray[i].color;
-					ctx.lineTo(linesArray[i].y, linesArray[i].x);
+					ctx.lineTo(window.innerHeight - linesArray[i].y, linesArray[i].x);
 					ctx.stroke();
 				}
 
