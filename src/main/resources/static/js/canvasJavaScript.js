@@ -306,8 +306,8 @@ function toggleFullScreen() {
   }
   
 
- // document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
-  //main.removeChild(sketchbox);
-  ///defineInitialCanvas();
-  //redraw();
+  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw();
 }		
