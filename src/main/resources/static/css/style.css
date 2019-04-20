@@ -110,7 +110,7 @@ h1{
 	flex-direction: row;
 	justify-content: space-around;
 	padding: 1rem 0px;
-	width: 400px;
+	width: 100%;
 }
 
 .name-and-image #comment button{
@@ -124,7 +124,7 @@ h1{
 	flex-direction: row;
 	justify-content: center;
 	padding: 1rem 0px;
-	width: 400px;
+	width: 100%;
 }
 
 .next-button{
@@ -136,7 +136,7 @@ h1{
 
 .name-and-image img{
 	padding: 1rem 0px;
-	width:400px;
+	width: 100%;
 	height:auto;
 }
 
