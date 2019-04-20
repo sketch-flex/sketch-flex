@@ -23,9 +23,10 @@ function defineInitialCanvas() {
     let width = parseInt(style.width) - parseInt(style.paddingLeft) - parseInt(style.paddingRight) - parseInt(style.columnGap) - parseInt(style2.width);
     let height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom);
     const style3 = getComputedStyle(document.getElementById("collapsablebtns"));
-    if((style3.display === "flex" || style3.display === "none") && style3.flexDirection === "row"){
+    const style4 = getComputedStyle(document.getElementById("buttons"));
+    if((style3.display === "flex" || style3.display === "none") && style4.flexDirection === "row"){
      width = parseInt(style.width) - parseInt(style.paddingLeft) -  parseInt(style.paddingRight);
-     height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style3.height) - parseInt(style.rowGap);
+     height = parseInt(style.height) - parseInt(style.paddingTop) - parseInt(style.paddingBottom) - parseInt(style4.height) - parseInt(style.rowGap);
      console.log(style3.height);
     }
 	sketchbox.setAttribute("width",width);
@@ -149,9 +150,6 @@ function collapse(){
 	document.getElementById("sidetools").classList.toggle("sideclosed");
 	document.getElementById("buttons").classList.toggle("sideclosed");
 	document.getElementById("plusMinus").classList.toggle("fa-plus-circle");
-	main.removeChild(sketchbox);
-	defineInitialCanvas();
-	redraw();
 	
 	if(!document.querySelector("#fullscreen i").classList.contains("fa-plus-circle")){
 	  document.getElementById('lob').value = sketchbox.toDataURL();
@@ -161,15 +159,17 @@ function collapse(){
 	  if(buttons.classList.contains("closed")){
 	    document.getElementById("sidetools").classList.toggle("sideclosed");
 	    document.getElementById("buttons").classList.toggle("sideclosed");
+	    main.removeChild(sketchbox);
+	    defineInitialCanvas();
+	    redraw();    
 	  }
 	  document.querySelector('.js-form').classList.toggle('formHidden');
-	
-	  main.removeChild(sketchbox);
-	  defineInitialCanvas();
-	  redraw(); 
 	}
 	
 	buttons.classList.toggle('closed');
+	main.removeChild(sketchbox);
+	defineInitialCanvas();
+	redraw();
 }
 
 
