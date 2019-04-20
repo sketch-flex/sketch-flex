@@ -49,6 +49,8 @@ window.addEventListener("orientationchange", function() {
 
 
 window.setTimeout(function() {
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
   rotatedrawing();
  },100);
 });
