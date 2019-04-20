@@ -294,7 +294,7 @@ function redraw() {
 function redrawhorizontal(){
                 for (var i = 1; i < linesArray.length; i++) {
 					ctx.beginPath();
-					ctx.moveTo(linesArray[i-1].y, linesArray[i-1].x);
+					ctx.moveTo(window.innerheight - linesArray[i-1].y, linesArray[i-1].x);
 					ctx.lineWidth  = linesArray[i].size;
 					ctx.lineCap = "round";
 					ctx.strokeStyle = linesArray[i].color;
