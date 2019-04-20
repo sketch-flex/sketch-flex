@@ -167,6 +167,7 @@ button:active {
  
 .hidden{
    display:none;
+   overflow:hidden;
 }
  
 @media only screen and (min-height:606px){

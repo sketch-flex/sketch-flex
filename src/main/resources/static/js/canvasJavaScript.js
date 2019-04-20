@@ -283,7 +283,7 @@ function toggleFullScreen() {
 
   var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
   var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
-  
+  f
 if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
     requestFullScreen.call(main);
   }
