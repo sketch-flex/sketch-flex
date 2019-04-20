@@ -289,8 +289,13 @@ function toggleFullScreen() {
   
    document.querySelector(".navbar").classList.toggle("hidden");
    document.getElementById("footer").classList.toggle("hidden");
-	 main.parentElement.classList.toggle("fullcontainer");
-	 main.classList.toggle("full");
+	main.parentElement.classList.toggle("fullcontainer");
+	main.classList.toggle("full");
+	 
+  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw(); 	 
 
   
   if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
@@ -300,11 +305,9 @@ function toggleFullScreen() {
     cancelFullScreen.call(document);
   }
   
-  
-  
 
-  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
-  main.removeChild(sketchbox);
-  defineInitialCanvas();
-  redraw();
+ // document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  //main.removeChild(sketchbox);
+  ///defineInitialCanvas();
+  //redraw();
 }		
