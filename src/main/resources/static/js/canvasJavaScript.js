@@ -45,6 +45,12 @@ window.addEventListener('resize', evt => {
   
 });
 
+window.addEventListener("orientationchange", function() {
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw();
+});
+
 // PC Drawing Event Handlers
 
 sketchbox.addEventListener('mousedown', function (event) { 
