@@ -287,7 +287,7 @@ function toggleFullScreen() {
   var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
   var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
   
-  main.addEventListener("fullScreenError", function(){
+  main.addEventListener("fullscreenerror", function(){
    console.log(document.fullScreenElement);
    document.querySelector(".navbar").classList.toggle("hidden");
    document.getElementById("footer").classList.toggle("hidden");
