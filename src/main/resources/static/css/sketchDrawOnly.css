@@ -209,7 +209,7 @@ button:active {
 	  flex-direction:row !important;
 	}
     
-    #buttons button{
+ /*   #buttons button{
        width:80px;
        height:80px;
        font-size:60px;
@@ -222,7 +222,7 @@ button:active {
     }
     #pensizelarge{
       font-size:30px;
-    }
+    } */
     #upload{
    width:fit-content !important; 
    }
@@ -233,7 +233,7 @@ button:active {
 
 @media only screen and (max-width:520px){
    @media only screen and (-webkit-min-device-pixel-ratio:2){
-    #buttons button{
+   /* #buttons button{
        width:30px;
        height:30px;
        font-size:15px;
@@ -247,7 +247,7 @@ button:active {
     #pensizelarge{
       font-size:15px !important;
     }
-   }
+   } */
    @media only screen and (-webkit-max-device-pixel-ratio:2){
    #main{
    grid-template-rows:1fr !important;
