@@ -279,6 +279,9 @@ function redraw() {
 					ctx.stroke();
 				}
 		}
+		
+document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);		
+		
 function toggleFullScreen() {
 
   var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
