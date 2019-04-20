@@ -49,16 +49,7 @@ window.addEventListener("orientationchange", function() {
 
 
 window.setTimeout(function() {
-  if(window.innerWidth < window.innerHeight){
-    main.removeChild(sketchbox);
-    defineInitialCanvas();
-    redraw();
-  }
-  else if(window.innerWidth > window.innerHeight){
-    main.removeChild(sketchbox);
-    defineInitialCanvas();
-    redrawhorizontal();
-  }
+  rotatedrawing();
  },100);
 });
 
@@ -291,14 +282,14 @@ function redraw() {
 				}
 		}
 		
-function redrawhorizontal(){
+function rotatedrawing(){
                 for (var i = 1; i < linesArray.length; i++) {
 					ctx.beginPath();
-					ctx.moveTo(window.innerHeight - linesArray[i-1].y, linesArray[i-1].x);
+					ctx.moveTo(window.innerHeight - linesArray[i-1].y,window.innerWidth - linesArray[i-1].x);
 					ctx.lineWidth  = linesArray[i].size;
 					ctx.lineCap = "round";
 					ctx.strokeStyle = linesArray[i].color;
-					ctx.lineTo(window.innerHeight - linesArray[i].y, linesArray[i].x);
+					ctx.lineTo(window.innerHeight - linesArray[i].y,window.innerWidth - linesArray[i].x);
 					ctx.stroke();
 				}
 
