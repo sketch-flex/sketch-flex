@@ -2,5 +2,5 @@
  "display":"fullscreen",
  "Theme-color":"#e6624d",
  "background-color":"#e6624d",
- "start_url":"draw"
+ "start_url":"/draw"
 }
