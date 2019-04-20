@@ -47,9 +47,10 @@ window.addEventListener('resize', evt => {
 
 window.addEventListener("orientationchange", function() {
 
+  window.setTimeout(function(){
   main.removeChild(sketchbox);
   defineInitialCanvas();
-  rotatedrawing();
+  redraw();},100);
  
 });
 
