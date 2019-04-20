@@ -289,7 +289,7 @@ function toggleFullScreen() {
   
    document.querySelector(".navbar").classList.toggle("hidden");
    document.getElementById("footer").classList.toggle("hidden");
-   main.classList.toggle("full");
+   main.parentElement.classList.toggle("fullcontainer");
 
   
   if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {

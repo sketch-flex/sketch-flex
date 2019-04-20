@@ -170,11 +170,10 @@ button:active {
    overflow:hidden;
 }
 
-.full{
-   grid-row: 1/3;
-   height:100%;
+.fullcontainer{
+  grid-template-rows:1fr;
 }
- 
+
 @media only screen and (min-height:606px){
  
  @media only screen and (max-aspect-ratio:10/15),
