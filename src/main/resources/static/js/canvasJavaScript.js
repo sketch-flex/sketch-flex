@@ -46,9 +46,15 @@ window.addEventListener('resize', evt => {
 });
 
 window.addEventListener("orientationchange", function() {
-  main.removeChild(sketchbox);
-  defineInitialCanvas();
-  redraw();
+  if(window.orientation === 180 || window.orientation === 0){
+    main.removeChild(sketchbox);
+    defineInitialCanvas();
+    redraw();
+  }else if(window.orienation === 90 || window.orientation === -90){
+    main.removeChild(sketchbox);
+    defineInitialCanvas();
+    redrawhorizontal();
+  }
 });
 
 // PC Drawing Event Handlers
@@ -279,6 +285,19 @@ function redraw() {
 					ctx.stroke();
 				}
 		}
+		
+function redrawhorizontal(){
+                for (var i = 1; i < linesArray.length; i++) {
+					ctx.beginPath();
+					ctx.moveTo(linesArray[i-1].y, linesArray[i-1].x);
+					ctx.lineWidth  = linesArray[i].size;
+					ctx.lineCap = "round";
+					ctx.strokeStyle = linesArray[i].color;
+					ctx.lineTo(linesArray[i].y, linesArray[i].x);
+					ctx.stroke();
+				}
+
+}
 		
 document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);		
 		
