@@ -164,6 +164,11 @@ button:active {
  width:100%;
  }
  
+ 
+.hidden{
+   display:none;
+}
+ 
 @media only screen and (min-height:606px){
  
  @media only screen and (max-aspect-ratio:10/15),

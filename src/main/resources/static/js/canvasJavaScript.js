@@ -284,15 +284,20 @@ function toggleFullScreen() {
   var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
   var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
   
-  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
-  main.removeChild(sketchbox);
-  defineInitialCanvas();
-  redraw();
-  
 if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
     requestFullScreen.call(main);
   }
   else {
     cancelFullScreen.call(document);
   }
+  
+if(document.fullScreenElement === null || document.mosFullScreenElement === null || document.webkitFullscreenElement === null || document.msFullscreenElement === null) {
+  document.querySelector(".navbar").classList.toggle("hidden");
+  document.querySelector("footer").classlist.toggle("hidden");
+}
+
+  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
+  main.removeChild(sketchbox);
+  defineInitialCanvas();
+  redraw();
 }		
