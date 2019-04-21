@@ -4,6 +4,7 @@ var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 1;
 var linesArray = [];
+var linesArray2 = [];
 var currentColor = "rgb(0,0,0)";
 var currentOpacity = "1";
 
@@ -52,14 +53,14 @@ window.setTimeout(function() {
   if(window.innerWidth < window.innerHeight){
     main.removeChild(sketchbox);
     defineInitialCanvas();
-    redraw();
+    redrawvertical();
   }
   else if(window.innerWidth > window.innerHeight){
     main.removeChild(sketchbox);
     defineInitialCanvas();
     redrawhorizontal();
   }
- },100);
+ },300);
 });
 
 // PC Drawing Event Handlers
@@ -97,6 +98,7 @@ document.getElementById('draw').addEventListener('click', draw);
 document.getElementById("clear").addEventListener('click', function(){
   defineInitialCanvas();
   linesArray = [];
+  linesArray2 = [];
 });
 document.getElementById("penColor").addEventListener('click', function () {
 	const colorPicker = document.getElementById("colorPicker");
@@ -276,7 +278,21 @@ function store(x, y, s, c) {
 			"size": s,
 			"color": c
 		}
+		var line2 = {
+		    "x": window.innerHeight - y,
+		    "y": x,
+		    "size": s,
+		    "color": c
+		}
+		
 		linesArray.push(line);
+		
+		if(window.innerHeight > window.innerWidth){
+		  linesArray2.push(line);
+		}else{
+		  linesArray2.push(line2);
+		  console.log(line2);
+		}
 	}
 	
 function redraw() {
@@ -291,18 +307,32 @@ function redraw() {
 				}
 		}
 		
-function redrawhorizontal(){
-                for (var i = 1; i < linesArray.length; i++) {
+function redrawvertical(){
+               for (var i = 1; i < linesArray2.length; i++) {
 					ctx.beginPath();
-					ctx.moveTo(linesArray[i-1].y, linesArray[i-1].x);
-					ctx.lineWidth  = linesArray[i].size;
+					ctx.moveTo(linesArray2[i-1].x, linesArray2[i-1].y);
+					ctx.lineWidth  = linesArray2[i].size;
 					ctx.lineCap = "round";
-					ctx.strokeStyle = linesArray[i].color;
-					ctx.lineTo(linesArray[i].y, linesArray[i].x);
+					ctx.strokeStyle = linesArray2[i].color;
+					ctx.lineTo(linesArray2[i].x, linesArray2[i].y);
 					ctx.stroke();
 				}
 
 }
+		
+function redrawhorizontal(){
+                for (var i = 1; i < linesArray2.length; i++) {
+					ctx.beginPath();
+					ctx.moveTo(linesArray2[i-1].y, window.innerHeight - linesArray2[i-1].x);
+					ctx.lineWidth  = linesArray2[i].size;
+					ctx.lineCap = "round";
+					ctx.strokeStyle = linesArray2[i].color;
+					ctx.lineTo(linesArray2[i].y, window.innerHeight - linesArray2[i].x);
+					ctx.stroke();
+				}
+
+}
+
 		
 document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);		
 		
@@ -311,10 +341,10 @@ function toggleFullScreen() {
   var requestFullScreen = main.requestFullscreen || main.mozRequestFullScreen || main.webkitRequestFullScreen || main.msRequestFullscreen;
   var cancelFullScreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
   
-   document.querySelector(".navbar").classList.toggle("hidden");
-   document.getElementById("footer").classList.toggle("hidden");
-	main.parentElement.classList.toggle("fullcontainer");
-	main.classList.toggle("full");
+  document.querySelector(".navbar").classList.toggle("hidden");
+  document.getElementById("footer").classList.toggle("hidden");
+  main.parentElement.classList.toggle("fullcontainer");
+  main.classList.toggle("full");
 	 
   document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
   main.removeChild(sketchbox);
