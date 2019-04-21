@@ -115,8 +115,8 @@ button:active {
  }
  
  #buttons button{
-   width:40px;
-   height:40px;
+   width:auto;
+   height:10%;
    font-size:30px;
    align-self:center;
    justify-self:center;
@@ -209,20 +209,20 @@ button:active {
 	  flex-direction:row !important;
 	}
     
- /*   #buttons button{
-       width:80px;
-       height:80px;
-       font-size:60px;
+  #buttons button{
+       width:10%;
+       height:auto;
+       font-size:auto;
     }
     #pensizesmall{
-      font-size:10px;
+      font-size:auto;
     }
     #pensizemedium{
-      font-size:20px;
+      font-size:auto;
     }
     #pensizelarge{
-      font-size:30px;
-    } */
+      font-size:auto;
+    } 
     #upload{
    width:fit-content !important; 
    }
@@ -233,19 +233,19 @@ button:active {
 
 @media only screen and (max-width:520px){
    @media only screen and (-webkit-min-device-pixel-ratio:2){
-   /* #buttons button{
-       width:30px;
-       height:30px;
-       font-size:15px;
+   #buttons button{
+       width:10%;
+       height:auto;
+       font-size:auto;
     }
     #pensizesmall{
-      font-size:5px !important;
+      font-size:auto !important;
     }
     #pensizemedium{
-      font-size:10px !important;
+      font-size:auto !important;
     }
     #pensizelarge{
-      font-size:15px !important;
+      font-size:auto !important;
     }
    } */
    @media only screen and (-webkit-max-device-pixel-ratio:2){
