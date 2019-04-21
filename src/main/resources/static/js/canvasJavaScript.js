@@ -46,12 +46,9 @@ window.addEventListener('resize', evt => {
 });
 
 window.addEventListener("orientationchange", function() {
-
-  window.setTimeout(function(){
-  main.removeChild(sketchbox);
-  defineInitialCanvas();
-  rotatedrawing();},100);
- 
+  
+  window.alert(“Screen Rotated”);
+  
 });
 
 // PC Drawing Event Handlers
@@ -282,19 +279,6 @@ function redraw() {
 					ctx.stroke();
 				}
 		}
-		
-function rotatedrawing(){
-                for (var i = 1; i < linesArray.length; i++) {
-					ctx.beginPath();
-					ctx.moveTo(window.innerHeight - linesArray[i-1].y,window.innerWidth - linesArray[i-1].x);
-					ctx.lineWidth  = linesArray[i].size;
-					ctx.lineCap = "round";
-					ctx.strokeStyle = linesArray[i].color;
-					ctx.lineTo(window.innerHeight - linesArray[i].y,window.innerWidth - linesArray[i].x);
-					ctx.stroke();
-				}
-
-}
 		
 document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);		
 		
