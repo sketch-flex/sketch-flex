@@ -45,11 +45,6 @@ window.addEventListener('resize', evt => {
   
 });
 
-window.addEventListener("orientationchange", function() {
-  
-  alert(“Screen Rotated”);
-  
-});
 
 // PC Drawing Event Handlers
 
