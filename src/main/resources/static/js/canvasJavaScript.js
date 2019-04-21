@@ -47,7 +47,7 @@ window.addEventListener('resize', evt => {
 
 window.addEventListener("orientationchange", function() {
   
-  window.alert(“Screen Rotated”);
+  alert(“Screen Rotated”);
   
 });
 
