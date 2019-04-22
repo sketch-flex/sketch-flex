@@ -1,9 +1,6 @@
 # Sketch-Flex
 
-THIS README SHOULD CHANGE CLOSER TO THE FINISHED PROJECT!
-The below is an initial readme to keep some of the main goals in mind.
-
-Need to do some on-th-fly storyboarding? Then Sketch-Flex is for you!
+SketchFlex is an application that allows you to take an idea and immediately put pen to paper. This application is designed for those who have the need to quickly sketch out ideas that can be saved for later. The main driving force behind SketchFlex is the need to be able to quickly sketch ideas without all the other unneeded features of other similar applications. SketchFlex gives you the tools needed to storyboard ideas quickly and efficiently as possible. With SketchFlex it’s Your Sketch, Your Story, Your Way.
 
 ## Super simple app 
 
