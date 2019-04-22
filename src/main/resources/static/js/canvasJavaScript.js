@@ -46,6 +46,7 @@ window.addEventListener('resize', evt => {
   
 });
 
+
 window.addEventListener("orientationchange", function() {
 
 
@@ -307,6 +308,7 @@ function redraw() {
 				}
 		}
 		
+<<<<<<< HEAD
 function redrawvertical(){
                for (var i = 1; i < linesArray2.length; i++) {
 					ctx.beginPath();
@@ -334,6 +336,8 @@ function redrawhorizontal(){
 }
 
 		
+=======
+>>>>>>> branch 'make_buttons_bigger_and_more_visible_supercharged_responsiveness' of https://github.com/sketch-flex/sketch-flex.git
 document.getElementById("fullscreen").addEventListener("click", toggleFullScreen);		
 		
 function toggleFullScreen() {
