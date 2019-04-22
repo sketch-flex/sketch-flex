@@ -362,8 +362,6 @@ function toggleFullScreen() {
     cancelFullScreen.call(document);
   }
   
-
-  document.querySelector("#fullscreen i").classList.toggle("fa-window-restore");
   main.removeChild(sketchbox);
   defineInitialCanvas();
   redraw();
