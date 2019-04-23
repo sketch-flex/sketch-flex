@@ -79,12 +79,12 @@ document.addEventListener('mouseup', mouseup);
 sketchbox.addEventListener('touchstart', function (event) {
 	event.preventDefault();
 	mousedown(sketchbox,event);
-});
+}, {passive: true});
 
 sketchbox.addEventListener('touchmove', function (event) {
 	event.preventDefault();
 	mousemove(sketchbox,event);
-});
+}, {passive: true});
 
 sketchbox.addEventListener('touchend', function (event) {
     event.preventDefault();
