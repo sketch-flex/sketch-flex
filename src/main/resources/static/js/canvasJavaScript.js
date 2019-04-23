@@ -1,3 +1,4 @@
+
 var sketchbox = document.createElement("canvas");
 var main = document.getElementById("main");
 var ctx = sketchbox.getContext('2d');
