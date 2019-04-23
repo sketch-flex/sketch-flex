@@ -6,7 +6,11 @@
 @import "fontawesome.css";
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
-
+@font-face{
+  font-family:"Raleway", sans-serif;
+  src:url("https://fonts.googleapis.com/css?family=Raleway");
+  font-display:fallback;
+}
 
 html, body{
  height:100%;
@@ -15,7 +19,7 @@ html, body{
 }
 
 body{
-font-family:raleway,sans-serif;
+font-family:Raleway,sans-serif;
 margin:0px;
 display:grid;
 align-items:center;
