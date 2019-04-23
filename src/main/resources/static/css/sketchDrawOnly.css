@@ -1,4 +1,5 @@
 @import "colorScheme.css";
+@import "drawtoolbar.css";
 
 #main{
   display:grid;
@@ -199,7 +200,7 @@ button:active {
 
 
 @media only screen and (orientation:portrait){
-@media only screen and (min-resolution:192dpi),(-webkit-min-device-pixel-ratio:2){
+@media only screen and (-webkit-min-device-pixel-ratio:3){
     #main{
 	   grid-template-columns:1fr;
 	   grid-template-rows: max-content 1fr;
