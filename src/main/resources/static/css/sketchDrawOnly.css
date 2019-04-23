@@ -22,6 +22,7 @@
 	justify-content: space-around;
 	justify-items:space-around;
 	height:inherit;
+	width:100%;
 }
 
 
@@ -181,7 +182,7 @@ button:active {
 
 @media only screen and (min-height:606px){
  
- @media only screen and (max-aspect-ratio:10/15),
+ @media only screen and (max-aspect-ratio:10/13),
 (max-width: 617px){
 
    
@@ -195,45 +196,27 @@ button:active {
 	  justify-content:space-around !important;
 	  align-content:center;
 	}
-}
-}
-
-
-@media only screen and (orientation:portrait){
-@media only screen and (-webkit-min-device-pixel-ratio:3){
-    #main{
-	   grid-template-columns:1fr;
-	   grid-template-rows: max-content 1fr;
-	   }
-	   
-	#buttons, #collapsablebtns{
-	  flex-direction:row !important;
-	}
-    
-  #buttons button{
-       width:80px;
-       height:80px;
-       font-size:60px;
-    }
-    #pensizesmall{
-      font-size:20px;
-    }
-    #pensizemedium{
-      font-size:40px;
-    }
-    #pensizelarge{
-      font-size:60px;
-    } 
-    #upload{
-   width:fit-content !important; 
+	  #collapsablebtns{
+      width:100%;
    }
- }
- }
- 
- 
+}
+}
+
 
 @media only screen and (max-width:520px){
    @media only screen and (-webkit-min-device-pixel-ratio:2){
+   #main{
+	   grid-template-columns:1fr;
+	   grid-template-rows: max-content 1fr;
+	   }
+   #buttons, #collapsablebtns{
+	  flex-direction:row !important;
+	  justify-content:space-around !important;
+	  align-content:center;
+	}
+   #collapsablebtns{
+      width:100%;
+   }
    #buttons button{
        width:30px;
        height:30px;
@@ -249,7 +232,7 @@ button:active {
       font-size:15px !important;
     }
    } 
-   @media only screen and (-webkit-max-device-pixel-ratio:2){
+   @media only screen and (-webkit-max-device-pixel-ratio:1.999){
    #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;
@@ -282,6 +265,7 @@ button:active {
 }
 
 @media only screen and (max-height:606px){
+@media only screen and (min-aspect-ratio:1/1){
     #main{
    grid-template-rows:1fr !important;
    grid-template-columns: max-content 1fr !important;
@@ -295,5 +279,5 @@ button:active {
     grid-template-rows:repeat(4, max-content) !important;
     grid-template-columns:repeat(2, max-content) !important;
    }
-   
+   }  
 }
