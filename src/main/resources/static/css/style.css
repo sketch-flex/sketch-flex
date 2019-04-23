@@ -3,8 +3,10 @@
 @import "footer.css";
 @import "indexOnly.css";
 @import "sketchDrawOnly.css";
-@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+@import "fontawesome.css";
 @import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
 
 html, body{
  height:100%;
