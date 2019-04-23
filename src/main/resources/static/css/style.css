@@ -15,7 +15,7 @@ html, body{
 }
 
 body{
-font-family:raleway;
+font-family:raleway,sans-serif;
 margin:0px;
 display:grid;
 align-items:center;
