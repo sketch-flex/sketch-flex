@@ -74,17 +74,19 @@ mousedown(sketchbox, event);
 
 sketchbox.addEventListener('mousemove', function () { mousemove(sketchbox, event); });
 document.addEventListener('mouseup', mouseup);
-
+document.addEventListener("touchmove",function(event){
+  event.preventDefault();
+})
 // Touch Drawing Event Handlers
 sketchbox.addEventListener('touchstart', function (event) {
 	event.preventDefault();
 	mousedown(sketchbox,event);
-}, {passive: true});
+});
 
 sketchbox.addEventListener('touchmove', function (event) {
 	event.preventDefault();
 	mousemove(sketchbox,event);
-}, {passive: true});
+});
 
 sketchbox.addEventListener('touchend', function (event) {
     event.preventDefault();
