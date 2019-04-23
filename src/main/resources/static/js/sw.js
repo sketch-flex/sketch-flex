@@ -23,7 +23,7 @@ self.addEventListener('install', function(event) {
         "/js/update-note-and-buttons.js",
         "/js/uploadButton.js",
         "../manifest/manifest.webmanifest",
-        "../populator/ChoiceBulbs.PNG",
+        "../populator/ChoiceBulbs.png",
         "../populator/coffee.jpg",
         "../populator/Dig.png",
         "../populator/flower.png",
