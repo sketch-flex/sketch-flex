@@ -40,7 +40,9 @@ self.addEventListener('install', function(event) {
         "../populator/TulipGrowing.png",
         "../populator/Water.png",
         "../video/howitworks.mp4",
-        "../webfonts/fa-solid-900.woff",
+        "../webfonts/fa-solid-900.woff2",
+        "../webfonts/Raleway.woff2",
+        "../webfonts/Raleway2.woff2"
      ]);
    })
  );
