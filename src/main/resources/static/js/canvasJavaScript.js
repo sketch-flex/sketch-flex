@@ -124,12 +124,6 @@ document.getElementById("color_value").addEventListener("change",function(){
    currentColor = "#" + this.value;
 })
 
-document.getElementById("color_value").addEventListener("touchMove",function(){
-  
-  event.preventDefault();
-  
-},passive = false);
-
 document.getElementById("pensizesmall").classList.toggle("inUse");
 
 
