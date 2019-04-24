@@ -63,7 +63,7 @@ window.setTimeout(function() {
     defineInitialCanvas();
     redrawhorizontal();
   }
- },400);
+ },450);
 });
 
 // PC Drawing Event Handlers
