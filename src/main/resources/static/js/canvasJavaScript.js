@@ -98,6 +98,7 @@ sketchbox.addEventListener('touchend', function (event) {
     mouseup();
 });
 
+
 //Button Event Handler
 document.getElementById('eraser').addEventListener('click', function(){
      eraser();
@@ -123,10 +124,11 @@ document.getElementById("color_value").addEventListener("change",function(){
    currentColor = "#" + this.value;
 })
 
-document.getElementById("color_value").addEventListener("touchmove",function(){
+document.getElementById("color_value").addEventListener("touchMove",function(){
+  
   event.preventDefault();
-})
-
+  
+},passive = false);
 
 document.getElementById("pensizesmall").classList.toggle("inUse");
 
