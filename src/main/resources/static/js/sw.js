@@ -22,6 +22,7 @@ self.addEventListener('install', function(event) {
         "/js/reorderSketches.js",
         "/js/update-note-and-buttons.js",
         "/js/uploadButton.js",
+        "/js/jscolor.js",
         "../manifest/manifest.webmanifest",
         "../populator/ChoiceBulbs.png",
         "../populator/coffee.jpg",
