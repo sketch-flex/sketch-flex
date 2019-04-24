@@ -74,10 +74,14 @@ mousedown(sketchbox, event);
 });
 
 sketchbox.addEventListener('mousemove', function () { mousemove(sketchbox, event); });
+
+
 document.addEventListener('mouseup', mouseup);
+
 document.addEventListener("touchmove",function(event){
   event.preventDefault();
-})
+});
+
 // Touch Drawing Event Handlers
 sketchbox.addEventListener('touchstart', function (event) {
 	event.preventDefault();
@@ -117,6 +121,10 @@ document.getElementById("clear").addEventListener('click', function(){
 
 document.getElementById("color_value").addEventListener("change",function(){
    currentColor = "#" + this.value;
+})
+
+document.getElementById("color_value").addEventListener("touchmove",function(){
+  event.preventDefault();
 })
 
 
@@ -215,15 +223,13 @@ function collapse(){
 	redraw();
 }
 
-
-//Eraser Function
-
+ 
 function eraser() {
 	currentColor = ctx.fillStyle;
 	currentSize = 20;
 }
 
-//Draw Function
+
 function draw() {
 	currentColor = "#" + document.getElementById("color_value").value;
 	currentSize = lastSize;
