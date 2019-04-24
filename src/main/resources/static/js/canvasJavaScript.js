@@ -99,22 +99,16 @@ document.getElementById('draw').addEventListener('click', draw);
 // document.getElementById('download').addEventListener('click', function () {
 // 	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
 // }, false);
+
 document.getElementById("clear").addEventListener('click', function(){
   defineInitialCanvas();
   linesArray = [];
   linesArray2 = [];
 });
-document.getElementById("penColor").addEventListener('click', function () {
-	const colorPicker = document.getElementById("colorPicker");
-	colorPicker.click();
-	
-});
-document.getElementById("colorPicker").addEventListener('change',function(){
-	currentColor = this.value;
-});
-document.getElementById("color_value").addEventListener('change',function(){
-    currentColor = this.value;
-});
+
+document.getElementById("color_value").addEventListener("change",function(){
+   currentColor = "#" + this.value;
+})
 
 document.getElementById("pensizesmall").addEventListener('click',function(){
 	currentSize = 1;
@@ -125,6 +119,7 @@ document.getElementById("pensizesmall").addEventListener('click',function(){
 	document.getElementById("pensizesmall").classList.toggle("inUse");
 	
 })
+
 document.getElementById("pensizemedium").addEventListener('click',function(){
 	currentSize = 5;
 	if(document.querySelector(".inUse") === null){
@@ -133,6 +128,7 @@ document.getElementById("pensizemedium").addEventListener('click',function(){
 	document.querySelector(".inUse").classList.toggle("inUse");
 	document.getElementById("pensizemedium").classList.toggle("inUse");
 })
+
 document.getElementById("pensizelarge").addEventListener('click',function(){
 	currentSize = 10;
 	if(document.querySelector(".inUse") === null){
@@ -298,7 +294,6 @@ function store(x, y, s, c) {
 		  linesArray2.push(line);
 		}else{
 		  linesArray2.push(line2);
-		  console.log(line2);
 		}
 	}
 	
