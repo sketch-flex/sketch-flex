@@ -4,6 +4,7 @@ var main = document.getElementById("main");
 var ctx = sketchbox.getContext('2d');
 var isMouseDown = false;
 currentSize = 1;
+var lastSize = currentSize;
 var linesArray = [];
 var linesArray2 = [];
 var currentColor = "rgb(0,0,0)";
@@ -94,7 +95,15 @@ sketchbox.addEventListener('touchend', function (event) {
 });
 
 //Button Event Handler
-document.getElementById('eraser').addEventListener('click', eraser);
+document.getElementById('eraser').addEventListener('click', function(){
+     eraser();
+    if(document.querySelector(".inUse") === null){
+	  document.getElementById("eraser").classList.toggle("inUse");
+	}
+	document.querySelector(".inUse").classList.toggle("inUse");
+	document.getElementById("eraser").classList.toggle("inUse");
+}
+);
 document.getElementById('draw').addEventListener('click', draw);
 // document.getElementById('download').addEventListener('click', function () {
 // 	downloadCanvas(this, 'sketchbox', document.getElementById('textbox').value);
@@ -110,8 +119,14 @@ document.getElementById("color_value").addEventListener("change",function(){
    currentColor = "#" + this.value;
 })
 
+
+document.getElementById("pensizesmall").classList.toggle("inUse");
+
+
 document.getElementById("pensizesmall").addEventListener('click',function(){
 	currentSize = 1;
+	lastSize = 1;
+	currentColor = "#" + document.getElementById("color_value").value;
 	if(document.querySelector(".inUse") === null){
 	  document.getElementById("pensizesmall").classList.toggle("inUse");
 	}
@@ -122,6 +137,8 @@ document.getElementById("pensizesmall").addEventListener('click',function(){
 
 document.getElementById("pensizemedium").addEventListener('click',function(){
 	currentSize = 5;
+	lastSize = 5;
+	currentColor = "#" + document.getElementById("color_value").value;
 	if(document.querySelector(".inUse") === null){
 	  document.getElementById("pensizemedium").classList.toggle("inUse");
 	}
@@ -131,12 +148,16 @@ document.getElementById("pensizemedium").addEventListener('click',function(){
 
 document.getElementById("pensizelarge").addEventListener('click',function(){
 	currentSize = 10;
+	lastSize = 10;
+	currentColor = "#" + document.getElementById("color_value").value;
 	if(document.querySelector(".inUse") === null){
 	  document.getElementById("pensizelarge").classList.toggle("inUse");
 	}
 	document.querySelector(".inUse").classList.toggle("inUse");
 	document.getElementById("pensizelarge").classList.toggle("inUse");
 })
+
+
 document.getElementById("collapse").addEventListener('click',function(){
    collapse();
 })
@@ -204,8 +225,15 @@ function eraser() {
 
 //Draw Function
 function draw() {
-	currentColor = "rgb(0,0,0)";
-	currentSize = 5;
+	currentColor = "#" + document.getElementById("color_value").value;
+	currentSize = lastSize;
+	if(currentSize === 1){
+	  document.getElementById("pensizesmall").click();
+	}else if(currentSize === 5){
+	  document.getElementById("pensizemedium").click();
+	}else if(currentSize === 10){
+	  document.getElementById("pensizelarge").click();
+	}
 }
 
 
