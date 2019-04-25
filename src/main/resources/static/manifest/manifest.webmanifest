@@ -2,5 +2,7 @@
  "display":"fullscreen",
  "theme_color":"#e6624d",
  "background_color":"#e6624d",
- "start_url":"/draw"
+ "start_url":"/draw",
+ "name":"SketchFlex",
+ "short_name":"SketchFlex"
 }

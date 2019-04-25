@@ -7,6 +7,7 @@ self.addEventListener('install', function(event) {
  event.waitUntil(
    caches.open('sketchflex').then(function(cache) {
      return cache.addAll([
+        "/",
         "../css/colorScheme.css",
         "../css/fontawesome.css",
         "../css/footer.css",
