@@ -5,6 +5,7 @@
  "start_url":"/draw",
  "name":"SketchFlex",
  "short_name":"SketchFlex",
+ "scope":"/",
  "icons": [{
     "src": "../images/sketchflex192.PNG",
     "sizes": "192x192",
