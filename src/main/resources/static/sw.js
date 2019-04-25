@@ -8,6 +8,7 @@ self.addEventListener('install', function(event) {
    caches.open('sketchflex').then(function(cache) {
      return cache.addAll([
         "/draw",
+        "/home",
         "/sketches",
         "/sketchdecks",
         "/",
