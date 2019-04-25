@@ -9,5 +9,10 @@
     "src": "../images/sketchflex192.PNG",
     "sizes": "192x192",
     "type": "image/png"
+  },
+  {
+    "src": "../images/sketchflex192.PNG",
+    "type": "image/png",
+    "sizes": "512x512"
   }]
 }
