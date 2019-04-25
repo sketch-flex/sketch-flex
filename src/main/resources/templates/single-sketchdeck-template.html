@@ -24,6 +24,7 @@
 			</div>
 			<nav id="endNav"></nav>	
 		</div>
+                <div>
 		<h1 class = "sketchDeck-name" th:text="${sketchdeck.name}"></h1>
 		<div class = "sketchDeck-description" th:text="${sketchdeck.description}"></div>
 		<section  class="sketches-list" >
@@ -33,6 +34,7 @@
 				<p th:text = "${sketch.note}"></p>
 			</a>
 		</section>
+                </div>
 		<footer>
         	<p id="footerText">Copyright 2019 - We Can Code IT - Spring Cohort</p>     
         </footer>
