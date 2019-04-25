@@ -4,5 +4,8 @@
  "background_color":"#e6624d",
  "start_url":"/draw",
  "name":"SketchFlex",
- "short_name":"SketchFlex"
+ "short_name":"SketchFlex",
+ "icons":{
+     "192":"../images/sketchflex192.PNG"
+ }
 }
