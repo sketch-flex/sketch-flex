@@ -11,7 +11,6 @@ self.addEventListener('install', function(event) {
         "/sketches",
         "/sketchdecks",
         "/",
-        "/index.html",
         "../css/colorScheme.css",
         "../css/fontawesome.css",
         "../css/footer.css",
