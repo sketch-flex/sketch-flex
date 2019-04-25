@@ -17,7 +17,8 @@ self.addEventListener('install', function(event) {
         "../css/uploadLayout.css",
         "../images/pencil-dash.png",
         "../images/sketchflex.PNG",
-        "../images/sketchflex.PNG",
+        "../images/sketchflex192.PNG",
+        "../images/sketchflex512.PNG"
         "../images/storyboard-template.jpg",
         "/js/canvasJavaScript.js",
         "/js/dropdownDecks.js",
